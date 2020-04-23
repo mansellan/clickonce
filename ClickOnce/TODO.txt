@@ -1,0 +1,34 @@
+﻿Console logging (inc quiet / verbose)
+
+Stage-2 validation
+PackagingMode (application, deployment, both)
+FailOnWarnings
+Factor URL validation into regex / custom attribute
+HandleParseErrors
+Signing
+UseDeployExtension
+Package as NuGet global tool
+TrustInfo
+Move Args storage to a dictionary
+
+Auto-detect managed\unmanaged\netcore assemblies
+Bootstrapper
+Fix sha-256
+Entry point parameters (infers bootstrapper)
+Autorun.inf
+
+Pre-reqs?
+Reg-free COM
+Optional groups (convention based on folder)
+File associations
+Html page generation
+
+Verbs:
+	configure											
+	publish
+	update
+	about
+Integrations:
+	Azure DevOps
+	Visual Studio
+	Standalone UI

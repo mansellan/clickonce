@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Arg.Name" xml:space="preserve">
+    <value>Specifies the name of the application. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box.</value>
+  </data>
+  <data name="Arg.Source" xml:space="preserve">
+    <value>Specifies the base directory for all source globbing patterns.</value>
+  </data>
+  <data name="Arg.Target" xml:space="preserve">
+    <value>Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the source directory. This directory will be automatically excluded from all source globbing patterns.</value>
+  </data>
+  <data name="Create.Source" xml:space="preserve">
+    <value>If not specified, defaults to the current directory.</value>
+  </data>
+  <data name="Create.Name" xml:space="preserve">
+    <value>If not specified, a name is inferred from the entry point assembly.</value>
+  </data>
+  <data name="Arg.Suite" xml:space="preserve">
+    <value>Specifies the name of the suite to which the application belongs. If specified, this determines the folder on the Start menu where the application is located after deployment.</value>
+  </data>
+  <data name="Arg.Version" xml:space="preserve">
+    <value>Specifies the version of the deployment. This need not be the same as the version of the application.</value>
+  </data>
+  <data name="Create.Version" xml:space="preserve">
+    <value>If not specified, the version number of the entry point assembly is used.</value>
+  </data>
+  <data name="Arg.Description" xml:space="preserve">
+    <value>Specifies a description for the application.</value>
+  </data>
+  <data name="Arg.Publisher" xml:space="preserve">
+    <value>Specifies the publisher of the application. This name is used for the folder name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box.</value>
+  </data>
+  <data name="Create.Publisher" xml:space="preserve">
+    <value>If not specified, a publisher is inferred from the entry point assembly.</value>
+  </data>
+  <data name="Error.HelpTextNotFound" xml:space="preserve">
+    <value>Help text not found for key '{0}'.</value>
+  </data>
+  <data name="Arg.Assemblies" xml:space="preserve">
+    <value>Specifies a comma-separated list of globbing patterns to match assemblies to be included.</value>
+  </data>
+  <data name="Arg.CertificatePassword" xml:space="preserve">
+    <value>Specifies the certificate password.</value>
+  </data>
+  <data name="Arg.CertificateSource" xml:space="preserve">
+    <value>Specifies the source of the certificate to use for signing. If omitted, the ClickOnce package will not be signed. Must be either be a path to a .pfx file, or stored certificate in the form Type\StoreName\CommonName, e.g. 'User\My\Certificate'.</value>
+  </data>
+  <data name="Arg.CreateDesktopShortcut" xml:space="preserve">
+    <value>Specifies whether a shortcut to the application should be added to the user's desktop'. Has no effect if LaunchMode is 'url'.</value>
+  </data>
+  <data name="Arg.Culture" xml:space="preserve">
+    <value>Specifies the culture of the application.</value>
+  </data>
+  <data name="Arg.DataFiles" xml:space="preserve">
+    <value>Specifies a comma-separated list of globbing patterns to match data files to be included.</value>
+  </data>
+  <data name="Arg.DeploymentUrl" xml:space="preserve">
+    <value>Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'off'. Must be a fully qualified URL or UNC path.</value>
+  </data>
+  <data name="Arg.EntryPoint" xml:space="preserve">
+    <value>Specifies the application assembly that starts when the application is run.</value>
+  </data>
+  <data name="Arg.ErrorUrl" xml:space="preserve">
+    <value>Specifies the URL of the web page that is displayed in dialog boxes during ClickOnce installation.</value>
+  </data>
+  <data name="Arg.Files" xml:space="preserve">
+    <value>Specifies a comma-separated list of globbing patterns to match non-assembly files to be included.</value>
+  </data>
+  <data name="Arg.IconFile" xml:space="preserve">
+    <value>Specifies the application icon file. This is used for the Start Menu and Add/Remove Programs dialog.</value>
+  </data>
+  <data name="Arg.LaunchMode" xml:space="preserve">
+    <value>Specifies whether the application can be launched from the Start menu, from a URL, or both. Must be one of: 'start', 'url', 'both'.</value>
+  </data>
+  <data name="Arg.MinimumVersion" xml:space="preserve">
+    <value>Specifies the minimum version the user must update to when starting the application. Has no effect is LaunchMode is 'url' or UpdateMode is 'off'.</value>
+  </data>
+  <data name="Arg.OsVersion" xml:space="preserve">
+    <value>Specifies the minimum required operating system (OS) version required by the application. For example, the value '5.1.2600.0' indicates the operating system is Windows XP.</value>
+  </data>
+  <data name="Arg.PackageMode" xml:space="preserve">
+    <value>Specifies which manifests to create. Must be one of 'application', 'deployment', 'both'.</value>
+  </data>
+  <data name="Arg.Platform" xml:space="preserve">
+    <value>Specifies the target platform of the application. This parameter can have the following values: 'AnyCPU', 'x86', 'x64', 'Itanium'.</value>
+  </data>
+  <data name="Arg.SupportUrl" xml:space="preserve">
+    <value>Specifies the URL of the web page that is displayed in the Add or Remove Programs dialog box for the application.</value>
+  </data>
+  <data name="Arg.TargetFramework" xml:space="preserve">
+    <value>Specifies the target framework of the application. Only .Net Framework targets net20 through to net48 are valid.</value>
+  </data>
+  <data name="Arg.TrustInfo" xml:space="preserve">
+    <value>Specify trust information. Must be one of: 'full', 'intranet', 'internet', or a path to an XML file containing custom trust info.</value>
+  </data>
+  <data name="Arg.TrustUrlParameters" xml:space="preserve">
+    <value>Specifies whether URL query-string parameters should be made available to the application. Has no effect if LaunchMode is 'start'.</value>
+  </data>
+  <data name="Arg.UpdateMode" xml:space="preserve">
+    <value>Specifies how application updates should be deployed. Must be one of 'off', 'starting', 'started', or a number of hours, weeks or days (e.g. '1w'). Only one unit can be specifed, and the interval cannot describe more than 1 year, regardless of unit.</value>
+  </data>
+  <data name="Arg.UseApplicationTrust" xml:space="preserve">
+    <value>Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest.</value>
+  </data>
+  <data name="Arg.UseDeployExtension" xml:space="preserve">
+    <value>Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment.</value>
+  </data>
+  <data name="Create.Culture" xml:space="preserve">
+    <value>If not specified, the culture of the entry point assembly is used.</value>
+  </data>
+  <data name="Create.EntryPoint" xml:space="preserve">
+    <value>If not specified, the source directory is recursively searched for managed executables. If exactly one is found, it will be assigned to be the entry point.</value>
+  </data>
+  <data name="Create.IconFile" xml:space="preserve">
+    <value>If not specified, a default icon is used.</value>
+  </data>
+  <data name="Create.OsVersion" xml:space="preserve">
+    <value>If not specified, the value is inferred from the target framework.</value>
+  </data>
+  <data name="Create.Platform" xml:space="preserve">
+    <value>If not specified, the target platform will be inferred from the entry assembly. Note, setting this value can cause ClickOnce validation errors if the specified value does not match the entry assembly, therefore it is recommended to leave this option unset.</value>
+  </data>
+  <data name="Create.TargetFramework" xml:space="preserve">
+    <value>If 'none' is specified, a bootstrap executable will be created to launch the application.</value>
+  </data>
+  <data name="Arg.Quiet" xml:space="preserve">
+    <value>Displays only minimal information when the ClickOnce package is built.</value>
+  </data>
+  <data name="Arg.Verbose" xml:space="preserve">
+    <value>Displays extra information when the ClickOnce package is built.</value>
+  </data>
+  <data name="Banner" xml:space="preserve">
+    <value>ClickOnce packager
+Copyright 2020 Andrew Mansell
+See license text for details (MIT)</value>
+  </data>
+  <data name="Build.Args" xml:space="preserve">
+    <value>Using the following project values:</value>
+  </data>
+  <data name="Build.Args.CommandLine" xml:space="preserve">
+    <value>Supplied as command line parameters:</value>
+  </data>
+  <data name="Build.Args.Default" xml:space="preserve">
+    <value>Default:</value>
+  </data>
+  <data name="Build.Args.Inferred" xml:space="preserve">
+    <value>Inferred:</value>
+  </data>
+  <data name="Build.Args.Settings" xml:space="preserve">
+    <value>Supplied as settings (use clickonce configure to set):</value>
+  </data>
+  <data name="Build.Exceptions.MultipleEntryPoints" xml:space="preserve">
+    <value>Unable to infer entry point, multiple .exe files found</value>
+  </data>
+  <data name="Build.Exceptions.NoEntryPoint" xml:space="preserve">
+    <value>Unable to infer entry point, no .exe files found</value>
+  </data>
+  <data name="Build.Verbose" xml:space="preserve">
+    <value>Verbose logging enabled</value>
+  </data>
+  <data name="Glob.Assemblies" xml:space="preserve">
+    <value>Locating assemblies...</value>
+  </data>
+  <data name="Glob.DataFiles" xml:space="preserve">
+    <value>Locating data files...</value>
+  </data>
+  <data name="Glob.EntryPoint" xml:space="preserve">
+    <value>Locating entry point...</value>
+  </data>
+  <data name="Glob.Files" xml:space="preserve">
+    <value>Locating files...</value>
+  </data>
+  <data name="Glob.NoResults" xml:space="preserve">
+    <value>None found</value>
+  </data>
+  <data name="Build.Exceptions.Fatal" xml:space="preserve">
+    <value>ERROR: {0}</value>
+  </data>
+  <data name="Build.Verb.Create" xml:space="preserve">
+    <value>Creating ClickOnce package from source directory '{0}'</value>
+  </data>
+</root>

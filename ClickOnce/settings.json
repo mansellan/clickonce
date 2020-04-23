@@ -1,0 +1,9 @@
+{
+    "create" : {
+      "assemblies": [ "**\\*.dll" ],
+      "files": [ "**\\*.config", "**\\*.json", "**\\*.bmp", "**\\*.jpg", "**\\*.ico", "**\\*.gif", "**\\*.xml" ],
+      "dataFiles": [ "**\\*.dat", "**\\*.user", "**\\*.mdb" ],
+      "packageMode": "both",
+      "verbose": true
+    } 
+}

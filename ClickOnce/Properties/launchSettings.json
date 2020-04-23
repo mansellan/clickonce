@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Orbit": {
+      "commandName": "Project",
+      "commandLineArgs": "create --source=\"C:\\Test\\TestApp\" --version=1.2.3.4 --dataFiles=foo|!bar"
+    }
+  }
+}
