@@ -1,0 +1,2 @@
+# clickonce
+ClickOnce packager
