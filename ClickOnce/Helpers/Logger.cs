@@ -3,20 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using ClickOnce.Resources;
+using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 
 namespace ClickOnce
 {
     internal static class Logger
     {
-        internal static LogLevel Level { get; private set; } = LogLevel.Normal;
+        private static LogLevel Level { get; set; } = LogLevel.Normal;
 
         internal static void SetLevel(bool? quiet, bool? verbose)
         {
-            if ((quiet ?? false) && (verbose ?? false))
-            {
-                throw new ApplicationException("Cannot specify both Quiet and Verbose");
-            }
-
             if (quiet ?? false)
             {
                 Level = LogLevel.Quiet;
@@ -31,7 +27,7 @@ namespace ClickOnce
         internal static void Banner()
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine(Messages.Banner);
+            Console.WriteLine(Messages.Build_Banner);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
         }
@@ -40,12 +36,11 @@ namespace ClickOnce
         {
             if (Level != LogLevel.Verbose) return;
             
-            Verbose(Messages.Build_Verbose, 0, 2);
+            Verbose(Messages.Build_Logging_Verbose, 0, 2);
             Verbose(Messages.Build_Args, 0, 2);
             Group(Messages.Build_Args_CommandLine, args.Where(arg => arg.Source == ArgsSource.CommandLine));
             Group(Messages.Build_Args_Settings, args.Where(arg => arg.Source == ArgsSource.Settings));
             Group(Messages.Build_Args_Inferred, args.Where(arg => arg.Source == ArgsSource.Inferred));
-            Group(Messages.Build_Args_Default, args.Where(arg => arg.Source == ArgsSource.Default));
 
             void Group(string header, IEnumerable<Option> group)
             {
@@ -84,11 +79,37 @@ namespace ClickOnce
         internal static void Quiet(object message = null, byte indent = 0, byte newLines = 1, params string[] args)
         {
             var write = message?.ToString() ?? "";
-            Console.WriteLine(write, args);
             for (byte i = 0; i < indent; i++)
                 Console.Write("  ");
+            Console.Write(write, args);
             for (byte i = 0; i < newLines; i++)
                 Console.WriteLine();
+        }
+
+        internal static void OutputMessages(OutputMessageCollection messages, byte indent = 0)
+        {
+            foreach (OutputMessage message in messages)
+            {
+                switch (message.Type)
+                {
+                    case OutputMessageType.Info:
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Verbose($"{message.Type}: {message.Text}", indent);
+                        break;
+
+                    case OutputMessageType.Warning:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Normal($"{message.Type}: {message.Text}", indent);
+                        break;
+
+                    case OutputMessageType.Error:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Quiet($"{message.Type}: {message.Text}", indent);
+                        break;
+                }
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         internal static void Fatal(Exception exception)
@@ -103,12 +124,5 @@ namespace ClickOnce
             Console.WriteLine(Messages.Build_Exceptions_Fatal, inner.Message);
             Console.ForegroundColor = ConsoleColor.White;
         }
-    }
-
-    internal enum LogLevel
-    {
-        Verbose = 1, 
-        Normal = 2, 
-        Quiet = 3
     }
 }

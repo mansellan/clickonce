@@ -1,128 +1,87 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace ClickOnce
 {
-    internal class Project : IEnumerable<Option>
+    internal class Project : Enumerable<Option>
     {
         private readonly IEnumerable<Args> args;
-        private readonly IList<Func<Option>> meta = new List<Func<Option>>();
 
         internal Project(params Args[] args)
         {
             this.args = args;
- 
-            foreach (var property in GetType().GetProperties(BindingFlags.Instance | BindingFlags.NonPublic))
-            {
-                meta.Add(() => property.GetValue(this) as Option);
-            }
         }
 
-        internal PathOption Source => GetPath();
-        internal PathOption Target => GetPath();
-        internal StringOption Name => GetString();
-        internal StringOption Version => GetString();
-        internal StringOption Suite => GetString();
-        internal StringOption Publisher => GetString();
-        internal StringOption Description => GetString();
-        internal PathOption EntryPoint => GetPath();
-        internal PathOption IconFile => GetPath();
-        internal PathOption PackagePath => GetPath(Target.RootedPath);
-        internal PathOption ApplicationManifestFile => GetPath();
-        internal PathOption DeploymentManifestFile => GetPath();
-        internal StringOption ProcessorArchitecture
+        internal PathOption Source => args.GetPath();
+        internal PathOption Target => args.GetPath();
+        internal StringOption Name => args.GetString();
+        internal VersionOption Version => args.GetVersion();
+        internal StringOption Suite => args.GetString();
+        internal StringOption Publisher => args.GetString();
+        internal StringOption Description => args.GetString();
+        internal PathOption EntryPoint => args.GetPath();
+        internal PathOption IconFile => args.GetPath();
+        internal PathOption PackagePath => args.GetPath(Target.RootedPath);
+        internal PathOption ApplicationManifestFile => args.GetPath(PackagePath.RootedPath);
+        internal PathOption DeploymentManifestFile => args.GetPath(Target.RootedPath);
+        internal EnumOption<ProcessorArchitecture> ProcessorArchitecture => args.GetEnum(Utilities.PlatformConverter, "Platform");
+        internal StringOption Culture => args.GetString();
+        internal VersionOption OsVersion => args.GetVersion();
+        internal StringOption OsDescription => args.GetString();
+        internal StringOption OsSupportUrl => args.GetString();
+        internal FrameworkOption TargetFramework => args.GetFramework();
+        internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value, EntryPoint.Value, IconFile.Value);
+        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value, EntryPoint.Value, IconFile.Value);
+        internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value, EntryPoint.Value, IconFile.Value);
+        internal StringOption DeploymentUrl => args.GetString();
+        internal StringOption ErrorUrl => args.GetString();
+        internal StringOption SupportUrl => args.GetString();
+        internal EnumOption<PackageMode> PackageMode => args.GetEnum<PackageMode>();
+        internal EnumOption<LaunchMode> LaunchMode => args.GetEnum<LaunchMode>();
+        internal UpdateOption Update => args.GetUpdate("UpdateMode");
+        internal VersionOption MinimumVersion => args.GetVersion();
+        internal BooleanOption TrustUrlParameters => args.GetBoolean();
+        internal BooleanOption UseDeployExtension => args.GetBoolean();
+        internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
+        internal BooleanOption UseApplicationTrust => args.GetBoolean();
+        internal StringOption TrustInfo => args.GetString();
+        internal StringOption CertificateSource => args.GetString();
+        internal StringOption CertificatePassword => args.GetString();
+        internal BooleanOption Quiet => args.GetBoolean();
+        internal BooleanOption Verbose => args.GetBoolean();
+
+        internal void Validate()
         {
-            get
+            if (!Directory.Exists(Source.Value))
             {
-                var arg = Get<Platform>("Platform");
-                return new StringOption(arg.Source, arg.Name, arg.Value.Parsed);
-            }
-        }
-        internal StringOption Culture => GetString();
-        internal StringOption OsVersion => GetString();
-        internal StringOption TargetFrameworkMoniker
-        {
-            get
-            {
-                var arg = GetString("TargetFramework");
-                return new StringOption(arg.Source, arg.Name, $".NET Framework, Version=v{string.Join(".", arg.Value.Substring(3).ToCharArray())}");
-
-            }
-        }
-        internal Option<IEnumerable<string>> Assemblies => Get<IEnumerable<string>>(); // new Option<IEnumerable<string>>(Assemblies,  Globber.Expand(Source.Value, Get<IEnumerable<string>>().Value, new[] { EntryPoint.Value });
-        internal Option<IEnumerable<string>> Files => Get<IEnumerable<string>>();
-        internal Option<IEnumerable<string>> DataFiles => Get<IEnumerable<string>>();
-        internal StringOption DeploymentUrl => GetString();
-        internal StringOption ErrorUrl => GetString();
-        internal StringOption SupportUrl => GetString();
-        internal StringOption PackageMode => GetString();
-        internal StringOption LaunchMode => GetString();
-        internal StringOption UpdateMode => GetString();
-        internal StringOption MinimumVersion => GetString();
-        internal Option<bool> TrustUrlParameters => Get<bool>();
-        internal Option<bool> UseDeployExtension => Get<bool>();
-        internal Option<bool> CreateDesktopShortcut => Get<bool>();
-        internal Option<bool> UseApplicationTrust => Get<bool>();
-        internal StringOption TrustInfo => GetString();
-        internal StringOption CertificateSource => GetString();
-        internal StringOption CertificatePassword => GetString();
-        internal Option<bool> Quiet => Get<bool>();
-        internal Option<bool> Verbose => Get<bool>();
-
-        private Option<T> Get<T>([CallerMemberName] string name = null)
-        {
-            foreach (var next in args)
-            {
-                var property = next
-                    .GetType()
-                    .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                    .FirstOrDefault(p => string.Equals(p.Name, name, StringComparison.InvariantCultureIgnoreCase));
-
-                if (property is null)
-                    continue;
-
-                var ret = property.GetValue(next);
-                if (ret is IEnumerable<string> multi && !multi.Any())
-                {
-                    continue;
-                }
-
-                if (!(ret is null))
-                {
-                    return new Option<T>(next.ArgsSource, name, (T)ret);
-                }
+                throw new ApplicationException($"'{Source}' does not exist.");
             }
 
-            return new Option<T>(ArgsSource.Internal, name, default);
+            if (File.Exists(Target.RootedPath))
+            {
+                throw new ApplicationException($"'{Target}' is a file.");
+            }
+
+            if (EntryPoint.Value is null)
+            {
+                throw new ApplicationException("Entry point not specified, and could not be inferred.");
+            }
+
+            if (!File.Exists(EntryPoint.RootedPath))
+            {
+                throw new ApplicationException($"Entry point assembly '{EntryPoint}' not found.");
+            }
+
+            if (!(IconFile.Value is null) && !File.Exists(IconFile.RootedPath))
+            {
+                throw new ApplicationException($"Icon file '{IconFile}' not found.");
+            }
+
+            if (Update.Value.Enabled && DeploymentUrl.Value is null)
+            {
+                throw new ApplicationException("DeploymentUrl is required if update mode is not 'off'.");
+            }
         }
-
-        private StringOption GetString([CallerMemberName] string name = null) => new StringOption(Get<string>(name));
-        
-
-        private PathOption GetPath(string basePath = null, [CallerMemberName] string name = null)
-        {
-            basePath ??= name.Equals("source", StringComparison.InvariantCultureIgnoreCase)
-                ? Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-                : Source.RootedPath;
-
-            var path = Get<string>(name);
-
-            var rootedPath = path?.Value is null
-                ? null
-                : Path.IsPathRooted(path.Value)
-                    ? path.Value
-                    : Path.Combine(basePath, path.Value);
-
-            return new PathOption(path, rootedPath);
-        }
-
-        public IEnumerator<Option> GetEnumerator() => meta.Select(func => func.Invoke()).GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

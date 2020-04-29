@@ -117,136 +117,136 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Arg.Name" xml:space="preserve">
+  <data name="Help.Arg.Name" xml:space="preserve">
     <value>Specifies the name of the application. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box.</value>
   </data>
-  <data name="Arg.Source" xml:space="preserve">
+  <data name="Help.Arg.Source" xml:space="preserve">
     <value>Specifies the base directory for all source globbing patterns.</value>
   </data>
-  <data name="Arg.Target" xml:space="preserve">
+  <data name="Help.Arg.Target" xml:space="preserve">
     <value>Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the source directory. This directory will be automatically excluded from all source globbing patterns.</value>
   </data>
-  <data name="Create.Source" xml:space="preserve">
+  <data name="Help.Arg.Source.Create" xml:space="preserve">
     <value>If not specified, defaults to the current directory.</value>
   </data>
-  <data name="Create.Name" xml:space="preserve">
-    <value>If not specified, a name is inferred from the entry point assembly.</value>
+  <data name="Help.Arg.Name.Create" xml:space="preserve">
+    <value>If not specified, a name is inferred from the EntryPoint.</value>
   </data>
-  <data name="Arg.Suite" xml:space="preserve">
+  <data name="Help.Arg.Suite" xml:space="preserve">
     <value>Specifies the name of the suite to which the application belongs. If specified, this determines the folder on the Start menu where the application is located after deployment.</value>
   </data>
-  <data name="Arg.Version" xml:space="preserve">
-    <value>Specifies the version of the deployment. This need not be the same as the version of the application.</value>
+  <data name="Help.Arg.Version" xml:space="preserve">
+    <value>Specifies the version of the deployment. This need not be (and usually isn't) the same as the version of the application.</value>
   </data>
-  <data name="Create.Version" xml:space="preserve">
-    <value>If not specified, the version number of the entry point assembly is used.</value>
+  <data name="Help.Arg.Version.Create" xml:space="preserve">
+    <value>If not specified, the version number of the EntryPoint is used.</value>
   </data>
-  <data name="Arg.Description" xml:space="preserve">
+  <data name="Help.Arg.Description" xml:space="preserve">
     <value>Specifies a description for the application.</value>
   </data>
-  <data name="Arg.Publisher" xml:space="preserve">
+  <data name="Help.Arg.Publisher" xml:space="preserve">
     <value>Specifies the publisher of the application. This name is used for the folder name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box.</value>
   </data>
-  <data name="Create.Publisher" xml:space="preserve">
-    <value>If not specified, a publisher is inferred from the entry point assembly.</value>
+  <data name="Help.Arg.Publisher.Create" xml:space="preserve">
+    <value>If not specified, a publisher is inferred from the EntryPoint.</value>
   </data>
-  <data name="Error.HelpTextNotFound" xml:space="preserve">
-    <value>Help text not found for key '{0}'.</value>
+  <data name="Build.Exceptions.HelpText.NotFound" xml:space="preserve">
+    <value>Help text not found</value>
   </data>
-  <data name="Arg.Assemblies" xml:space="preserve">
-    <value>Specifies a comma-separated list of globbing patterns to match assemblies to be included.</value>
+  <data name="Help.Arg.Assemblies" xml:space="preserve">
+    <value>Specifies a colon-separated list of globbing patterns to match assemblies to be included.</value>
   </data>
-  <data name="Arg.CertificatePassword" xml:space="preserve">
+  <data name="Help.Arg.CertificatePassword" xml:space="preserve">
     <value>Specifies the certificate password.</value>
   </data>
-  <data name="Arg.CertificateSource" xml:space="preserve">
+  <data name="Help.Arg.CertificateSource" xml:space="preserve">
     <value>Specifies the source of the certificate to use for signing. If omitted, the ClickOnce package will not be signed. Must be either be a path to a .pfx file, or stored certificate in the form Type\StoreName\CommonName, e.g. 'User\My\Certificate'.</value>
   </data>
-  <data name="Arg.CreateDesktopShortcut" xml:space="preserve">
-    <value>Specifies whether a shortcut to the application should be added to the user's desktop'. Has no effect if LaunchMode is 'url'.</value>
+  <data name="Help.Arg.CreateDesktopShortcut" xml:space="preserve">
+    <value>Boolean. Specifies whether a shortcut to the application should be added to the user's desktop'. Has no effect if LaunchMode is 'url'.</value>
   </data>
-  <data name="Arg.Culture" xml:space="preserve">
+  <data name="Help.Arg.Culture" xml:space="preserve">
     <value>Specifies the culture of the application.</value>
   </data>
-  <data name="Arg.DataFiles" xml:space="preserve">
-    <value>Specifies a comma-separated list of globbing patterns to match data files to be included.</value>
+  <data name="Help.Arg.DataFiles" xml:space="preserve">
+    <value>Specifies a colon-separated list of globbing patterns to match data files to be included.</value>
   </data>
-  <data name="Arg.DeploymentUrl" xml:space="preserve">
-    <value>Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'off'. Must be a fully qualified URL or UNC path.</value>
+  <data name="Help.Arg.DeploymentUrl" xml:space="preserve">
+    <value>Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'off'.</value>
   </data>
-  <data name="Arg.EntryPoint" xml:space="preserve">
+  <data name="Help.Arg.EntryPoint" xml:space="preserve">
     <value>Specifies the application assembly that starts when the application is run.</value>
   </data>
-  <data name="Arg.ErrorUrl" xml:space="preserve">
+  <data name="Help.Arg.ErrorUrl" xml:space="preserve">
     <value>Specifies the URL of the web page that is displayed in dialog boxes during ClickOnce installation.</value>
   </data>
-  <data name="Arg.Files" xml:space="preserve">
-    <value>Specifies a comma-separated list of globbing patterns to match non-assembly files to be included.</value>
+  <data name="Help.Arg.Files" xml:space="preserve">
+    <value>Specifies a colon-separated list of globbing patterns to match non-assembly files to be included.</value>
   </data>
-  <data name="Arg.IconFile" xml:space="preserve">
+  <data name="Help.Arg.IconFile" xml:space="preserve">
     <value>Specifies the application icon file. This is used for the Start Menu and Add/Remove Programs dialog.</value>
   </data>
-  <data name="Arg.LaunchMode" xml:space="preserve">
-    <value>Specifies whether the application can be launched from the Start menu, from a URL, or both. Must be one of: 'start', 'url', 'both'.</value>
+  <data name="Help.Arg.LaunchMode" xml:space="preserve">
+    <value>Specifies whether the application can be launched from the Start menu, from a URL, or both. Also allows browser-hosted deployments (Internet Explorer only).</value>
   </data>
-  <data name="Arg.MinimumVersion" xml:space="preserve">
-    <value>Specifies the minimum version the user must update to when starting the application. Has no effect is LaunchMode is 'url' or UpdateMode is 'off'.</value>
+  <data name="Help.Arg.MinimumVersion" xml:space="preserve">
+    <value>Specifies the minimum version the user must update to when starting the application. Has no effect is LaunchMode is 'url' or UpdateMode is 'none'.</value>
   </data>
-  <data name="Arg.OsVersion" xml:space="preserve">
+  <data name="Help.Arg.OsVersion" xml:space="preserve">
     <value>Specifies the minimum required operating system (OS) version required by the application. For example, the value '5.1.2600.0' indicates the operating system is Windows XP.</value>
   </data>
-  <data name="Arg.PackageMode" xml:space="preserve">
-    <value>Specifies which manifests to create. Must be one of 'application', 'deployment', 'both'.</value>
+  <data name="Help.Arg.PackageMode" xml:space="preserve">
+    <value>Specifies which manifests to create.</value>
   </data>
-  <data name="Arg.Platform" xml:space="preserve">
-    <value>Specifies the target platform of the application. This parameter can have the following values: 'AnyCPU', 'x86', 'x64', 'Itanium'.</value>
+  <data name="Help.Arg.Platform" xml:space="preserve">
+    <value>Specifies the target platform of the application.</value>
   </data>
-  <data name="Arg.SupportUrl" xml:space="preserve">
+  <data name="Help.Arg.SupportUrl" xml:space="preserve">
     <value>Specifies the URL of the web page that is displayed in the Add or Remove Programs dialog box for the application.</value>
   </data>
-  <data name="Arg.TargetFramework" xml:space="preserve">
+  <data name="Help.Arg.TargetFramework" xml:space="preserve">
     <value>Specifies the target framework of the application. Only .Net Framework targets net20 through to net48 are valid.</value>
   </data>
-  <data name="Arg.TrustInfo" xml:space="preserve">
+  <data name="Help.Arg.TrustInfo" xml:space="preserve">
     <value>Specify trust information. Must be one of: 'full', 'intranet', 'internet', or a path to an XML file containing custom trust info.</value>
   </data>
-  <data name="Arg.TrustUrlParameters" xml:space="preserve">
-    <value>Specifies whether URL query-string parameters should be made available to the application. Has no effect if LaunchMode is 'start'.</value>
+  <data name="Help.Arg.TrustUrlParameters" xml:space="preserve">
+    <value>Boolean. Specifies whether URL query-string parameters should be made available to the application. Has no effect if LaunchMode is 'start'.</value>
   </data>
-  <data name="Arg.UpdateMode" xml:space="preserve">
-    <value>Specifies how application updates should be deployed. Must be one of 'off', 'starting', 'started', or a number of hours, weeks or days (e.g. '1w'). Only one unit can be specifed, and the interval cannot describe more than 1 year, regardless of unit.</value>
+  <data name="Help.Arg.UpdateMode" xml:space="preserve">
+    <value>Specifies how application updates should be deployed.</value>
   </data>
-  <data name="Arg.UseApplicationTrust" xml:space="preserve">
-    <value>Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest.</value>
+  <data name="Help.Arg.UseApplicationTrust" xml:space="preserve">
+    <value>Boolean. Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest.</value>
   </data>
-  <data name="Arg.UseDeployExtension" xml:space="preserve">
-    <value>Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment.</value>
+  <data name="Help.Arg.UseDeployExtension" xml:space="preserve">
+    <value>Boolean. Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment.</value>
   </data>
-  <data name="Create.Culture" xml:space="preserve">
-    <value>If not specified, the culture of the entry point assembly is used.</value>
+  <data name="Help.Arg.Culture.Create" xml:space="preserve">
+    <value>If not specified, the culture of the EntryPoint is used.</value>
   </data>
-  <data name="Create.EntryPoint" xml:space="preserve">
+  <data name="Help.Arg.EntryPoint.Create" xml:space="preserve">
     <value>If not specified, the source directory is recursively searched for managed executables. If exactly one is found, it will be assigned to be the entry point.</value>
   </data>
-  <data name="Create.IconFile" xml:space="preserve">
-    <value>If not specified, a default icon is used.</value>
+  <data name="Help.Arg.IconFile.Create" xml:space="preserve">
+    <value>If not specified, the source directory is recursively searched for .ico files. If exactly one is found it is used; othewise, a default icon is used.</value>
   </data>
-  <data name="Create.OsVersion" xml:space="preserve">
-    <value>If not specified, the value is inferred from the target framework.</value>
+  <data name="Help.Arg.OsVersion.Create" xml:space="preserve">
+    <value>If not specified, the value is inferred from the TargetFramework.</value>
   </data>
-  <data name="Create.Platform" xml:space="preserve">
-    <value>If not specified, the target platform will be inferred from the entry assembly. Note, setting this value can cause ClickOnce validation errors if the specified value does not match the entry assembly, therefore it is recommended to leave this option unset.</value>
+  <data name="Help.Arg.Platform.Create" xml:space="preserve">
+    <value>If not specified, the target platform will be inferred from the EntryPoint. Note, setting this value can cause ClickOnce validation errors if the specified value does not match the entry assembly, therefore it is recommended to leave this option unset.</value>
   </data>
-  <data name="Create.TargetFramework" xml:space="preserve">
-    <value>If 'none' is specified, a bootstrap executable will be created to launch the application.</value>
+  <data name="Help.Arg.TargetFramework.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'net472'.</value>
   </data>
-  <data name="Arg.Quiet" xml:space="preserve">
-    <value>Displays only minimal information when the ClickOnce package is built.</value>
+  <data name="Help.Arg.Quiet" xml:space="preserve">
+    <value>Boolean. Displays only minimal information when the ClickOnce package is built.</value>
   </data>
-  <data name="Arg.Verbose" xml:space="preserve">
-    <value>Displays extra information when the ClickOnce package is built.</value>
+  <data name="Help.Arg.Verbose" xml:space="preserve">
+    <value>Boolean. Displays extra information when the ClickOnce package is built.</value>
   </data>
-  <data name="Banner" xml:space="preserve">
+  <data name="Build.Banner" xml:space="preserve">
     <value>ClickOnce packager
 Copyright 2020 Andrew Mansell
 See license text for details (MIT)</value>
@@ -257,43 +257,178 @@ See license text for details (MIT)</value>
   <data name="Build.Args.CommandLine" xml:space="preserve">
     <value>Supplied as command line parameters:</value>
   </data>
-  <data name="Build.Args.Default" xml:space="preserve">
-    <value>Default:</value>
-  </data>
   <data name="Build.Args.Inferred" xml:space="preserve">
     <value>Inferred:</value>
   </data>
   <data name="Build.Args.Settings" xml:space="preserve">
     <value>Supplied as settings (use clickonce configure to set):</value>
   </data>
-  <data name="Build.Exceptions.MultipleEntryPoints" xml:space="preserve">
+  <data name="Build.Exceptions.EntryPoint.Multiple" xml:space="preserve">
     <value>Unable to infer entry point, multiple .exe files found</value>
   </data>
-  <data name="Build.Exceptions.NoEntryPoint" xml:space="preserve">
+  <data name="Build.Exceptions.EntryPoint.None" xml:space="preserve">
     <value>Unable to infer entry point, no .exe files found</value>
   </data>
-  <data name="Build.Verbose" xml:space="preserve">
+  <data name="Build.Logging.Verbose" xml:space="preserve">
     <value>Verbose logging enabled</value>
-  </data>
-  <data name="Glob.Assemblies" xml:space="preserve">
-    <value>Locating assemblies...</value>
-  </data>
-  <data name="Glob.DataFiles" xml:space="preserve">
-    <value>Locating data files...</value>
-  </data>
-  <data name="Glob.EntryPoint" xml:space="preserve">
-    <value>Locating entry point...</value>
-  </data>
-  <data name="Glob.Files" xml:space="preserve">
-    <value>Locating files...</value>
-  </data>
-  <data name="Glob.NoResults" xml:space="preserve">
-    <value>None found</value>
   </data>
   <data name="Build.Exceptions.Fatal" xml:space="preserve">
     <value>ERROR: {0}</value>
   </data>
   <data name="Build.Verb.Create" xml:space="preserve">
     <value>Creating ClickOnce package from source directory '{0}'</value>
+  </data>
+  <data name="Build.Exceptions.EntryPoint.NotManaged" xml:space="preserve">
+    <value>Entry point '{0}' is not a managed assembly</value>
+  </data>
+  <data name="Build.Process.Application" xml:space="preserve">
+    <value>Processing application...</value>
+  </data>
+  <data name="Build.Process.Deployment" xml:space="preserve">
+    <value>Processing deployment...</value>
+  </data>
+  <data name="Build.Process.EntryPoint" xml:space="preserve">
+    <value>Adding entry point...</value>
+  </data>
+  <data name="Build.Process.Glob.Adding" xml:space="preserve">
+    <value>Adding {0}...</value>
+  </data>
+  <data name="Build.Process.Glob.Skipped" xml:space="preserve">
+    <value>[Skipped '{0}', not a managed assembly]</value>
+  </data>
+  <data name="Build.Process.IconFile" xml:space="preserve">
+    <value>Adding icon file...</value>
+  </data>
+  <data name="Build.Process.Manifest" xml:space="preserve">
+    <value>Manifest written to '{0}'</value>
+  </data>
+  <data name="Build.Process.Project.Validating" xml:space="preserve">
+    <value>Validating project...</value>
+  </data>
+  <data name="Result.Done" xml:space="preserve">
+    <value>done.</value>
+  </data>
+  <data name="Result.NoneFound" xml:space="preserve">
+    <value>none found.</value>
+  </data>
+  <data name="Build.Exceptions.Arg.NotConvertible" xml:space="preserve">
+    <value>Argument '{0}' value '{1}' is not convertible to {2}.</value>
+  </data>
+  <data name="Build.Exceptions.Arg.NotFound" xml:space="preserve">
+    <value>Argument '{0}' does not exist.</value>
+  </data>
+  <data name="Help.Verb.Create" xml:space="preserve">
+    <value>Creates a ClickOnce package from scratch.</value>
+  </data>
+  <data name="Build.Exceptions.VersionNumber.NotValid" xml:space="preserve">
+    <value>'{0}' is not a valid version number</value>
+  </data>
+  <data name="Help.Arg.ApplicationManifestFile" xml:space="preserve">
+    <value>Specifies the name of the application manifest file.</value>
+  </data>
+  <data name="Help.Arg.ApplicationManifestFile.Constraint" xml:space="preserve">
+    <value>Must be a valid file name, and should use a .manifest extension.</value>
+  </data>
+  <data name="Help.Arg.ApplicationManifestFile.Create" xml:space="preserve">
+    <value>If not specified, a name is inferred from the EntryPoint, e.g. 'MyApp.exe.manifest'.</value>
+  </data>
+  <data name="Help.Arg.Culture.Constraint" xml:space="preserve">
+    <value>Must be 'neutral' or a valid culture (e.g. 'en-GB').</value>
+  </data>
+  <data name="Help.Arg.DeploymentManifestFile" xml:space="preserve">
+    <value>Specifies the name of the deployment manifest file.</value>
+  </data>
+  <data name="Help.Arg.DeploymentManifestFile.Constraint" xml:space="preserve">
+    <value>Must be a valid file name, and should use an .application extension.</value>
+  </data>
+  <data name="Help.Arg.DeploymentManifestFile.Create" xml:space="preserve">
+    <value>If not specifed, a name is inferred from the EntryPoint, e.g. 'MyApp.application'.</value>
+  </data>
+  <data name="Help.Arg.EntryPoint.Constraint" xml:space="preserve">
+    <value>Must be an .exe file targetting net20 onwards.</value>
+  </data>
+  <data name="Help.Arg.IconFile.Constraint" xml:space="preserve">
+    <value>Must be an .ico file.</value>
+  </data>
+  <data name="Help.Arg.LaunchMode.Constraint" xml:space="preserve">
+    <value>Must be one of 'start', 'url', 'both', 'browser'.</value>
+  </data>
+  <data name="Help.Arg.LaunchMode.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'both'.</value>
+  </data>
+  <data name="Help.Arg.MinimumVersion.Constraint" xml:space="preserve">
+    <value>Must be a dotted version number with 1 to 4 elements, each less than 63356. Must be equal to or lower than Version.</value>
+  </data>
+  <data name="Help.Arg.OsDescription" xml:space="preserve">
+    <value>Specifies a description of the OsVersion.</value>
+  </data>
+  <data name="Help.Arg.OsDescription.Create" xml:space="preserve">
+    <value>If not specified, a value is inferred from the OsVersion.</value>
+  </data>
+  <data name="Help.Arg.OsSupportUrl" xml:space="preserve">
+    <value>Specifies a support URL for the OsVersion.</value>
+  </data>
+  <data name="Help.Arg.OsVersion.Constraint" xml:space="preserve">
+    <value>Must be a dotted version number with 2 to 4 elements. The first 2 elements must match a known Windows version (e.g. '6.0' for Windows Vista).</value>
+  </data>
+  <data name="Help.Arg.PackageMode.Constraint" xml:space="preserve">
+    <value>Must be one of 'none', 'application', 'deployment', 'both'.</value>
+  </data>
+  <data name="Help.Arg.PackageMode.Create" xml:space="preserve">
+    <value>If 'none', only validation of supplied arguments is performed. If not specified, defaults to 'both'.</value>
+  </data>
+  <data name="Help.Arg.PackagePath" xml:space="preserve">
+    <value>Specifies the path under the Target where the application package will be created. This should incorporate the Version number so that multiple versions can be published.</value>
+  </data>
+  <data name="Help.Arg.PackagePath.Create" xml:space="preserve">
+    <value>If not specified, a value is inferred from the EntryPoint, e.g. 'Application Files/MyApp_1_0_0_0'.</value>
+  </data>
+  <data name="Help.Arg.Platform.Constraint" xml:space="preserve">
+    <value>Must be one of 'AnyCPU', 'x86', 'x64', 'Itanium'.</value>
+  </data>
+  <data name="Help.Arg.Target.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'publish'.</value>
+  </data>
+  <data name="Help.Arg.TargetFramework.Constraint" xml:space="preserve">
+    <value>Must be a net framework from 'net20' onwards.</value>
+  </data>
+  <data name="Help.Arg.UpdateMode.Constraint" xml:space="preserve">
+    <value>Must be one of 'none', 'starting', 'started', or a number of hours, weeks or days (e.g. '1w'). Only one unit can be specifed, and the interval cannot describe more than 1 year, regardless of unit.</value>
+  </data>
+  <data name="Help.Arg.UpdateMode.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'none'.</value>
+  </data>
+  <data name="Help.Arg.Version.Constraint" xml:space="preserve">
+    <value>Must be a dotted version number with 1 to 4 elements, each less than 63356.</value>
+  </data>
+  <data name="Help.Arg.CreateDesktopShortcut.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
+  </data>
+  <data name="Help.Arg.DeploymentUrl.Constraint" xml:space="preserve">
+    <value>Must be a valid and absolute URI (a URL or a UNC).</value>
+  </data>
+  <data name="Help.Arg.ErrorUrl.Constraint" xml:space="preserve">
+    <value>Must be a valid and absolute URI (a URL or a UNC).</value>
+  </data>
+  <data name="Help.Arg.OsSupportUrl.Constraint" xml:space="preserve">
+    <value>Must be a valid and absolute URI (a URL or a UNC).</value>
+  </data>
+  <data name="Help.Arg.Quiet.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
+  </data>
+  <data name="Help.Arg.SupportUrl.Constraint" xml:space="preserve">
+    <value>Must be a valid and absolute URI (a URL or a UNC).</value>
+  </data>
+  <data name="Help.Arg.TrustUrlParameters.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
+  </data>
+  <data name="Help.Arg.UseApplicationTrust.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
+  </data>
+  <data name="Help.Arg.UseDeployExtension.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
+  </data>
+  <data name="Help.Arg.Verbose.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
   </data>
 </root>

@@ -1,34 +1,32 @@
-﻿Console logging (inc quiet / verbose)
+﻿Finish project validation
+Finish readme.md
+Change remaining TODOs into GH issues
 
-Stage-2 validation
-PackagingMode (application, deployment, both)
-FailOnWarnings
-Factor URL validation into regex / custom attribute
-HandleParseErrors
-Signing
-UseDeployExtension
-Package as NuGet global tool
-TrustInfo
-Move Args storage to a dictionary
+PUBLISH!
 
-Auto-detect managed\unmanaged\netcore assemblies
-Bootstrapper
-Fix sha-256
-Entry point parameters (infers bootstrapper)
-Autorun.inf
+Later?
+	NuGet global tool
+	CI
+	Unit tests
+	TrustInfo
+	Signing
+	Bootstrapper
+		parameters?
+	Fix sha-256 (might need to ask on SO)
+	Autorun.inf
+	Pre-reqs?
+	Reg-free COM
+	Optional groups (convention based on folder)
+	File associations
+	Html page generation
 
-Pre-reqs?
-Reg-free COM
-Optional groups (convention based on folder)
-File associations
-Html page generation
+	Verbs:
+		configure	
+		promote
+		publish
+		update
 
-Verbs:
-	configure											
-	publish
-	update
-	about
-Integrations:
-	Azure DevOps
-	Visual Studio
-	Standalone UI
+	Integrations:
+		Azure DevOps
+		Visual Studio
+		Standalone UI

@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClickOnce", "ClickOnce\ClickOnce.csproj", "{D46EABEA-B532-4935-B6DD-4C9BBBB8EDB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{4C891FE4-24A4-4C22-94B0-A640286921A4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +21,6 @@ Global
 		{D46EABEA-B532-4935-B6DD-4C9BBBB8EDB1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D46EABEA-B532-4935-B6DD-4C9BBBB8EDB1}.Release|x64.ActiveCfg = Release|Any CPU
 		{D46EABEA-B532-4935-B6DD-4C9BBBB8EDB1}.Release|x64.Build.0 = Release|Any CPU
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Debug|x64.ActiveCfg = Debug|x64
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Debug|x64.Build.0 = Debug|x64
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Release|x64.ActiveCfg = Release|x64
-		{4C891FE4-24A4-4C22-94B0-A640286921A4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

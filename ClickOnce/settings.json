@@ -1,9 +1,10 @@
 {
-    "create" : {
-      "assemblies": [ "**\\*.dll" ],
-      "files": [ "**\\*.config", "**\\*.json", "**\\*.bmp", "**\\*.jpg", "**\\*.ico", "**\\*.gif", "**\\*.xml" ],
-      "dataFiles": [ "**\\*.dat", "**\\*.user", "**\\*.mdb" ],
-      "packageMode": "both",
-      "verbose": true
-    } 
+  "create": {
+    "target": "publish",
+    "assemblies": [ "**/*.exe", "**/*.dll" ],
+    "files": [ "**/*.exe", "**/*.dll", "**/*.config", "**/*.json", "**/*.bmp", "**/*.jpg", "**/*.ico", "**/*.gif", "**/*.xml", "!studio/**/*" ],
+    "dataFiles": [ "**/*.dat", "**/*.user", "**/*.mdb" ],
+    "packageMode": "both",
+    "verbose": true
+  } 
 }

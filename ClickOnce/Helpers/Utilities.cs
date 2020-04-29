@@ -1,95 +1,34 @@
-﻿
-using System.Collections.Generic;
-using System.IO;
-using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
+﻿using System.ComponentModel;
+using System.Text.RegularExpressions;
+using ClickOnce.Resources;
 
 namespace ClickOnce
 {
-
-
     internal static class Utilities
     {
-        //internal static TEnum Parse<TEnum>(string value) where TEnum : Enum
-        //    => (TEnum)Enum.Parse(typeof(TEnum), value);
+        public static string SplitPascalCase(this string text)
+            => string.IsNullOrEmpty(text)
+                ? text
+                : Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
 
-        //public static string SplitPascalCase(this string text)
-        //    => string.IsNullOrEmpty(text)
-        //        ? text 
-        //        : Regex.Replace(text, "([A-Z])", " $1", RegexOptions.Compiled).Trim();
+        internal static string GetMessage(string name) => Messages.ResourceManager.GetString(name);
 
         internal static string EmptyToNull(this string value) =>
             string.IsNullOrEmpty(value)
                 ? null
                 : value;
 
-        internal static void ResolveGlobs(this Manifest application, ProjectBuilder projectBuilder)
-        {
-            
-            application.AddAssembly(projectBuilder, projectBuilder.Args.EntryPoint.RootedPath, projectBuilder.Args.EntryPoint.Value);
-            application.AddAssemblies(projectBuilder);
-            application.AddFiles(projectBuilder.Args.Files.Value, false, projectBuilder);
-            application.AddFiles(projectBuilder.Args.DataFiles.Value, true, projectBuilder);
-
-            CopyFile(projectBuilder.Args.IconFile.RootedPath, projectBuilder);
-        }
-
-        private static void AddAssemblies(this Manifest application, ProjectBuilder projectBuilder)
-        {
-            foreach (var assembly in projectBuilder.Args.Assemblies.Value)
+        internal static ProcessorArchitecture PlatformConverter(string platform) =>
+            platform.ToLowerInvariant() switch
             {
-                // TODO: Filter out unmanaged
-
-                var source = Path.Combine(projectBuilder.Args.Source.Value, assembly);
-
-                application.AssemblyReferences.Add(new AssemblyReference
-                {
-                    SourcePath = source,
-                    TargetPath = assembly,
-                    AssemblyIdentity = AssemblyIdentity.FromFile(source)
-                });
-
-                CopyFile(source, projectBuilder);
-            }
-        }
-
-        private static void AddAssembly(this Manifest application, ProjectBuilder projectBuilder, string source, string target)
-        {
-            application.AssemblyReferences.Add(new AssemblyReference
-            {
-                SourcePath = source,
-                TargetPath = target,
-                AssemblyIdentity = AssemblyIdentity.FromFile(source)
-            });
-
-            CopyFile(source, projectBuilder);
-        }
-
-        private static void AddFiles(this Manifest application, IEnumerable<string> files, bool isDataFile, ProjectBuilder projectBuilder)
-        {
-            foreach (var file in files)
-            {
-                var source = Path.Combine(projectBuilder.Args.Source.Value, file);
-                var target = Path.Combine(projectBuilder.Args.PackagePath.RootedPath, file);
-
-                var fileReference = new FileReference
-                {
-                    SourcePath = source,
-                    TargetPath = target,
-                    IsDataFile = isDataFile
-                };
-
-                application.FileReferences.Add(fileReference);
-                CopyFile(source, projectBuilder);
-            }
-        }
-
-        private static void CopyFile(string source, ProjectBuilder projectBuilder)
-        {
-            if (source is null) return;
-
-            var target = Path.Combine(projectBuilder.Args.PackagePath.RootedPath, Path.GetFileName(source));
-            Directory.CreateDirectory(Path.GetDirectoryName(target));
-            File.Copy(source, target, true);
-        }
+                "anycpu" => ProcessorArchitecture.Msil,
+                "msil" => ProcessorArchitecture.Msil,
+                "x86" => ProcessorArchitecture.X86,
+                "amd64" => ProcessorArchitecture.Amd64,
+                "x64" => ProcessorArchitecture.Amd64,
+                "itanium" => ProcessorArchitecture.Itanium,
+                _ => throw new InvalidEnumArgumentException(nameof(platform))
+            };
     }
 }
+

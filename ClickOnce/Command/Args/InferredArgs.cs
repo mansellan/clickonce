@@ -10,6 +10,7 @@ namespace ClickOnce
     {
         private readonly Project project;
         private readonly Lazy<string> entryPoint;
+        private readonly Lazy<string> iconFile;
         private readonly Lazy<Assembly> entryPointAssembly;
 
         public InferredArgs(params Args[] args)
@@ -17,21 +18,25 @@ namespace ClickOnce
         {
             project = new Project(args);
             entryPoint = new Lazy<string>(GetEntryPoint);
+            iconFile = new Lazy<string>(GetIconFile);
             entryPointAssembly = new Lazy<Assembly>(GetEntryPointAssembly);
         }
 
         public override string Source => AppDomain.CurrentDomain.BaseDirectory;
 
+        public override string Target => "publish";
+
         public override string Name => entryPointAssembly.Value?.GetName().Name;
 
         public override string Version => entryPointAssembly.Value?.GetName().Version.ToString();
 
-        public override string Publisher => entryPointAssembly.Value?.CustomAttributes.FirstOrDefault(ca => ca.AttributeType == typeof(AssemblyCompanyAttribute))?.ConstructorArguments.FirstOrDefault().Value?.ToString().EmptyToNull()
-            ?? entryPointAssembly.Value?.GetName().Name;
+        public override string Publisher => GetAssemblyAttribute<AssemblyCompanyAttribute>() ?? entryPointAssembly.Value?.GetName().Name;
 
-        public override string Description => entryPointAssembly.Value?.CustomAttributes.FirstOrDefault(ca => ca.AttributeType == typeof(AssemblyDescriptionAttribute))?.ConstructorArguments.FirstOrDefault().Value?.ToString().EmptyToNull();
+        public override string Description => GetAssemblyAttribute<AssemblyDescriptionAttribute>();
 
         public override string EntryPoint => entryPoint.Value;
+
+        public override string IconFile => iconFile.Value;
 
         public override string PackagePath => Path.Combine("Application Files", $"{Path.GetFileNameWithoutExtension(EntryPoint)}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
 
@@ -39,18 +44,31 @@ namespace ClickOnce
 
         public override string DeploymentManifestFile => Path.GetFileNameWithoutExtension(EntryPoint) + ".application";
 
-        public override Platform Platform
-        {
-            get
+        public override string Platform =>
+            entryPointAssembly.Value?.GetName().ProcessorArchitecture switch
             {
-                var processorArchitecture = entryPointAssembly.Value?.GetName().ProcessorArchitecture.ToString();
-                return processorArchitecture == null ? null : new Platform(processorArchitecture);
-            }
-        }
+                System.Reflection.ProcessorArchitecture.MSIL => "AnyCPU",
+                System.Reflection.ProcessorArchitecture.X86 => "x86",
+                System.Reflection.ProcessorArchitecture.Amd64 => "x64",
+                System.Reflection.ProcessorArchitecture.IA64 => "Itanium",
+                _ => null
+            };
 
-        public override string OsVersion => null; // args.InferOsVersion();
+        public override string Culture => GetAssemblyAttribute<AssemblyCultureAttribute>() ?? "neutral";
 
-        public override string TargetFramework => null;
+        public override string OsVersion => DotNetFrameworks.GetMinimumOsVersion(project.TargetFramework.Value ?? TargetFramework);
+
+        public override string OsDescription => WindowsVersions.GetDescription(project.OsVersion.Value ?? OsVersion);
+
+        public override string TargetFramework => "net472";
+
+        public override string PackageMode => "both";
+
+        public override string LaunchMode => "both";
+
+        public override string UpdateMode => "off";
+
+        public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? null : project.Version.Value;
 
         private Assembly GetEntryPointAssembly()
         {
@@ -64,19 +82,44 @@ namespace ClickOnce
 
         private string GetEntryPoint()
         {
-            var candidates = Globber.Expand(project.Source.RootedPath ?? Source,  new[] { "**\\*.exe" }, new[] { project.Target.Value }).ToArray();
+            if (!(project.EntryPoint.Value is null))
+            {
+                return project.EntryPoint.Value;
+            }
+
+            var candidates = Globber.Expand(project.Source.RootedPath ?? Source,  new[] { "**/*.exe", $"!{project.Target.Value}" }).ToArray();
 
             switch (candidates.Length)
             {
                 case 0:
-                    throw new ApplicationException(Messages.Build_Exceptions_NoEntryPoint);
+                    throw new ApplicationException(Messages.Build_Exceptions_EntryPoint_None);
 
                 case 1:
                     return candidates.Single();
 
                 default:
-                    throw new ApplicationException(Messages.Build_Exceptions_MultipleEntryPoints);
+                    throw new ApplicationException(Messages.Build_Exceptions_EntryPoint_Multiple);
             }
         }
+
+        private string GetIconFile()
+        {
+            var candidates = Globber.Expand(project.Source.RootedPath ?? Source, new[] {"**/*.ico", $"!{project.Target.Value}"}).ToArray();
+
+            return candidates.Length == 1
+                ? candidates[0]
+                : null;
+        }
+
+        private string GetAssemblyAttribute<T>() =>
+            entryPointAssembly
+                .Value?
+                .CustomAttributes
+                .FirstOrDefault(ca => ca.AttributeType == typeof(T))?
+                .ConstructorArguments
+                .FirstOrDefault()
+                .Value?
+                .ToString()
+                .EmptyToNull();
     }
 }
