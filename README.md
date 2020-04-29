@@ -6,7 +6,7 @@ ClickOnce was introduced with .Net Framework 2.0, providing an easy way for user
 
 MSIX has a [huge list of restrictions](https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-prepare), many of which cannot be avoided even in trusted, domain-managed environments. It also has limited support for older Windows versions. The [MSIX Core](https://docs.microsoft.com/en-us/windows/msix/msix-core/msixcore) project is attempting to bridge this gap, but only for currently supported OSs (Windows 7 and 8.1), and without support for application updates. By contrast, ClickOnce is supported everywhere that .Net 2.0 onwards is supported, from Windows 98 (yes, [really!](https://en.wikipedia.org/wiki/.NET_Framework_version_history)) through to Windows 10.
 
-Until there's a complete replacement for for ClickOnce it remains worthwhile supporting this solid and reliable platform, and making it available to modern development environments.
+Until there is a complete replacement for for ClickOnce it remains worthwhile supporting this solid and reliable platform, and making it available to modern development environments.
 
 # At a glance
 * Able to infer most settings, while retaining full override control
