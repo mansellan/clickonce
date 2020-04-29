@@ -1,5 +1,5 @@
 # ClickOnce packager
-Bringing ClickOnce into the 21st century! Create ClickOnce packages quickly and easily using a command-line tool.
+Bringing ClickOnce into the 21st century! Create ClickOnce packages quickly and easily at the command-line.
 
 # Why?
 ClickOnce was introduced with .Net Framework 2.0, providing an easy way for users to install desktop applications, and automatically update them as needed. Since then, Microsoft have created several replacements, such as AppX and (most recently) [MSIX](https://docs.microsoft.com/en-us/windows/msix/overview). These have incrementally made life easier for developers and modernised the user experience. Unfortunately, they have also become progressively more sandboxed, limiting the capabilities available to application developers. 
