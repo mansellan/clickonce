@@ -13,12 +13,21 @@ ClickOnce is still supported on Windows 10, and will likely remain so for some t
 * Supports modern globbing patterns
 * Easier and more configurable than Mage
 * Compatible with modern CI platforms
+* Localisable help
 
 # Getting started
 TODO: Nuget tool install...
 
 # Example
 ```C:\MyApp\bin\debug> clickonce create --version=1.0.0.0```
+
+# Verbs
+The following verbs are supported:
+* ```Create``` Creates a new ClickOnce package from scratch
+* ```Help``` Gets help information
+* ```Version``` Gets version information
+
+More verbs are planned, for example to update existing manifests or build from project files. Watch this space!
 
 # Arguments
 TODO: list arguments and descriptions
