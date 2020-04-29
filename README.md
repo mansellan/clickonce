@@ -31,7 +31,7 @@ The following verbs are supported:
 |```Help```   | Gets help information                            |
 |```Version```| Gets version information                         |
 
-More verbs are planned, for example to update existing manifests or build from project files. Watch this space!
+More [verbs are planned](https://github.com/mansellan/clickonce/labels/verb), for example to update existing manifests or build from project files. Watch this space!
 
 # Arguments
 TODO: list arguments and descriptions
