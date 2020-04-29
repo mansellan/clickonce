@@ -23,9 +23,13 @@ TODO: Nuget tool install...
 
 # Verbs
 The following verbs are supported:
-* ```Create``` Creates a new ClickOnce package from scratch
-* ```Help``` Gets help information
-* ```Version``` Gets version information
+
+
+| Verb        | Description                                      |
+|-------------|--------------------------------------------------|
+|```Create``` | Creates a new ClickOnce package from scratch     |
+|```Help```   | Gets help information                            |
+|```Version```| Gets version information                         |
 
 More verbs are planned, for example to update existing manifests or build from project files. Watch this space!
 
