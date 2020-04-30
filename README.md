@@ -82,3 +82,7 @@ Copious arguments are available to take full control of manifest generation, lis
 This is a fairly contained problem domain, limited explicitly by the [ClickOnce manifest reference](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-reference?view=vs-2019). If it's not supported in the manifest, it's not supported by ClickOnce. My aim is to support all edge-cases and (most) conveniences provided by Visual Studio, to provide a complete migration path for existing ClickOnce users.
 
 That said, there's a fairly obvious extension. ClickOnce applications, once deployed and appropriately permissioned, can launch other processes. That enables it to deploy and manage native apps, and apps running under the .Net Core runtime. See #21.
+
+# Thanks
+* [CommandLineParser](https://github.com/commandlineparser/commandline) My life would have been much more complicated without you.
+* Microsoft extensions, particularly Globbing and Options.
