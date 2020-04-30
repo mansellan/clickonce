@@ -45,9 +45,9 @@ namespace ClickOnce
         internal BooleanOption UseDeployExtension => args.GetBoolean();
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
-        internal StringOption TrustInfo => args.GetString();
-        internal StringOption CertificateSource => args.GetString();
-        internal StringOption CertificatePassword => args.GetString();
+        //internal StringOption TrustInfo => args.GetString();
+        //internal StringOption CertificateSource => args.GetString();
+        //internal StringOption CertificatePassword => args.GetString();
         internal BooleanOption Quiet => args.GetBoolean();
         internal BooleanOption Verbose => args.GetBoolean();
 
@@ -80,7 +80,7 @@ namespace ClickOnce
 
             if (Update.Value.Enabled && DeploymentUrl.Value is null)
             {
-                throw new ApplicationException("DeploymentUrl is required if update mode is not 'off'.");
+                throw new ApplicationException("DeploymentUrl is required if update mode is not 'none'.");
             }
         }
     }

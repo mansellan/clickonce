@@ -2,9 +2,8 @@
   "create": {
     "target": "publish",
     "assemblies": [ "**/*.exe", "**/*.dll" ],
-    "files": [ "**/*.exe", "**/*.dll", "**/*.config", "**/*.json", "**/*.bmp", "**/*.jpg", "**/*.ico", "**/*.gif", "**/*.xml", "!studio/**/*" ],
+    "files": [ "**/*.exe", "**/*.dll", "**/*.config", "**/*.json", "**/*.bmp", "**/*.jpg", "**/*.ico", "**/*.gif", "**/*.xml"],
     "dataFiles": [ "**/*.dat", "**/*.user", "**/*.mdb" ],
-    "packageMode": "both",
-    "verbose": true
+    "packageMode": "both"
   } 
 }

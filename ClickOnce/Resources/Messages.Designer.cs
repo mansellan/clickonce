@@ -972,6 +972,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If not specifed and UpdateMode is not &apos;none&apos;, defaults to Version..
+        /// </summary>
+        internal static string Help_Args_MinimumVersion_Create {
+            get {
+                return ResourceManager.GetString("Help.Args.MinimumVersion.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Creates a ClickOnce package from scratch..
         /// </summary>
         internal static string Help_Verb_Create {

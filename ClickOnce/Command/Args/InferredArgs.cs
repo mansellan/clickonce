@@ -66,7 +66,7 @@ namespace ClickOnce
 
         public override string LaunchMode => "both";
 
-        public override string UpdateMode => "off";
+        public override string UpdateMode => "none";
 
         public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? null : project.Version.Value;
 

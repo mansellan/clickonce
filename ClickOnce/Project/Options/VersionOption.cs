@@ -49,6 +49,9 @@ namespace ClickOnce
         public int Build { get; }
         public int Revision { get; }
 
-        public static implicit  operator string(VersionSettings settings) => $"{settings.Major}.{settings.Minor}.{settings.Build}.{settings.Revision}";
+        public static implicit  operator string(VersionSettings settings) => 
+            settings is null 
+                ? null 
+                :  $"{settings.Major}.{settings.Minor}.{settings.Build}.{settings.Revision}";
     }
 }

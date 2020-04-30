@@ -431,4 +431,7 @@ See license text for details (MIT)</value>
   <data name="Help.Arg.Verbose.Create" xml:space="preserve">
     <value>If not specified, defaults to false.</value>
   </data>
+  <data name="Help.Args.MinimumVersion.Create" xml:space="preserve">
+    <value>If not specifed and UpdateMode is not 'none', defaults to Version.</value>
+  </data>
 </root>
