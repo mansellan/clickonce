@@ -4,15 +4,17 @@
 Bringing ClickOnce into the 21st century! Create ClickOnce packages quickly and easily at the command-line.
 
 # Why?
-ClickOnce was introduced with .Net Framework 2.0, providing an easy way for users to install desktop applications and automatically update them. Since then, Microsoft have created several replacements, such as AppX and [MSIX](https://docs.microsoft.com/en-us/windows/msix/overview). These have incrementally made life easier for developers and modernised the user experience. Unfortunately they have also become progressively more sandboxed, limiting the capabilities available to application developers. 
+ClickOnce was introduced with .Net Framework 2.0, providing an easy way for users to install desktop applications and automatically update them. Since then, Microsoft have created several replacements, such as AppX and [MSIX](https://docs.microsoft.com/en-us/windows/msix/overview). These have incrementally made life easier for developers and modernised the user experience. Unfortunately they have also become progressively more sandboxed, limiting the capabilities available to application developers.
+
+Upgrading a Net Framework project to use the new SDK project file has the unfortunate side-effect of removing all ClickOnce publish options from Visual Studio, with the recommendation being to add an MSIX packaging project to the solution.
 
 MSIX has a [huge list of restrictions](https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-prepare), many of which cannot be avoided even in trusted, domain-managed environments. It also has limited support for older Windows versions. The [MSIX Core](https://docs.microsoft.com/en-us/windows/msix/msix-core/msixcore) project is attempting to bridge this gap, but only for currently supported OSs (Windows 7 and 8.1), and without support for application updates. By contrast, ClickOnce is supported everywhere that .Net 2.0 onwards is supported, from Windows 98 (yes, [really!](https://en.wikipedia.org/wiki/.NET_Framework_version_history)) through to Windows 10.
 
 Until there is a complete replacement for for ClickOnce it remains worthwhile supporting this solid and reliable platform, and making it available to modern development environments.
 
 # At a glance
-* Create ClickOnce packages from SDK projects
 * Globbing!
+* Create ClickOnce packages from SDK projects
 * Able to infer most settings, while retaining full override control
 * Easier and more configurable than Mage
 * Compatible with modern CI platforms
@@ -20,6 +22,8 @@ Until there is a complete replacement for for ClickOnce it remains worthwhile su
 
 # Getting started
 I'm hoping to get this published as a global tool (see [#9](https://github.com/mansellan/clickonce/issues/9)), but until then you'll have to build it from source and put it onto your PATH variable.
+
+Note that the command acts upon compiled files only, hence you will need to build your application and navigate to the output folder to create a ClickOnce package.
 
 # Example
 ```C:\MyApp\bin\debug> clickonce create --version=1.0.0.0```
@@ -82,6 +86,8 @@ Copious arguments are available to take full control of manifest generation, lis
 This is a fairly contained problem domain, limited explicitly by the [ClickOnce manifest reference](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-reference?view=vs-2019). If it's not supported in the manifest, it's not supported by ClickOnce. My aim is to support all edge-cases and (most) conveniences provided by Visual Studio, to provide a complete migration path for existing ClickOnce users. I *think* the [issues list](https://github.com/mansellan/clickonce/issues) represents most of what's needed to achieve this.
 
 That said, there's a fairly obvious extension. ClickOnce applications, once deployed and appropriately permissioned, can launch other processes. That enables it to deploy and manage native apps, and apps running under the .Net Core runtime. See #21.
+
+I also hope to create a UI and CI pipeline [integrations](https://github.com/mansellan/clickonce/issues?q=is%3Aissue+is%3Aopen+label%3Aintegrations) for Visual Studio, Azure DevOps and perhaps others.
 
 # Thanks
 * [CommandLineParser](https://github.com/commandlineparser/commandline) My life would have been much more complicated without you.
