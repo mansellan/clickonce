@@ -11,8 +11,9 @@ MSIX has a [huge list of restrictions](https://docs.microsoft.com/en-us/windows/
 Until there is a complete replacement for for ClickOnce it remains worthwhile supporting this solid and reliable platform, and making it available to modern development environments.
 
 # At a glance
+* Create ClickOnce packages from SDK projects
+* Globbing!
 * Able to infer most settings, while retaining full override control
-* Supports modern globbing patterns
 * Easier and more configurable than Mage
 * Compatible with modern CI platforms
 * Localisable help
@@ -62,7 +63,7 @@ Copious arguments are available to take full control of manifest generation, lis
 | Assemblies | Specifies a colon-separated list of globbing patterns to match assemblies to be included. Will only consider managed assemblies, hence a pattern of \*.dll will exclude native libraries. |
 | Files | Specifies a colon-separated list of globbing patterns to match non-assembly files to be included. |
 | DataFiles | Specifies a colon-separated list of globbing patterns to match data files to be included. These files are considered mutable, and can be migrated between application versions. |
-| DeploymentUrl | Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'none. Must be a valid and absolute URI (a URL or a UNC). |
+| DeploymentUrl | Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'none'. Must be a valid and absolute URI (a URL or a UNC). |
 | ErrorUrl | Specifies the URL of the web page that is displayed in dialog boxes during ClickOnce installation. Must be a valid and absolute URI (a URL or a UNC). |
 | SupportUrl | Specifies the URL of the web page that is displayed in the Add or Remove Programs dialog box for the application. Must be a valid and absolute URI (a URL or a UNC). |
 | PackageMode | Specifies which manifests to create. Must be one of 'none', 'application', 'deployment', 'both'. If 'none', only validation of supplied arguments is performed. If not specified, defaults to 'both'. |
@@ -76,3 +77,8 @@ Copious arguments are available to take full control of manifest generation, lis
 | Quiet | Boolean. Displays only minimal information when the ClickOnce package is built. If not specified, defaults to false. |
 | Verbose | Boolean. Displays extra information when the ClickOnce package is built. If not specified, defaults to false. |
 | Help | Display a help screen. |
+
+# Future
+This is a fairly contained problem domain, limited explicitly by the [ClickOnce manifest reference](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-reference?view=vs-2019). If it's not supported in the manifest, it's not supported by ClickOnce. My aim is to support all edge-cases and (most) conveniences provided by Visual Studio, to provide a complete migration path for existing ClickOnce users.
+
+That said, there's a fairly obvious extension. ClickOnce applications, once deployed and appropriately permissioned, can launch other processes. That enables it to deploy and manage native apps, and apps running under the .Net Core runtime. See #21.
