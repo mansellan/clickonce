@@ -1,3 +1,5 @@
+> :warning: **Not quite ready**: This code is not yet fully tested. Be careful.
+
 # ClickOnce packager
 Bringing ClickOnce into the 21st century! Create ClickOnce packages quickly and easily at the command-line.
 
