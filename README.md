@@ -37,7 +37,7 @@ More [verbs are planned](https://github.com/mansellan/clickonce/labels/verb), fo
 
 # Arguments
 
-Copious arguments are available to take full control of manifest generation, listed below. However, it's not necessary to set all of them explicitly, as many can be inferred from other sources.
+Copious arguments are available to take full control of manifest generation, listed below. However, it's not necessary to set all of them explicitly, as almost all of them can be inferred from other sources.
 
 | Argument | Description |
 |---|---|
