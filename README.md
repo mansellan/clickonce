@@ -79,7 +79,7 @@ Copious arguments are available to take full control of manifest generation, lis
 | Help | Display a help screen. |
 
 # Future
-This is a fairly contained problem domain, limited explicitly by the [ClickOnce manifest reference](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-reference?view=vs-2019). If it's not supported in the manifest, it's not supported by ClickOnce. My aim is to support all edge-cases and (most) conveniences provided by Visual Studio, to provide a complete migration path for existing ClickOnce users.
+This is a fairly contained problem domain, limited explicitly by the [ClickOnce manifest reference](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-reference?view=vs-2019). If it's not supported in the manifest, it's not supported by ClickOnce. My aim is to support all edge-cases and (most) conveniences provided by Visual Studio, to provide a complete migration path for existing ClickOnce users. I *think* the [issues list](https://github.com/mansellan/clickonce/issues) represents most of what's needed to achieve this.
 
 That said, there's a fairly obvious extension. ClickOnce applications, once deployed and appropriately permissioned, can launch other processes. That enables it to deploy and manage native apps, and apps running under the .Net Core runtime. See #21.
 
