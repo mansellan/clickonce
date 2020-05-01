@@ -22,7 +22,7 @@ namespace ClickOnce
             entryPointAssembly = new Lazy<Assembly>(GetEntryPointAssembly);
         }
 
-        public override string Source => AppDomain.CurrentDomain.BaseDirectory;
+        public override string Source => Directory.GetCurrentDirectory();
 
         public override string Target => "publish";
 
@@ -38,11 +38,11 @@ namespace ClickOnce
 
         public override string IconFile => iconFile.Value;
 
-        public override string PackagePath => Path.Combine("Application Files", $"{Path.GetFileNameWithoutExtension(EntryPoint)}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
+        public override string PackagePath => Path.Combine("Application Files", $"{(project.Name?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
 
-        public override string ApplicationManifestFile => Path.GetFileName(EntryPoint) + ".manifest";
+        public override string ApplicationManifestFile => (project.Name?.Value ?? Path.GetFileName(EntryPoint)) + ".manifest";
 
-        public override string DeploymentManifestFile => Path.GetFileNameWithoutExtension(EntryPoint) + ".application";
+        public override string DeploymentManifestFile => (project.Name?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint)) + ".application";
 
         public override string Platform =>
             entryPointAssembly.Value?.GetName().ProcessorArchitecture switch
@@ -68,7 +68,7 @@ namespace ClickOnce
 
         public override string UpdateMode => "none";
 
-        public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? null : project.Version.Value;
+        public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? project.Version.Value : null;
 
         private Assembly GetEntryPointAssembly()
         {
@@ -77,17 +77,17 @@ namespace ClickOnce
                 return null;
             }
 
-            return Assembly.ReflectionOnlyLoadFrom(Path.Combine(project.Source.Value ?? Source, entryPoint.Value));
+            return Assembly.LoadFrom(Path.Combine(project.Source.Value ?? Source, entryPoint.Value));
         }
 
         private string GetEntryPoint()
         {
-            if (!(project.EntryPoint.Value is null))
+            if (!(project.EntryPoint?.Value is null))
             {
                 return project.EntryPoint.Value;
             }
 
-            var candidates = Globber.Expand(project.Source.RootedPath ?? Source,  new[] { "**/*.exe", $"!{project.Target.Value}" }).ToArray();
+            var candidates = Globber.Expand(project.Source?.RootedPath ?? Source,  new[] { "**/*.exe", $"!{project.Target?.Value ?? Target}" }).ToArray();
 
             switch (candidates.Length)
             {
@@ -104,7 +104,7 @@ namespace ClickOnce
 
         private string GetIconFile()
         {
-            var candidates = Globber.Expand(project.Source.RootedPath ?? Source, new[] {"**/*.ico", $"!{project.Target.Value}"}).ToArray();
+            var candidates = Globber.Expand(project.Source?.RootedPath ?? Source, new[] {"**/*.ico", $"!{project.Target?.Value}"}).ToArray();
 
             return candidates.Length == 1
                 ? candidates[0]

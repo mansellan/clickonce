@@ -67,6 +67,9 @@ namespace ClickOnce
 
             var path = args.Get<string>(null, name);
 
+            if (path is null || basePath is null)
+                return null;
+
             var rootedPath = path?.Value is null
                 ? null
                 : Path.IsPathRooted(path.Value)

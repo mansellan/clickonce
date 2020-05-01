@@ -5,7 +5,8 @@ namespace ClickOnce
 {
     public enum CommandVerb
     {
-        Create
+        Create,
+        Configure
     }
 
     public enum ArgsSource

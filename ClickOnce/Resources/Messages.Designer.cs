@@ -981,7 +981,16 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Creates a ClickOnce package from scratch..
+        ///   Looks up a localized string similar to Configure default argument values..
+        /// </summary>
+        internal static string Help_Verb_Configure {
+            get {
+                return ResourceManager.GetString("Help.Verb.Configure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a ClickOnce package from scratch..
         /// </summary>
         internal static string Help_Verb_Create {
             get {

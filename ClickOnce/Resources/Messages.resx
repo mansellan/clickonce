@@ -318,7 +318,7 @@ See license text for details (MIT)</value>
     <value>Argument '{0}' does not exist.</value>
   </data>
   <data name="Help.Verb.Create" xml:space="preserve">
-    <value>Creates a ClickOnce package from scratch.</value>
+    <value>Create a ClickOnce package from scratch.</value>
   </data>
   <data name="Build.Exceptions.VersionNumber.NotValid" xml:space="preserve">
     <value>'{0}' is not a valid version number</value>
@@ -433,5 +433,8 @@ See license text for details (MIT)</value>
   </data>
   <data name="Help.Args.MinimumVersion.Create" xml:space="preserve">
     <value>If not specifed and UpdateMode is not 'none', defaults to Version.</value>
+  </data>
+  <data name="Help.Verb.Configure" xml:space="preserve">
+    <value>Configure default argument values.</value>
   </data>
 </root>

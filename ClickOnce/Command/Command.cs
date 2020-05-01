@@ -13,9 +13,14 @@ namespace ClickOnce
                         config.CaseInsensitiveEnumValues = true;
                         config.HelpWriter = Console.Out;
                     })
-                .ParseArguments<CreateArgs>(args)
+                .ParseArguments<CreateArgs, ConfigureArgs>(args)
                 .MapResult(
                     (CreateArgs parsed) => ProjectBuilder.Build(parsed),
+                    (ConfigureArgs parsed) => 
+                    {
+                        Logger.Quiet("Not yet implemented");
+                        return 1;
+                    },
                     _ => 1);
         }
     }
