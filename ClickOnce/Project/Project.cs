@@ -16,6 +16,7 @@ namespace ClickOnce
         internal PathOption Source => args.GetPath();
         internal PathOption Target => args.GetPath();
         internal StringOption Name => args.GetString();
+        internal StringOption Product => args.GetString();
         internal VersionOption Version => args.GetVersion();
         internal StringOption Suite => args.GetString();
         internal StringOption Publisher => args.GetString();

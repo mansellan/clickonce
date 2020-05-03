@@ -22,7 +22,7 @@ namespace ClickOnce.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {
+    public class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace ClickOnce.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClickOnce.Resources.Messages", typeof(Messages).Assembly);
@@ -51,7 +51,7 @@ namespace ClickOnce.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Using the following project values:.
         /// </summary>
-        internal static string Build_Args {
+        public static string Build_Args {
             get {
                 return ResourceManager.GetString("Build.Args", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Supplied as command line parameters:.
         /// </summary>
-        internal static string Build_Args_CommandLine {
+        public static string Build_Args_CommandLine {
             get {
                 return ResourceManager.GetString("Build.Args.CommandLine", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Inferred:.
         /// </summary>
-        internal static string Build_Args_Inferred {
+        public static string Build_Args_Inferred {
             get {
                 return ResourceManager.GetString("Build.Args.Inferred", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Supplied as settings (use clickonce configure to set):.
         /// </summary>
-        internal static string Build_Args_Settings {
+        public static string Build_Args_Settings {
             get {
                 return ResourceManager.GetString("Build.Args.Settings", resourceCulture);
             }
@@ -101,7 +101,7 @@ namespace ClickOnce.Resources {
         ///Copyright 2020 Andrew Mansell
         ///See license text for details (MIT).
         /// </summary>
-        internal static string Build_Banner {
+        public static string Build_Banner {
             get {
                 return ResourceManager.GetString("Build.Banner", resourceCulture);
             }
@@ -110,7 +110,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Argument &apos;{0}&apos; value &apos;{1}&apos; is not convertible to {2}..
         /// </summary>
-        internal static string Build_Exceptions_Arg_NotConvertible {
+        public static string Build_Exceptions_Arg_NotConvertible {
             get {
                 return ResourceManager.GetString("Build.Exceptions.Arg.NotConvertible", resourceCulture);
             }
@@ -119,7 +119,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Argument &apos;{0}&apos; does not exist..
         /// </summary>
-        internal static string Build_Exceptions_Arg_NotFound {
+        public static string Build_Exceptions_Arg_NotFound {
             get {
                 return ResourceManager.GetString("Build.Exceptions.Arg.NotFound", resourceCulture);
             }
@@ -128,7 +128,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unable to infer entry point, multiple .exe files found.
         /// </summary>
-        internal static string Build_Exceptions_EntryPoint_Multiple {
+        public static string Build_Exceptions_EntryPoint_Multiple {
             get {
                 return ResourceManager.GetString("Build.Exceptions.EntryPoint.Multiple", resourceCulture);
             }
@@ -137,7 +137,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unable to infer entry point, no .exe files found.
         /// </summary>
-        internal static string Build_Exceptions_EntryPoint_None {
+        public static string Build_Exceptions_EntryPoint_None {
             get {
                 return ResourceManager.GetString("Build.Exceptions.EntryPoint.None", resourceCulture);
             }
@@ -146,7 +146,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Entry point &apos;{0}&apos; is not a managed assembly.
         /// </summary>
-        internal static string Build_Exceptions_EntryPoint_NotManaged {
+        public static string Build_Exceptions_EntryPoint_NotManaged {
             get {
                 return ResourceManager.GetString("Build.Exceptions.EntryPoint.NotManaged", resourceCulture);
             }
@@ -155,7 +155,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ERROR: {0}.
         /// </summary>
-        internal static string Build_Exceptions_Fatal {
+        public static string Build_Exceptions_Fatal {
             get {
                 return ResourceManager.GetString("Build.Exceptions.Fatal", resourceCulture);
             }
@@ -164,7 +164,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Help text not found.
         /// </summary>
-        internal static string Build_Exceptions_HelpText_NotFound {
+        public static string Build_Exceptions_HelpText_NotFound {
             get {
                 return ResourceManager.GetString("Build.Exceptions.HelpText.NotFound", resourceCulture);
             }
@@ -173,7 +173,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to &apos;{0}&apos; is not a valid version number.
         /// </summary>
-        internal static string Build_Exceptions_VersionNumber_NotValid {
+        public static string Build_Exceptions_VersionNumber_NotValid {
             get {
                 return ResourceManager.GetString("Build.Exceptions.VersionNumber.NotValid", resourceCulture);
             }
@@ -182,7 +182,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Verbose logging enabled.
         /// </summary>
-        internal static string Build_Logging_Verbose {
+        public static string Build_Logging_Verbose {
             get {
                 return ResourceManager.GetString("Build.Logging.Verbose", resourceCulture);
             }
@@ -191,7 +191,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Processing application....
         /// </summary>
-        internal static string Build_Process_Application {
+        public static string Build_Process_Application {
             get {
                 return ResourceManager.GetString("Build.Process.Application", resourceCulture);
             }
@@ -200,7 +200,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Processing deployment....
         /// </summary>
-        internal static string Build_Process_Deployment {
+        public static string Build_Process_Deployment {
             get {
                 return ResourceManager.GetString("Build.Process.Deployment", resourceCulture);
             }
@@ -209,7 +209,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Adding entry point....
         /// </summary>
-        internal static string Build_Process_EntryPoint {
+        public static string Build_Process_EntryPoint {
             get {
                 return ResourceManager.GetString("Build.Process.EntryPoint", resourceCulture);
             }
@@ -218,7 +218,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Adding {0}....
         /// </summary>
-        internal static string Build_Process_Glob_Adding {
+        public static string Build_Process_Glob_Adding {
             get {
                 return ResourceManager.GetString("Build.Process.Glob.Adding", resourceCulture);
             }
@@ -227,7 +227,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to [Skipped &apos;{0}&apos;, not a managed assembly].
         /// </summary>
-        internal static string Build_Process_Glob_Skipped {
+        public static string Build_Process_Glob_Skipped {
             get {
                 return ResourceManager.GetString("Build.Process.Glob.Skipped", resourceCulture);
             }
@@ -236,7 +236,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Adding icon file....
         /// </summary>
-        internal static string Build_Process_IconFile {
+        public static string Build_Process_IconFile {
             get {
                 return ResourceManager.GetString("Build.Process.IconFile", resourceCulture);
             }
@@ -245,7 +245,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Manifest written to &apos;{0}&apos;.
         /// </summary>
-        internal static string Build_Process_Manifest {
+        public static string Build_Process_Manifest {
             get {
                 return ResourceManager.GetString("Build.Process.Manifest", resourceCulture);
             }
@@ -254,7 +254,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Validating project....
         /// </summary>
-        internal static string Build_Process_Project_Validating {
+        public static string Build_Process_Project_Validating {
             get {
                 return ResourceManager.GetString("Build.Process.Project.Validating", resourceCulture);
             }
@@ -263,7 +263,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Creating ClickOnce package from source directory &apos;{0}&apos;.
         /// </summary>
-        internal static string Build_Verb_Create {
+        public static string Build_Verb_Create {
             get {
                 return ResourceManager.GetString("Build.Verb.Create", resourceCulture);
             }
@@ -272,7 +272,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the name of the application manifest file..
         /// </summary>
-        internal static string Help_Arg_ApplicationManifestFile {
+        public static string Help_Arg_ApplicationManifestFile {
             get {
                 return ResourceManager.GetString("Help.Arg.ApplicationManifestFile", resourceCulture);
             }
@@ -281,7 +281,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a valid file name, and should use a .manifest extension..
         /// </summary>
-        internal static string Help_Arg_ApplicationManifestFile_Constraint {
+        public static string Help_Arg_ApplicationManifestFile_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.ApplicationManifestFile.Constraint", resourceCulture);
             }
@@ -290,7 +290,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, a name is inferred from the EntryPoint, e.g. &apos;MyApp.exe.manifest&apos;..
         /// </summary>
-        internal static string Help_Arg_ApplicationManifestFile_Create {
+        public static string Help_Arg_ApplicationManifestFile_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.ApplicationManifestFile.Create", resourceCulture);
             }
@@ -299,7 +299,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies a colon-separated list of globbing patterns to match assemblies to be included..
         /// </summary>
-        internal static string Help_Arg_Assemblies {
+        public static string Help_Arg_Assemblies {
             get {
                 return ResourceManager.GetString("Help.Arg.Assemblies", resourceCulture);
             }
@@ -308,7 +308,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the certificate password..
         /// </summary>
-        internal static string Help_Arg_CertificatePassword {
+        public static string Help_Arg_CertificatePassword {
             get {
                 return ResourceManager.GetString("Help.Arg.CertificatePassword", resourceCulture);
             }
@@ -317,7 +317,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the source of the certificate to use for signing. If omitted, the ClickOnce package will not be signed. Must be either be a path to a .pfx file, or stored certificate in the form Type\StoreName\CommonName, e.g. &apos;User\My\Certificate&apos;..
         /// </summary>
-        internal static string Help_Arg_CertificateSource {
+        public static string Help_Arg_CertificateSource {
             get {
                 return ResourceManager.GetString("Help.Arg.CertificateSource", resourceCulture);
             }
@@ -326,7 +326,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Boolean. Specifies whether a shortcut to the application should be added to the user&apos;s desktop&apos;. Has no effect if LaunchMode is &apos;url&apos;..
         /// </summary>
-        internal static string Help_Arg_CreateDesktopShortcut {
+        public static string Help_Arg_CreateDesktopShortcut {
             get {
                 return ResourceManager.GetString("Help.Arg.CreateDesktopShortcut", resourceCulture);
             }
@@ -335,7 +335,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to false..
         /// </summary>
-        internal static string Help_Arg_CreateDesktopShortcut_Create {
+        public static string Help_Arg_CreateDesktopShortcut_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.CreateDesktopShortcut.Create", resourceCulture);
             }
@@ -344,7 +344,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the culture of the application..
         /// </summary>
-        internal static string Help_Arg_Culture {
+        public static string Help_Arg_Culture {
             get {
                 return ResourceManager.GetString("Help.Arg.Culture", resourceCulture);
             }
@@ -353,7 +353,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be &apos;neutral&apos; or a valid culture (e.g. &apos;en-GB&apos;)..
         /// </summary>
-        internal static string Help_Arg_Culture_Constraint {
+        public static string Help_Arg_Culture_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.Culture.Constraint", resourceCulture);
             }
@@ -362,7 +362,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, the culture of the EntryPoint is used..
         /// </summary>
-        internal static string Help_Arg_Culture_Create {
+        public static string Help_Arg_Culture_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Culture.Create", resourceCulture);
             }
@@ -371,7 +371,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies a colon-separated list of globbing patterns to match data files to be included..
         /// </summary>
-        internal static string Help_Arg_DataFiles {
+        public static string Help_Arg_DataFiles {
             get {
                 return ResourceManager.GetString("Help.Arg.DataFiles", resourceCulture);
             }
@@ -380,7 +380,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the name of the deployment manifest file..
         /// </summary>
-        internal static string Help_Arg_DeploymentManifestFile {
+        public static string Help_Arg_DeploymentManifestFile {
             get {
                 return ResourceManager.GetString("Help.Arg.DeploymentManifestFile", resourceCulture);
             }
@@ -389,7 +389,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a valid file name, and should use an .application extension..
         /// </summary>
-        internal static string Help_Arg_DeploymentManifestFile_Constraint {
+        public static string Help_Arg_DeploymentManifestFile_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.DeploymentManifestFile.Constraint", resourceCulture);
             }
@@ -398,7 +398,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specifed, a name is inferred from the EntryPoint, e.g. &apos;MyApp.application&apos;..
         /// </summary>
-        internal static string Help_Arg_DeploymentManifestFile_Create {
+        public static string Help_Arg_DeploymentManifestFile_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.DeploymentManifestFile.Create", resourceCulture);
             }
@@ -407,7 +407,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if UpdateMode is any value other than &apos;off&apos;..
         /// </summary>
-        internal static string Help_Arg_DeploymentUrl {
+        public static string Help_Arg_DeploymentUrl {
             get {
                 return ResourceManager.GetString("Help.Arg.DeploymentUrl", resourceCulture);
             }
@@ -416,7 +416,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
         /// </summary>
-        internal static string Help_Arg_DeploymentUrl_Constraint {
+        public static string Help_Arg_DeploymentUrl_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.DeploymentUrl.Constraint", resourceCulture);
             }
@@ -425,7 +425,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies a description for the application..
         /// </summary>
-        internal static string Help_Arg_Description {
+        public static string Help_Arg_Description {
             get {
                 return ResourceManager.GetString("Help.Arg.Description", resourceCulture);
             }
@@ -434,7 +434,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the application assembly that starts when the application is run..
         /// </summary>
-        internal static string Help_Arg_EntryPoint {
+        public static string Help_Arg_EntryPoint {
             get {
                 return ResourceManager.GetString("Help.Arg.EntryPoint", resourceCulture);
             }
@@ -443,7 +443,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be an .exe file targetting net20 onwards..
         /// </summary>
-        internal static string Help_Arg_EntryPoint_Constraint {
+        public static string Help_Arg_EntryPoint_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.EntryPoint.Constraint", resourceCulture);
             }
@@ -452,7 +452,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, the source directory is recursively searched for managed executables. If exactly one is found, it will be assigned to be the entry point..
         /// </summary>
-        internal static string Help_Arg_EntryPoint_Create {
+        public static string Help_Arg_EntryPoint_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.EntryPoint.Create", resourceCulture);
             }
@@ -461,7 +461,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the URL of the web page that is displayed in dialog boxes during ClickOnce installation..
         /// </summary>
-        internal static string Help_Arg_ErrorUrl {
+        public static string Help_Arg_ErrorUrl {
             get {
                 return ResourceManager.GetString("Help.Arg.ErrorUrl", resourceCulture);
             }
@@ -470,7 +470,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
         /// </summary>
-        internal static string Help_Arg_ErrorUrl_Constraint {
+        public static string Help_Arg_ErrorUrl_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.ErrorUrl.Constraint", resourceCulture);
             }
@@ -479,7 +479,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies a colon-separated list of globbing patterns to match non-assembly files to be included..
         /// </summary>
-        internal static string Help_Arg_Files {
+        public static string Help_Arg_Files {
             get {
                 return ResourceManager.GetString("Help.Arg.Files", resourceCulture);
             }
@@ -488,7 +488,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the application icon file. This is used for the Start Menu and Add/Remove Programs dialog..
         /// </summary>
-        internal static string Help_Arg_IconFile {
+        public static string Help_Arg_IconFile {
             get {
                 return ResourceManager.GetString("Help.Arg.IconFile", resourceCulture);
             }
@@ -497,7 +497,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be an .ico file..
         /// </summary>
-        internal static string Help_Arg_IconFile_Constraint {
+        public static string Help_Arg_IconFile_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.IconFile.Constraint", resourceCulture);
             }
@@ -506,7 +506,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, the source directory is recursively searched for .ico files. If exactly one is found it is used; othewise, a default icon is used..
         /// </summary>
-        internal static string Help_Arg_IconFile_Create {
+        public static string Help_Arg_IconFile_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.IconFile.Create", resourceCulture);
             }
@@ -515,7 +515,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies whether the application can be launched from the Start menu, from a URL, or both. Also allows browser-hosted deployments (Internet Explorer only)..
         /// </summary>
-        internal static string Help_Arg_LaunchMode {
+        public static string Help_Arg_LaunchMode {
             get {
                 return ResourceManager.GetString("Help.Arg.LaunchMode", resourceCulture);
             }
@@ -524,7 +524,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be one of &apos;start&apos;, &apos;url&apos;, &apos;both&apos;, &apos;browser&apos;..
         /// </summary>
-        internal static string Help_Arg_LaunchMode_Constraint {
+        public static string Help_Arg_LaunchMode_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.LaunchMode.Constraint", resourceCulture);
             }
@@ -533,7 +533,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to &apos;both&apos;..
         /// </summary>
-        internal static string Help_Arg_LaunchMode_Create {
+        public static string Help_Arg_LaunchMode_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.LaunchMode.Create", resourceCulture);
             }
@@ -542,7 +542,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the minimum version the user must update to when starting the application. Has no effect is LaunchMode is &apos;url&apos; or UpdateMode is &apos;none&apos;..
         /// </summary>
-        internal static string Help_Arg_MinimumVersion {
+        public static string Help_Arg_MinimumVersion {
             get {
                 return ResourceManager.GetString("Help.Arg.MinimumVersion", resourceCulture);
             }
@@ -551,16 +551,16 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a dotted version number with 1 to 4 elements, each less than 63356. Must be equal to or lower than Version..
         /// </summary>
-        internal static string Help_Arg_MinimumVersion_Constraint {
+        public static string Help_Arg_MinimumVersion_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.MinimumVersion.Constraint", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specifies the name of the application. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box..
+        ///   Looks up a localized string similar to Specifies the name of the application. This is used for the application and deployment manifest file names and the packge folder name..
         /// </summary>
-        internal static string Help_Arg_Name {
+        public static string Help_Arg_Name {
             get {
                 return ResourceManager.GetString("Help.Arg.Name", resourceCulture);
             }
@@ -569,7 +569,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, a name is inferred from the EntryPoint..
         /// </summary>
-        internal static string Help_Arg_Name_Create {
+        public static string Help_Arg_Name_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Name.Create", resourceCulture);
             }
@@ -578,7 +578,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies a description of the OsVersion..
         /// </summary>
-        internal static string Help_Arg_OsDescription {
+        public static string Help_Arg_OsDescription {
             get {
                 return ResourceManager.GetString("Help.Arg.OsDescription", resourceCulture);
             }
@@ -587,7 +587,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, a value is inferred from the OsVersion..
         /// </summary>
-        internal static string Help_Arg_OsDescription_Create {
+        public static string Help_Arg_OsDescription_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.OsDescription.Create", resourceCulture);
             }
@@ -596,7 +596,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies a support URL for the OsVersion..
         /// </summary>
-        internal static string Help_Arg_OsSupportUrl {
+        public static string Help_Arg_OsSupportUrl {
             get {
                 return ResourceManager.GetString("Help.Arg.OsSupportUrl", resourceCulture);
             }
@@ -605,7 +605,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
         /// </summary>
-        internal static string Help_Arg_OsSupportUrl_Constraint {
+        public static string Help_Arg_OsSupportUrl_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.OsSupportUrl.Constraint", resourceCulture);
             }
@@ -614,7 +614,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the minimum required operating system (OS) version required by the application. For example, the value &apos;5.1.2600.0&apos; indicates the operating system is Windows XP..
         /// </summary>
-        internal static string Help_Arg_OsVersion {
+        public static string Help_Arg_OsVersion {
             get {
                 return ResourceManager.GetString("Help.Arg.OsVersion", resourceCulture);
             }
@@ -623,7 +623,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a dotted version number with 2 to 4 elements. The first 2 elements must match a known Windows version (e.g. &apos;6.0&apos; for Windows Vista)..
         /// </summary>
-        internal static string Help_Arg_OsVersion_Constraint {
+        public static string Help_Arg_OsVersion_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.OsVersion.Constraint", resourceCulture);
             }
@@ -632,7 +632,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, the value is inferred from the TargetFramework..
         /// </summary>
-        internal static string Help_Arg_OsVersion_Create {
+        public static string Help_Arg_OsVersion_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.OsVersion.Create", resourceCulture);
             }
@@ -641,7 +641,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies which manifests to create..
         /// </summary>
-        internal static string Help_Arg_PackageMode {
+        public static string Help_Arg_PackageMode {
             get {
                 return ResourceManager.GetString("Help.Arg.PackageMode", resourceCulture);
             }
@@ -650,7 +650,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be one of &apos;none&apos;, &apos;application&apos;, &apos;deployment&apos;, &apos;both&apos;..
         /// </summary>
-        internal static string Help_Arg_PackageMode_Constraint {
+        public static string Help_Arg_PackageMode_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.PackageMode.Constraint", resourceCulture);
             }
@@ -659,7 +659,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If &apos;none&apos;, only validation of supplied arguments is performed. If not specified, defaults to &apos;both&apos;..
         /// </summary>
-        internal static string Help_Arg_PackageMode_Create {
+        public static string Help_Arg_PackageMode_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.PackageMode.Create", resourceCulture);
             }
@@ -668,7 +668,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the path under the Target where the application package will be created. This should incorporate the Version number so that multiple versions can be published..
         /// </summary>
-        internal static string Help_Arg_PackagePath {
+        public static string Help_Arg_PackagePath {
             get {
                 return ResourceManager.GetString("Help.Arg.PackagePath", resourceCulture);
             }
@@ -677,7 +677,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, a value is inferred from the EntryPoint, e.g. &apos;Application Files/MyApp_1_0_0_0&apos;..
         /// </summary>
-        internal static string Help_Arg_PackagePath_Create {
+        public static string Help_Arg_PackagePath_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.PackagePath.Create", resourceCulture);
             }
@@ -686,7 +686,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the target platform of the application..
         /// </summary>
-        internal static string Help_Arg_Platform {
+        public static string Help_Arg_Platform {
             get {
                 return ResourceManager.GetString("Help.Arg.Platform", resourceCulture);
             }
@@ -695,7 +695,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be one of &apos;AnyCPU&apos;, &apos;x86&apos;, &apos;x64&apos;, &apos;Itanium&apos;..
         /// </summary>
-        internal static string Help_Arg_Platform_Constraint {
+        public static string Help_Arg_Platform_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.Platform.Constraint", resourceCulture);
             }
@@ -704,16 +704,34 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, the target platform will be inferred from the EntryPoint. Note, setting this value can cause ClickOnce validation errors if the specified value does not match the entry assembly, therefore it is recommended to leave this option unset..
         /// </summary>
-        internal static string Help_Arg_Platform_Create {
+        public static string Help_Arg_Platform_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Platform.Create", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifies the name of the product. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box..
+        /// </summary>
+        public static string Help_Arg_Product {
+            get {
+                return ResourceManager.GetString("Help.Arg.Product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to the Name..
+        /// </summary>
+        public static string Help_Arg_Product_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.Product.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specifies the publisher of the application. This name is used for the folder name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box..
         /// </summary>
-        internal static string Help_Arg_Publisher {
+        public static string Help_Arg_Publisher {
             get {
                 return ResourceManager.GetString("Help.Arg.Publisher", resourceCulture);
             }
@@ -722,7 +740,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, a publisher is inferred from the EntryPoint..
         /// </summary>
-        internal static string Help_Arg_Publisher_Create {
+        public static string Help_Arg_Publisher_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Publisher.Create", resourceCulture);
             }
@@ -731,7 +749,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Boolean. Displays only minimal information when the ClickOnce package is built..
         /// </summary>
-        internal static string Help_Arg_Quiet {
+        public static string Help_Arg_Quiet {
             get {
                 return ResourceManager.GetString("Help.Arg.Quiet", resourceCulture);
             }
@@ -740,7 +758,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to false..
         /// </summary>
-        internal static string Help_Arg_Quiet_Create {
+        public static string Help_Arg_Quiet_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Quiet.Create", resourceCulture);
             }
@@ -749,7 +767,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the base directory for all source globbing patterns..
         /// </summary>
-        internal static string Help_Arg_Source {
+        public static string Help_Arg_Source {
             get {
                 return ResourceManager.GetString("Help.Arg.Source", resourceCulture);
             }
@@ -758,7 +776,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to the current directory..
         /// </summary>
-        internal static string Help_Arg_Source_Create {
+        public static string Help_Arg_Source_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Source.Create", resourceCulture);
             }
@@ -767,7 +785,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the name of the suite to which the application belongs. If specified, this determines the folder on the Start menu where the application is located after deployment..
         /// </summary>
-        internal static string Help_Arg_Suite {
+        public static string Help_Arg_Suite {
             get {
                 return ResourceManager.GetString("Help.Arg.Suite", resourceCulture);
             }
@@ -776,7 +794,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the URL of the web page that is displayed in the Add or Remove Programs dialog box for the application..
         /// </summary>
-        internal static string Help_Arg_SupportUrl {
+        public static string Help_Arg_SupportUrl {
             get {
                 return ResourceManager.GetString("Help.Arg.SupportUrl", resourceCulture);
             }
@@ -785,7 +803,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
         /// </summary>
-        internal static string Help_Arg_SupportUrl_Constraint {
+        public static string Help_Arg_SupportUrl_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.SupportUrl.Constraint", resourceCulture);
             }
@@ -794,7 +812,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the source directory. This directory will be automatically excluded from all source globbing patterns..
         /// </summary>
-        internal static string Help_Arg_Target {
+        public static string Help_Arg_Target {
             get {
                 return ResourceManager.GetString("Help.Arg.Target", resourceCulture);
             }
@@ -803,7 +821,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to &apos;publish&apos;..
         /// </summary>
-        internal static string Help_Arg_Target_Create {
+        public static string Help_Arg_Target_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Target.Create", resourceCulture);
             }
@@ -812,7 +830,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the target framework of the application. Only .Net Framework targets net20 through to net48 are valid..
         /// </summary>
-        internal static string Help_Arg_TargetFramework {
+        public static string Help_Arg_TargetFramework {
             get {
                 return ResourceManager.GetString("Help.Arg.TargetFramework", resourceCulture);
             }
@@ -821,7 +839,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a net framework from &apos;net20&apos; onwards..
         /// </summary>
-        internal static string Help_Arg_TargetFramework_Constraint {
+        public static string Help_Arg_TargetFramework_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.TargetFramework.Constraint", resourceCulture);
             }
@@ -830,7 +848,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to &apos;net472&apos;..
         /// </summary>
-        internal static string Help_Arg_TargetFramework_Create {
+        public static string Help_Arg_TargetFramework_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.TargetFramework.Create", resourceCulture);
             }
@@ -839,7 +857,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specify trust information. Must be one of: &apos;full&apos;, &apos;intranet&apos;, &apos;internet&apos;, or a path to an XML file containing custom trust info..
         /// </summary>
-        internal static string Help_Arg_TrustInfo {
+        public static string Help_Arg_TrustInfo {
             get {
                 return ResourceManager.GetString("Help.Arg.TrustInfo", resourceCulture);
             }
@@ -848,7 +866,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Boolean. Specifies whether URL query-string parameters should be made available to the application. Has no effect if LaunchMode is &apos;start&apos;..
         /// </summary>
-        internal static string Help_Arg_TrustUrlParameters {
+        public static string Help_Arg_TrustUrlParameters {
             get {
                 return ResourceManager.GetString("Help.Arg.TrustUrlParameters", resourceCulture);
             }
@@ -857,7 +875,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to false..
         /// </summary>
-        internal static string Help_Arg_TrustUrlParameters_Create {
+        public static string Help_Arg_TrustUrlParameters_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.TrustUrlParameters.Create", resourceCulture);
             }
@@ -866,7 +884,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies how application updates should be deployed..
         /// </summary>
-        internal static string Help_Arg_UpdateMode {
+        public static string Help_Arg_UpdateMode {
             get {
                 return ResourceManager.GetString("Help.Arg.UpdateMode", resourceCulture);
             }
@@ -875,7 +893,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be one of &apos;none&apos;, &apos;starting&apos;, &apos;started&apos;, or a number of hours, weeks or days (e.g. &apos;1w&apos;). Only one unit can be specifed, and the interval cannot describe more than 1 year, regardless of unit..
         /// </summary>
-        internal static string Help_Arg_UpdateMode_Constraint {
+        public static string Help_Arg_UpdateMode_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.UpdateMode.Constraint", resourceCulture);
             }
@@ -884,7 +902,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to &apos;none&apos;..
         /// </summary>
-        internal static string Help_Arg_UpdateMode_Create {
+        public static string Help_Arg_UpdateMode_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.UpdateMode.Create", resourceCulture);
             }
@@ -893,7 +911,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Boolean. Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest..
         /// </summary>
-        internal static string Help_Arg_UseApplicationTrust {
+        public static string Help_Arg_UseApplicationTrust {
             get {
                 return ResourceManager.GetString("Help.Arg.UseApplicationTrust", resourceCulture);
             }
@@ -902,7 +920,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to false..
         /// </summary>
-        internal static string Help_Arg_UseApplicationTrust_Create {
+        public static string Help_Arg_UseApplicationTrust_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.UseApplicationTrust.Create", resourceCulture);
             }
@@ -911,7 +929,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Boolean. Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment..
         /// </summary>
-        internal static string Help_Arg_UseDeployExtension {
+        public static string Help_Arg_UseDeployExtension {
             get {
                 return ResourceManager.GetString("Help.Arg.UseDeployExtension", resourceCulture);
             }
@@ -920,7 +938,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to false..
         /// </summary>
-        internal static string Help_Arg_UseDeployExtension_Create {
+        public static string Help_Arg_UseDeployExtension_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.UseDeployExtension.Create", resourceCulture);
             }
@@ -929,7 +947,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Boolean. Displays extra information when the ClickOnce package is built..
         /// </summary>
-        internal static string Help_Arg_Verbose {
+        public static string Help_Arg_Verbose {
             get {
                 return ResourceManager.GetString("Help.Arg.Verbose", resourceCulture);
             }
@@ -938,7 +956,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, defaults to false..
         /// </summary>
-        internal static string Help_Arg_Verbose_Create {
+        public static string Help_Arg_Verbose_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Verbose.Create", resourceCulture);
             }
@@ -947,7 +965,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Specifies the version of the deployment. This need not be (and usually isn&apos;t) the same as the version of the application..
         /// </summary>
-        internal static string Help_Arg_Version {
+        public static string Help_Arg_Version {
             get {
                 return ResourceManager.GetString("Help.Arg.Version", resourceCulture);
             }
@@ -956,7 +974,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Must be a dotted version number with 1 to 4 elements, each less than 63356..
         /// </summary>
-        internal static string Help_Arg_Version_Constraint {
+        public static string Help_Arg_Version_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.Version.Constraint", resourceCulture);
             }
@@ -965,7 +983,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specified, the version number of the EntryPoint is used..
         /// </summary>
-        internal static string Help_Arg_Version_Create {
+        public static string Help_Arg_Version_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Version.Create", resourceCulture);
             }
@@ -974,7 +992,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to If not specifed and UpdateMode is not &apos;none&apos;, defaults to Version..
         /// </summary>
-        internal static string Help_Args_MinimumVersion_Create {
+        public static string Help_Args_MinimumVersion_Create {
             get {
                 return ResourceManager.GetString("Help.Args.MinimumVersion.Create", resourceCulture);
             }
@@ -983,7 +1001,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Configure default argument values..
         /// </summary>
-        internal static string Help_Verb_Configure {
+        public static string Help_Verb_Configure {
             get {
                 return ResourceManager.GetString("Help.Verb.Configure", resourceCulture);
             }
@@ -992,7 +1010,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Create a ClickOnce package from scratch..
         /// </summary>
-        internal static string Help_Verb_Create {
+        public static string Help_Verb_Create {
             get {
                 return ResourceManager.GetString("Help.Verb.Create", resourceCulture);
             }
@@ -1001,7 +1019,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to done..
         /// </summary>
-        internal static string Result_Done {
+        public static string Result_Done {
             get {
                 return ResourceManager.GetString("Result.Done", resourceCulture);
             }
@@ -1010,7 +1028,7 @@ namespace ClickOnce.Resources {
         /// <summary>
         ///   Looks up a localized string similar to none found..
         /// </summary>
-        internal static string Result_NoneFound {
+        public static string Result_NoneFound {
             get {
                 return ResourceManager.GetString("Result.NoneFound", resourceCulture);
             }

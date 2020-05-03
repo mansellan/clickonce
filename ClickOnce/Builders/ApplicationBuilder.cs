@@ -13,7 +13,7 @@ namespace ClickOnce
             {
                 IsClickOnceManifest = true,
                 ReadOnly = false,
-                Product = project.UseApplicationTrust.Value ? project.Name.Value : null,
+                Product = project.UseApplicationTrust.Value ? project.Product.Value : null,
                 Publisher = project.UseApplicationTrust.Value ? project.Publisher.Value : null,
                 Description = project.Description.Value,
                 SuiteName = project.Suite.Value,
@@ -149,16 +149,16 @@ namespace ClickOnce
                 return false;
             }
 
-            CopyFile(source, project);
+            CopyFile(source, target, project);
             Logger.Normal(source, 1);
             return true;
         }
 
-        private static void CopyFile(string source, Project project)
+        private static void CopyFile(string source, string target, Project project)
         {
             if (source is null) return;
 
-            var target = Path.Combine(project.PackagePath.RootedPath, Path.GetFileName(source));
+            target = Path.Combine(project.PackagePath.RootedPath, target);
 
             if (project.UseDeployExtension.Value)
             {

@@ -28,6 +28,8 @@ namespace ClickOnce
 
         public override string Name => entryPointAssembly.Value?.GetName().Name;
 
+        public override string Product => project.Name?.Value ?? Name;
+
         public override string Version => entryPointAssembly.Value?.GetName().Version.ToString();
 
         public override string Publisher => GetAssemblyAttribute<AssemblyCompanyAttribute>() ?? entryPointAssembly.Value?.GetName().Name;

@@ -26,7 +26,7 @@ namespace ClickOnce
                     TargetPath = Path.Combine(project.PackagePath.Value, project.ApplicationManifestFile.Value),
                     AssemblyIdentity = AssemblyIdentity.FromManifest(project.ApplicationManifestFile.RootedPath)
                 },
-                Product = project.Name.Value,
+                Product = project.Product.Value,
                 SuiteName = project.Suite.Value,
                 Publisher = project.Publisher.Value,
                 Description = project.Description.Value,

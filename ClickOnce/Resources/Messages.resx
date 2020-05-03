@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Help.Arg.Name" xml:space="preserve">
-    <value>Specifies the name of the application. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box.</value>
+    <value>Specifies the name of the application. This is used for the application and deployment manifest file names and the packge folder name.</value>
   </data>
   <data name="Help.Arg.Source" xml:space="preserve">
     <value>Specifies the base directory for all source globbing patterns.</value>
@@ -433,6 +433,12 @@ See license text for details (MIT)</value>
   </data>
   <data name="Help.Args.MinimumVersion.Create" xml:space="preserve">
     <value>If not specifed and UpdateMode is not 'none', defaults to Version.</value>
+  </data>
+  <data name="Help.Arg.Product" xml:space="preserve">
+    <value>Specifies the name of the product. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box.</value>
+  </data>
+  <data name="Help.Arg.Product.Create" xml:space="preserve">
+    <value>If not specified, defaults to the Name.</value>
   </data>
   <data name="Help.Verb.Configure" xml:space="preserve">
     <value>Configure default argument values.</value>

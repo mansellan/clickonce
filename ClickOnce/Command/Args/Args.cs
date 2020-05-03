@@ -35,6 +35,11 @@ namespace ClickOnce
         private string name;
         public static string Help_Arg_Name => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_Product), ResourceType = typeof(Args))]
+        public virtual string Product { get => product; set => SetValue(value, ref product); }
+        private string product;
+        public static string Help_Arg_Product => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_Version), ResourceType = typeof(Args))]
         [RegularExpression(RegExPatterns.AssemblyVersionNumber, ErrorMessageResourceName = nameof(Messages.Help_Arg_Version_Constraint), ErrorMessageResourceType = typeof(Messages))]
         public virtual string Version { get => version; set => SetValue(value, ref version); }
@@ -222,7 +227,8 @@ namespace ClickOnce
 
         protected void SetValue<T>(T value, ref T backingField, [CallerMemberName] string caller = null)
         {
-            if (caller is null) return;
+            if (caller is null) 
+                return;
 
             Validator.ValidateProperty(value, new ValidationContext(this) { MemberName = caller });
 
