@@ -13,16 +13,9 @@ namespace ClickOnce
             {
                 IsClickOnceManifest = true,
                 ReadOnly = false,
-                Product = project.UseApplicationTrust.Value ? project.Product.Value : null,
-                Publisher = project.UseApplicationTrust.Value ? project.Publisher.Value : null,
-                Description = project.Description.Value,
-                SuiteName = project.Suite.Value,
-                ErrorReportUrl = project.ErrorUrl.Value,
-                SupportUrl = project.SupportUrl.Value,
                 OSVersion =  project.OsVersion.Value, // If null, defaults to 4.10.0.0 (Windows 98!)
                 OSDescription = project.OsDescription.Value,
                 OSSupportUrl = project.OsSupportUrl.Value,
-                IconFile = project.IconFile.Value, 
                 TargetFrameworkVersion = project.TargetFramework.Version,
                 HostInBrowser = project.LaunchMode.Value == LaunchMode.Browser, // Internet explorer only :-)
                 AssemblyIdentity = new AssemblyIdentity
@@ -37,6 +30,17 @@ namespace ClickOnce
                 TrustInfo = new TrustInfo()
             };
 
+            if (project.UseApplicationTrust.Value)
+            {
+                application.IconFile = project.IconFile.Value;
+                application.Publisher = project.Publisher.Value;
+                application.SuiteName = project.Suite.Value;
+                application.Product = project.Product.Value;
+                application.SupportUrl = project.SupportUrl.Value;
+                application.ErrorReportUrl = project.ErrorUrl.Value;
+                application.Description = project.Description.Value;
+            }
+
             application.AddEntryPoint(project);
             application.AddIconFile(project);
             application.AddGlob(project, project.Assemblies);
@@ -44,7 +48,7 @@ namespace ClickOnce
             application.AddGlob(project, project.DataFiles);
 
             application.ResolveFiles();
-            application.UpdateFileInfo();
+            application.UpdateFileInfo(project.TargetFramework.Version);
 
             Logger.Quiet(Messages.Build_Process_Application);
             application.Validate();
@@ -54,7 +58,7 @@ namespace ClickOnce
                 return;
 
             Directory.CreateDirectory(Path.GetDirectoryName(project.ApplicationManifestFile.RootedPath));
-            ManifestWriter.WriteManifest(application, project.ApplicationManifestFile.RootedPath);
+            ManifestWriter.WriteManifest(application, project.ApplicationManifestFile.RootedPath, project.TargetFramework.Version);
             Logger.Quiet(Messages.Build_Process_Manifest, 1, 2, project.ApplicationManifestFile.RootedPath);
 
         }

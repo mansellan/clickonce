@@ -48,7 +48,7 @@ namespace ClickOnce
 
             deployment.AssemblyReferences.Add(deployment.EntryPoint);
             deployment.ResolveFiles();
-            deployment.UpdateFileInfo();
+            deployment.UpdateFileInfo(project.TargetFramework.Version);
 
             Logger.Quiet(Messages.Build_Process_Deployment);
             deployment.Validate();
@@ -58,7 +58,7 @@ namespace ClickOnce
                 return;
 
             Directory.CreateDirectory(Path.GetDirectoryName(project.DeploymentManifestFile.RootedPath));
-            ManifestWriter.WriteManifest(deployment, project.DeploymentManifestFile.RootedPath);
+            ManifestWriter.WriteManifest(deployment, project.DeploymentManifestFile.RootedPath, project.TargetFramework.Version);
             File.Copy(project.DeploymentManifestFile.RootedPath, Path.Combine(project.PackagePath.RootedPath, Path.GetFileName(project.DeploymentManifestFile.Value)), true);
             Logger.Quiet(Messages.Build_Process_Manifest, 1, 2, project.DeploymentManifestFile.RootedPath);
         }
