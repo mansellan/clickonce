@@ -126,6 +126,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to add entry point.
+        /// </summary>
+        public static string Build_Exceptions_EntryPoint_Failed {
+            get {
+                return ResourceManager.GetString("Build.Exceptions.EntryPoint.Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to infer entry point, multiple .exe files found.
         /// </summary>
         public static string Build_Exceptions_EntryPoint_Multiple {
@@ -144,7 +153,7 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entry point &apos;{0}&apos; is not a managed assembly.
+        ///   Looks up a localized string similar to Entry point &apos;{0}&apos; is not a .Net Framework executable..
         /// </summary>
         public static string Build_Exceptions_EntryPoint_NotManaged {
             get {
@@ -239,6 +248,15 @@ namespace ClickOnce.Resources {
         public static string Build_Process_IconFile {
             get {
                 return ResourceManager.GetString("Build.Process.IconFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating launcher app....
+        /// </summary>
+        public static string Build_Process_Launcher {
+            get {
+                return ResourceManager.GetString("Build.Process.Launcher", resourceCulture);
             }
         }
         
@@ -923,6 +941,33 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_UseApplicationTrust_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.UseApplicationTrust.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies whether or not a bootstrapper should be created. If &apos;auto&apos;, a bootstrapper will be created if the EntryPoint is not a .Net Framework executable..
+        /// </summary>
+        public static string Help_Arg_UseBootstrapper {
+            get {
+                return ResourceManager.GetString("Help.Arg.UseBootstrapper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be one of &apos;true&apos;, &apos;false&apos;, &apos;auto&apos;..
+        /// </summary>
+        public static string Help_Arg_UseBootstrapper_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.UseBootstrapper.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;auto&apos;..
+        /// </summary>
+        public static string Help_Arg_UseBootstrapper_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.UseBootstrapper.Create", resourceCulture);
             }
         }
         

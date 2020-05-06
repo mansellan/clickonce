@@ -1,4 +1,8 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using ClickOnce.Resources;
 
@@ -19,7 +23,7 @@ namespace ClickOnce
                 : value;
 
         internal static ProcessorArchitecture PlatformConverter(string platform) =>
-            platform.ToLowerInvariant() switch
+            platform?.ToLowerInvariant() switch
             {
                 "anycpu" => ProcessorArchitecture.Msil,
                 "msil" => ProcessorArchitecture.Msil,
@@ -27,8 +31,35 @@ namespace ClickOnce
                 "amd64" => ProcessorArchitecture.Amd64,
                 "x64" => ProcessorArchitecture.Amd64,
                 "itanium" => ProcessorArchitecture.Itanium,
+                null => ProcessorArchitecture.Msil,
                 _ => throw new InvalidEnumArgumentException(nameof(platform))
             };
+
+        internal static string GetAttributeValue<TAttribute>(this Assembly assembly) => 
+            assembly?
+                .CustomAttributes
+                .FirstOrDefault(ca => ca.AttributeType == typeof(TAttribute))?
+                .ConstructorArguments
+                .FirstOrDefault()
+                .Value?
+                .ToString()
+                .EmptyToNull();
+
+        internal static string GetFileInfo(string file, FileInfoKind kind)
+        {
+            if (file is null || !File.Exists(file))
+                return null;
+
+            var versionInfo = FileVersionInfo.GetVersionInfo(file);
+
+            return kind switch
+            {
+                FileInfoKind.ProductVersion => $"{versionInfo.ProductMajorPart}.{versionInfo.ProductMinorPart}.{versionInfo.ProductBuildPart}.{versionInfo.ProductPrivatePart}",
+                FileInfoKind.CompanyName => versionInfo.CompanyName,
+                FileInfoKind.FileDescription => versionInfo.FileDescription,
+                _ => throw new InvalidEnumArgumentException(nameof(kind), (int) kind, typeof(FileInfoKind))
+            };
+        }
     }
 }
 

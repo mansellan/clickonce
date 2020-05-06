@@ -278,9 +278,6 @@ See license text for details (MIT)</value>
   <data name="Build.Verb.Create" xml:space="preserve">
     <value>Creating ClickOnce package from source directory '{0}'</value>
   </data>
-  <data name="Build.Exceptions.EntryPoint.NotManaged" xml:space="preserve">
-    <value>Entry point '{0}' is not a managed assembly</value>
-  </data>
   <data name="Build.Process.Application" xml:space="preserve">
     <value>Processing application...</value>
   </data>
@@ -442,5 +439,23 @@ See license text for details (MIT)</value>
   </data>
   <data name="Help.Verb.Configure" xml:space="preserve">
     <value>Configure default argument values.</value>
+  </data>
+  <data name="Build.Exceptions.EntryPoint.Failed" xml:space="preserve">
+    <value>Unable to add entry point</value>
+  </data>
+  <data name="Build.Process.Launcher" xml:space="preserve">
+    <value>Creating launcher app...</value>
+  </data>
+  <data name="Build.Exceptions.EntryPoint.NotManaged" xml:space="preserve">
+    <value>Entry point '{0}' is not a .Net Framework executable.</value>
+  </data>
+  <data name="Help.Arg.UseBootstrapper" xml:space="preserve">
+    <value>Specifies whether or not a bootstrapper should be created. If 'auto', a bootstrapper will be created if the EntryPoint is not a .Net Framework executable.</value>
+  </data>
+  <data name="Help.Arg.UseBootstrapper.Constraint" xml:space="preserve">
+    <value>Must be one of 'true', 'false', 'auto'.</value>
+  </data>
+  <data name="Help.Arg.UseBootstrapper.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'auto'.</value>
   </data>
 </root>

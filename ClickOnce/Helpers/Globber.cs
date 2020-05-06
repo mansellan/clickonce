@@ -8,8 +8,7 @@ namespace ClickOnce
 {
     internal static class Globber
     {
-
-        internal static IEnumerable<string> Expand(string source, IEnumerable<string> patterns)
+        internal static IEnumerable<string> Expand(string source, params string[] patterns)
         {
             if (patterns is null || !patterns.Any())
                 return Enumerable.Empty<string>();

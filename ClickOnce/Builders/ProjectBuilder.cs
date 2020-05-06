@@ -13,8 +13,7 @@ namespace ClickOnce
                 Logger.Banner();
 
                 var settings = new SettingsArgs(args.Key);
-                var inferred = new InferredArgs(args, settings);
-                var project = new Project(args, settings, inferred);
+                var project = new Project(args, settings);
                 
                 Logger.SetLevel(project.Quiet.Value, project.Verbose.Value);
                 Logger.Normal(GetMessage($"Build.Verb.{args.Key}"), 0, 2, project.Source.RootedPath);

@@ -38,9 +38,9 @@ namespace ClickOnce
             
             Verbose(Messages.Build_Logging_Verbose, 0, 2);
             Verbose(Messages.Build_Args, 0, 2);
-            Group(Messages.Build_Args_CommandLine, args.Where(arg => arg.Source == ArgsSource.CommandLine));
-            Group(Messages.Build_Args_Settings, args.Where(arg => arg.Source == ArgsSource.Settings));
-            Group(Messages.Build_Args_Inferred, args.Where(arg => arg.Source == ArgsSource.Inferred));
+            Group(Messages.Build_Args_CommandLine, args.Where(arg => arg?.Source == ArgsSource.CommandLine));
+            Group(Messages.Build_Args_Settings, args.Where(arg => arg?.Source == ArgsSource.Settings));
+            Group(Messages.Build_Args_Inferred, args.Where(arg => arg?.Source == ArgsSource.Inferred));
 
             void Group(string header, IEnumerable<Option> group)
             {

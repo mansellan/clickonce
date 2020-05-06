@@ -67,12 +67,11 @@ namespace ClickOnce
 
             var path = args.Get<string>(null, name);
 
-            if (path is null || basePath is null)
+            if (path?.Value is null || basePath is null)
                 return null;
 
-            var rootedPath = path?.Value is null
-                ? null
-                : Path.IsPathRooted(path.Value)
+            var rootedPath =
+                Path.IsPathRooted(path.Value)
                     ? path.Value
                     : Path.Combine(basePath, path.Value);
 
@@ -82,7 +81,7 @@ namespace ClickOnce
         public static EnumOption<T> GetEnum<T>(this IEnumerable<Args> args, Func<string, T> converter = null, [CallerMemberName] string name = null) where T : struct, Enum =>
             new EnumOption<T>(args.Get<string>(null, name), converter);
 
-        public static GlobOption GetGlob(this IEnumerable<Args> args, GlobKind kind, string source, string target, string entryPoint, string iconFile, [CallerMemberName] string name = null) =>
-            new GlobOption(args.Get<IEnumerable<string>>(null, name), kind, source, target, entryPoint, iconFile);
+        public static GlobOption GetGlob(this IEnumerable<Args> args, GlobKind kind, string source, string target, [CallerMemberName] string name = null) =>
+            new GlobOption(args.Get<IEnumerable<string>>(null, name), kind, source, target);
     }
 }

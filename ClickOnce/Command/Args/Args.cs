@@ -190,6 +190,12 @@ namespace ClickOnce
         private bool? useDeployExtension;
         public static string Help_Arg_UseDeployExtension => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_UseBootstrapper), ResourceType = typeof(Args))]
+        [RegularExpression(RegExPatterns.UseBootstrapper, ErrorMessageResourceName = nameof(Messages.Help_Arg_UseBootstrapper_Constraint), ErrorMessageResourceType = typeof(Messages))]
+        public virtual string UseBootstrapper { get => useBootstrapper; set => SetValue(value, ref useBootstrapper); }
+        private string useBootstrapper;
+        public static string Help_Arg_UseBootstrapper => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_CreateDesktopShortcut), ResourceType = typeof(Args))]
         public virtual bool? CreateDesktopShortcut { get => createDesktopShortcut; set => SetValue(value, ref createDesktopShortcut); }
         private bool? createDesktopShortcut;

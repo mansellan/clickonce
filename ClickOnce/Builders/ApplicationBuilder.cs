@@ -13,11 +13,12 @@ namespace ClickOnce
             {
                 IsClickOnceManifest = true,
                 ReadOnly = false,
-                OSVersion =  project.OsVersion.Value, // If null, defaults to 4.10.0.0 (Windows 98!)
+                IconFile = project.IconFile.Value,
+                OSVersion =  project.OsVersion.Value,
                 OSDescription = project.OsDescription.Value,
                 OSSupportUrl = project.OsSupportUrl.Value,
                 TargetFrameworkVersion = project.TargetFramework.Version,
-                HostInBrowser = project.LaunchMode.Value == LaunchMode.Browser, // Internet explorer only :-)
+                HostInBrowser = project.LaunchMode.Value == LaunchMode.Browser,
                 AssemblyIdentity = new AssemblyIdentity
                 {
                     Name = Path.GetFileName(project.EntryPoint.Value),
@@ -25,14 +26,12 @@ namespace ClickOnce
                     Culture = project.Culture.Value,
                     ProcessorArchitecture = project.ProcessorArchitecture.Value.ToString().ToLowerInvariant()
                 },
-                EntryPoint = project.GetEntryPoint(),
                 UseApplicationTrust = project.UseApplicationTrust.Value,
                 TrustInfo = new TrustInfo()
             };
 
             if (project.UseApplicationTrust.Value)
             {
-                application.IconFile = project.IconFile.Value;
                 application.Publisher = project.Publisher.Value;
                 application.SuiteName = project.Suite.Value;
                 application.Product = project.Product.Value;
@@ -63,24 +62,6 @@ namespace ClickOnce
 
         }
 
-        private static AssemblyReference GetEntryPoint(this Project project)
-        {
-            var assembly = project.EntryPoint.RootedPath;
-
-            var entryPoint = new AssemblyReference(assembly) {AssemblyIdentity = AssemblyIdentity.FromManagedAssembly(assembly) };
-
-            if (entryPoint.AssemblyIdentity is null)
-            {
-                // TODO - don't throw, make a bootstrapper :-)
-                throw new ApplicationException(string.Format(Messages.Build_Exceptions_EntryPoint_NotManaged, assembly));
-            }
-
-            entryPoint.AssemblyIdentity.Name = Path.GetFileNameWithoutExtension(project.EntryPoint.Value);
-            entryPoint.TargetPath = Path.GetFileName(project.EntryPoint.Value);
-
-            return entryPoint;
-        }
-
         private static void AddGlob(this ApplicationManifest application, Project project, GlobOption glob)
         {
             var any = false;
@@ -99,17 +80,47 @@ namespace ClickOnce
         private static void AddEntryPoint(this ApplicationManifest application, Project project)
         {
             Logger.Normal(Messages.Build_Process_EntryPoint);
-            if (!application.Add(project, project.EntryPoint.RootedPath, project.EntryPoint.Value, GlobKind.Assemblies))
+
+            var assembly = project.EntryPoint.RootedPath;
+            var assemblyIdentity = AssemblyIdentity.FromManagedAssembly(assembly);
+
+            if (assemblyIdentity is null || project.UseBootstrapper.Value == UseBootstrapper.True)
             {
-                Logger.Normal(Messages.Result_NoneFound, 1);
+                if (project.UseBootstrapper.Value == UseBootstrapper.False)
+                {
+                    throw new ApplicationException(string.Format(Messages.Build_Exceptions_EntryPoint_NotManaged, assembly));
+                }
+
+                Logger.Normal(string.Format(Messages.Build_Process_Launcher, assembly), 1);
+                assembly = LauncherBuilder.Build(project);
+                assemblyIdentity = AssemblyIdentity.FromManagedAssembly(assembly);
             }
+
+            if (assemblyIdentity is null)
+            {
+                throw new ApplicationException(Messages.Build_Exceptions_EntryPoint_Failed);
+            }
+
+            var assemblyReference = new AssemblyReference(assembly)
+            {
+                AssemblyIdentity = assemblyIdentity,
+                TargetPath = Path.GetFileName(assembly)
+            };
+
+            if (!application.Add(project, assemblyReference.SourcePath, assemblyReference.TargetPath, GlobKind.Assemblies))
+            {
+                throw new ApplicationException(Messages.Build_Exceptions_EntryPoint_Failed);
+            }
+
+            application.EntryPoint = assemblyReference;
+
             Logger.Normal();
         }
 
         private static void AddIconFile(this ApplicationManifest application, Project project)
         {
             Logger.Normal(Messages.Build_Process_IconFile);
-            if (!application.Add(project, project.IconFile.RootedPath, project.IconFile.Value, GlobKind.Files))
+            if (!application.Add(project, project.IconFile?.RootedPath, project.IconFile?.Value, GlobKind.Files))
             {
                 Logger.Normal(Messages.Result_NoneFound, 1);
             }
@@ -125,7 +136,9 @@ namespace ClickOnce
                 && application.AssemblyReferences.FindTargetPath(target) is null 
                 && application.FileReferences.FindTargetPath(target) is null)
             {
-                if (AssemblyIdentity.FromManagedAssembly(source) is null)
+                var identity = AssemblyIdentity.FromManagedAssembly(source);
+
+                if (identity is null)
                 {
                     Logger.Verbose(Messages.Build_Process_Glob_Skipped, 1, 1, source);
                     return false;
@@ -136,7 +149,7 @@ namespace ClickOnce
                     SourcePath = source,
                     TargetPath = target,
                     AssemblyIdentity = AssemblyIdentity.FromFile(source)
-                });
+            });
             }
             else if (application.AssemblyReferences.FindTargetPath(target) is null 
                      && application.FileReferences.FindTargetPath(target) is null)
@@ -163,6 +176,7 @@ namespace ClickOnce
             if (source is null) return;
 
             target = Path.Combine(project.PackagePath.RootedPath, target);
+            if (source.Equals(target, StringComparison.InvariantCultureIgnoreCase)) return;
 
             if (project.UseDeployExtension.Value)
             {

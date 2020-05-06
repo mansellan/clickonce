@@ -14,7 +14,7 @@ Until there is a complete replacement for for ClickOnce it remains worthwhile su
 
 # At a glance
 * Globbing!
-* Create ClickOnce packages from SDK projects
+* Create ClickOnce packages from SDK projects, native executables and .Net Core applications
 * Able to infer most settings, while retaining full override control
 * Easier and more configurable than Mage
 * Compatible with modern CI platforms
@@ -48,7 +48,8 @@ Copious arguments are available to take full control of manifest generation, lis
 |---|---|
 | Source  | Specifies the base directory for all source globbing patterns. If not specified, defaults to the current directory. |
 | Target | Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the source directory. This directory will be automatically excluded from all source globbing patterns. If not specified, defaults to 'publish'. |
-| Name  | Specifies the name of the application. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box. If not specified, a name is inferred from the EntryPoint.|
+| Name  | Specifies the name of the application. This is used for the application and deployment manifest file names and the packge folder name. If not specified, a name is inferred from the EntryPoint. |
+| Product | Specifies the name of the product. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box. If not specified, defaults to the Name. |
 | Version | Specifies the version of the deployment. This need not be (and usually isn't) the same as the version of the application. Must be a dotted version number with 1 to 4 elements, each less than 63356. If not specified, the version number of the EntryPoint is used. |
 | Suite | Specifies the name of the suite to which the application belongs. If specified, this determines the folder on the Start menu where the application is located after deployment. |
 | Publisher | Specifies the publisher of the application. This name is used for the folder name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box. If not specified, a publisher is inferred from the EntryPoint. |
@@ -76,6 +77,7 @@ Copious arguments are available to take full control of manifest generation, lis
 | MinimumVersion | Specifies the minimum version the user must update to when starting the application. Has no effect is LaunchMode is 'url' or UpdateMode is 'none'. Must be a dotted version number with 1 to 4 elements, each less than 63356. Must be equal to or lower than Version. If not specifed and UpdateMode is not 'none', defaults to Version. |
 | TrustUrlParameters | Boolean. Specifies whether URL query-string parameters should be made available to the application. Has no effect if LaunchMode is 'start'. If not specified, defaults to false. |
 | UseDeployExtension | Boolean. Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment. If not specified, defaults to false. |
+| UseBootstrapper | Specifies whether or not a bootstrapper should be created. If 'auto', a bootstrapper will be created if the EntryPoint is not a .Net Framework executable. Must be one of 'true', 'false', 'auto'. If not specified, defaults to 'auto'. |
 | CreateDesktopShortcut | Boolean. Specifies whether a shortcut to the application should be added to the user's desktop'. Has no effect if LaunchMode is 'url'. If not specified, defaults to false. |
 | UseApplicationTrust | Boolean. Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest. If not specified, defaults to false. |
 | Quiet | Boolean. Displays only minimal information when the ClickOnce package is built. If not specified, defaults to false. |
@@ -84,8 +86,6 @@ Copious arguments are available to take full control of manifest generation, lis
 
 # Future
 This is a fairly contained problem domain, limited explicitly by the [ClickOnce manifest reference](https://docs.microsoft.com/en-us/visualstudio/deployment/clickonce-reference?view=vs-2019). If it's not supported in the manifest, it's not supported by ClickOnce. My aim is to support all edge-cases and (most) conveniences provided by Visual Studio, to provide a complete migration path for existing ClickOnce users. I *think* the [issues list](https://github.com/mansellan/clickonce/issues) represents most of what's needed to achieve this.
-
-That said, there's a fairly obvious extension. ClickOnce applications, once deployed and appropriately permissioned, can launch other processes. That enables it to deploy and manage native apps, and apps running under the .Net Core runtime. See #21.
 
 I also hope to create a UI and CI pipeline [integrations](https://github.com/mansellan/clickonce/issues?q=is%3Aissue+is%3Aopen+label%3Aintegrations) for Visual Studio, Azure DevOps and perhaps others.
 

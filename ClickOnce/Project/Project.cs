@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace ClickOnce
 {
@@ -10,7 +11,7 @@ namespace ClickOnce
 
         internal Project(params Args[] args)
         {
-            this.args = args;
+            this.args = new List<Args>(args) { new InferredArgs(this) };
         }
 
         internal PathOption Source => args.GetPath();
@@ -32,9 +33,9 @@ namespace ClickOnce
         internal StringOption OsDescription => args.GetString();
         internal StringOption OsSupportUrl => args.GetString();
         internal FrameworkOption TargetFramework => args.GetFramework();
-        internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value, EntryPoint.Value, IconFile.Value);
-        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value, EntryPoint.Value, IconFile.Value);
-        internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value, EntryPoint.Value, IconFile.Value);
+        internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value);
+        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value);
+        internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value);
         internal StringOption DeploymentUrl => args.GetString();
         internal StringOption ErrorUrl => args.GetString();
         internal StringOption SupportUrl => args.GetString();
@@ -44,6 +45,7 @@ namespace ClickOnce
         internal VersionOption MinimumVersion => args.GetVersion();
         internal BooleanOption TrustUrlParameters => args.GetBoolean();
         internal BooleanOption UseDeployExtension => args.GetBoolean();
+        internal EnumOption<UseBootstrapper> UseBootstrapper => args.GetEnum<UseBootstrapper>();
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
         //internal StringOption TrustInfo => args.GetString();
@@ -74,7 +76,7 @@ namespace ClickOnce
                 throw new ApplicationException($"Entry point assembly '{EntryPoint}' not found.");
             }
 
-            if (!(IconFile.Value is null) && !File.Exists(IconFile.RootedPath))
+            if (!(IconFile?.Value is null) && !File.Exists(IconFile.RootedPath))
             {
                 throw new ApplicationException($"Icon file '{IconFile}' not found.");
             }
