@@ -47,8 +47,8 @@ Copious arguments are available to take full control of manifest generation, lis
 | Argument | Description |
 |---|---|
 | Source  | Specifies the base directory for all source globbing patterns. If not specified, defaults to the current directory. |
-| Target | Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the source directory. This directory will be automatically excluded from all source globbing patterns. If not specified, defaults to 'publish'. |
-| Name  | Specifies the name of the application. This is used for the application and deployment manifest file names and the packge folder name. If not specified, a name is inferred from the EntryPoint. |
+| Target | Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the Source directory. This directory will be automatically excluded from all source globbing patterns. If not specified, defaults to 'publish'. |
+| Name  | Specifies the name of the application. This is used for the application and deployment manifest file names and the package folder name. If not specified, a name is inferred from the EntryPoint. |
 | Product | Specifies the name of the product. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box. If not specified, defaults to the Name. |
 | Version | Specifies the version of the deployment. This need not be (and usually isn't) the same as the version of the application. Must be a dotted version number with 1 to 4 elements, each less than 63356. If not specified, the version number of the EntryPoint is used. |
 | Suite | Specifies the name of the suite to which the application belongs. If specified, this determines the folder on the Start menu where the application is located after deployment. |
