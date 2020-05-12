@@ -1,0 +1,384 @@
+{
+  "id": "540cd748-7752-4245-936d-d18d292a1000",
+  "name": "clickonce",
+  "friendlyName": "ClickOnce Packager",
+  "description": "Create and update ClickOnce packages",
+  "author": "Andrew Mansell",
+  "helpMarkDown": "[More Information](https://github.com/mansellan/clickonce)",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "17"
+  },
+  "minimumAgentVersion": "2.116.0",
+  "instanceNameFormat": "$(verb) ClickOnce Package",
+  "groups": 
+  [
+	{
+      "name": "description",
+      "displayName": "Description",
+      "isExpanded": true
+    },
+	{
+      "name": "files",
+      "displayName": "Application Files",
+      "isExpanded": true
+    },
+	{
+	  "name": "updates",
+	  "displayName": "Updates",
+	  "isExpanded": true
+	},
+	{
+	  "name": "advanced",
+	  "displayName": "Advanced"
+	}
+  ],
+  "inputs": [
+    {
+      "name": "source",
+      "type": "filePath",
+      "label": "Source Path",
+      "helpMarkDown": "Specifies the base directory for all source globbing patterns."
+    },
+    {
+      "name": "target",
+      "type": "string",
+      "label": "Target Path",
+      "defaultValue": "publish",
+      "required": true,
+      "helpMarkDown": "Specifies the directory to which ClickOnce packages will be published. If a relative path is specified, it will be relative to the Source directory. This directory will be automatically excluded from all source globbing patterns."
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "label": "Version",
+      "helpMarkDown": "Specifies the version of the deployment. This need not be (and usually isn't) the same as the version of the application. Must be a dotted version number with 1 to 4 elements, each less than 63356. If not specified, the version number of the EntryPoint is used."
+    },
+	{
+	  "name": "targetFramework",
+	  "type": "picklist",
+	  "label": "Target Framework",
+	  "required": true,
+	  "defaultValue": "net472",
+	  "helpMarkDown": "Specifies the target framework of the application.",
+	  "options":
+	  {
+		"net20": "net20",
+		"net30": "net30",
+		"net35": "net35",
+		"net40": "net40",
+		"net45": "net45",
+		"net451": "net451",
+		"net452": "net452",
+		"net46": "net46",
+		"net461": "net461",
+		"net462": "net462",
+		"net47": "net47",
+		"net471": "net471",
+		"net472": "net472",
+		"net48": "net48"
+	  }
+	},
+    {
+      "name": "launchMode",
+      "type": "pickList",
+      "label": "Launch Mode",
+      "defaultValue": "both",
+      "required": true,
+      "helpMarkDown": "Specifies whether the application can be launched from the Start menu, from a URL, or both. Also allows browser-hosted deployments (Internet Explorer only).",
+      "options": 
+      {
+        "start": "Launchable from Start menu",
+        "url": "Launchable from a URL",
+        "both": "Launchable from Start menu or a URL",
+        "browser": "Browser-hosted (Internet Explorer only)"
+      }
+    },
+    {
+	  "name": "createDesktopShortcut",
+	  "type": "boolean",
+	  "label": "Create Desktop Shortcut",
+	  "defaultValue": false,
+	  "helpMarkDown": "Specifies whether a shortcut to the application should be added to the user's desktop.",
+      "visibleRule": "launchMode = start || launchMode = both"	  
+	},
+	{
+	  "name": "trustUrlParameters",
+	  "type": "boolean",
+	  "label": "Trust URL parameters",
+	  "defaultValue": true,
+	  "helpMarkDown": "Specifies whether URL query-string parameters should be made available to the application.",
+      "visibleRule": "launchMode = url || launchMode = both"	  
+	},
+	{
+      "name": "product",
+      "type": "string",
+      "label": "Product",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies the name of the product. This name is used for the shortcut name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box. If not specified, defaults to the Identity Name."
+    },
+    {
+      "name": "suite",
+      "type": "string",
+      "label": "Suite",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies the name of the suite to which the application belongs. If specified, this determines the folder on the Start menu where the application is located after deployment."
+    },
+	{
+      "name": "publisher",
+      "type": "string",
+      "label": "Publisher",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies the publisher of the application. This name is used for the folder name on the Start menu and is part of the name that appears in the Add or Remove Programs dialog box. If not specified, a publisher is inferred from the EntryPoint."
+    },
+	{
+      "name": "description",
+      "type": "string",
+      "label": "Description",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies a description for the application."
+    },
+	{
+      "name": "culture",
+      "type": "string",
+      "label": "Culture",
+	  "defaultValue": "neutral",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies the culture of the application. Must be 'neutral' or a valid culture (e.g. 'en-GB'). If not specified, the culture of the EntryPoint is used."
+    },
+	{
+      "name": "errorUrl",
+      "type": "string",
+      "label": "Error URL",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies the URL of the web page that is displayed in dialog boxes during ClickOnce installation. Must be a valid and absolute URI (a URL or a UNC)."
+    },
+	{
+      "name": "supportUrl",
+      "type": "string",
+      "label": "Support URL",
+	  "groupName": "description",
+      "helpMarkDown": "Specifies the URL of the web page that is displayed in the Add or Remove Programs dialog box for the application. Must be a valid and absolute URI (a URL or a UNC)."
+    },
+	{
+	  "name": "entryPoint",
+	  "type": "filePath",
+	  "label": "Entry Point",
+	  "groupName": "files",
+	  "helpMarkDown": "Specifies the application assembly that starts when the application is run. Must be an .exe file. If this is not a .Net Framework assembly, a bootstrapper must be used via the UseBootstrapper option. If not specified, the source directory is recursively searched for .exe files. If exactly one is found, it will be assigned to be the entry point."
+	},
+	{
+	  "name": "iconFile",
+	  "type": "filePath",
+	  "label": "Icon File",
+	  "groupName": "files",
+	  "helpMarkDown": "Specifies the application icon file. This is used for the Start Menu and Add/Remove Programs dialog. Must be an .ico file. If not specified, the source directory is recursively searched for .ico files. If exactly one is found it is used; othewise, a default icon is used."
+	},
+	{
+	  "name": "assemblies",
+	  "type": "multiLine",
+	  "label": "Assemblies",
+	  "groupName": "files",
+	  "defaultValue": "**/*/dll",
+	  "helpMarkDown": "Specifies a list of globbing patterns to match assemblies to be included. Will only consider managed assemblies, hence a pattern of *.dll will exclude native libraries."
+	},
+	{
+	  "name": "files",
+	  "type": "multiLine",
+	  "label": "Files",
+	  "groupName": "files",
+	  "defaultValue": "**/*.dll\r\n**/*.config\r\n**/*.json\r\n**/*.bmp\r\n**/*.jpg\r\n**/*.ico\r\n**/*.gif\r\n**/*.xml\r\n**/*.md",
+	  "helpMarkDown": "Specifies a list of globbing patterns to match non-assembly files to be included."
+	},
+	{
+	  "name": "dataFiles",
+	  "type": "multiLine",
+	  "label": "Data Files",
+	  "groupName": "files",
+	  "defaultValue": "**/*.dat\r\n**/*.user\r\n**/*.mdb",
+	  "helpMarkDown": "Specifies a list of globbing patterns to match data files to be included. These files are considered mutable, and can be migrated between application versions."
+	},
+	{
+	  "name": "updateMode",
+	  "type": "pickList",
+	  "label": "Update Mode",
+	  "groupName": "updates",
+	  "defaultValue": "none",
+	  "helpMarkDown": "Specifies how application updates should be deployed.",
+	  "options":
+	  {
+	    "none": "Do not update application",
+		"starting": "Check before application launches",
+		"started": "Check after application launches",
+		"scheduled": "Check on a scheduled basis"
+	  }
+	},
+	{
+	  "name": "updateInterval",
+	  "type": "string",
+	  "label": "Interval",
+	  "groupName": "updates",
+	  "defaultValue": "7",
+	  "helpMarkDown": "Specfies the update interval.",
+	  "visibleRule": "updateMode = scheduled"
+	},
+	{
+	  "name": "updateUnit",
+	  "type": "pickList",
+	  "label": "Unit",
+	  "groupName": "updates",
+	  "defaultValue": "days",
+	  "helpMarkDown": "Specifies the update unit.",
+	  "visibleRule": "updateMode = scheduled",
+	  "options":
+	  {
+		"hours": "Hour(s)",
+		"days": "Day(s)",
+		"weeks": "Week(s)"
+	  }
+	},
+	{
+	  "name": "updateUrl",
+	  "type": "string",
+	  "label": "Update URL",
+	  "groupName": "updates",
+	  "required": true,
+	  "helpMarkDown": "Specifies the update location for the application. Must be a valid and absolute URI (a URL or a UNC).",
+	  "visibleRule": "updateMode = starting || updateMode = started || updateMode = scheduled"
+	},
+	{
+	  "name": "identity",
+	  "type": "string",
+	  "label": "Identity",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the identity name of the application. This is used for the application and deployment manifest file names and the package folder name. If not specified, a name is inferred from the EntryPoint."
+	},
+	{
+	  "name": "packagePath",
+	  "type": "string",
+	  "label": "Package Path",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the path under the Target where the application package will be created. This should incorporate the Version number so that multiple versions can be published. If not specified, a value is inferred from the EntryPoint, e.g. 'Application Files/MyApp_1_0_0_0'."
+	},
+	{
+	  "name": "platform",
+	  "type": "pickList",
+	  "label": "Platform",
+	  "defaultValue": "auto",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the target platform of the application. Note, setting this value can cause ClickOnce validation errors if the specified value does not match the entry assembly, therefore it is recommended to leave this option unset.",
+	  "options":
+	  {
+	    "auto": "Infer from entry assembly",
+		"anycpu": "AnyCPU",
+		"x86": "x86",
+		"x64": "x64",
+		"itanium": "Itanium"
+	  }
+	},
+	{
+	  "name": "applicationManifestFile",
+	  "type": "string",
+	  "label": "Application Manifest File Name",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the name of the application manifest file. Must be a valid file name, and should use a .manifest extension. If not specified, a name is inferred from the EntryPoint, e.g. 'MyApp.exe.manifest'."
+	},
+	{
+	  "name": "deploymentManifestFile",
+	  "type": "string",
+	  "label": "Deployment Manifest File Name",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the name of the deployment manifest file. Must be a valid file name, and should use an .application extension. If not specifed, a name is inferred from the EntryPoint, e.g. 'MyApp.application'."
+	},
+	{
+	  "name": "osVersion",
+	  "type": "string",
+	  "label": "OS Version",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the minimum required operating system (OS) version required by the application. For example, the value '5.1.2600.0' indicates the operating system is Windows XP. Must be a dotted version number with 2 to 4 elements. The first 2 elements must match a known Windows version (e.g. '6.0' for Windows Vista). If not specified, the value is inferred from the TargetFramework."
+	},
+	{
+	  "name": "osDescription",
+	  "type": "string",
+	  "label": "OS Description",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies a description of the OS Version. If not specified, a value is inferred from the OS Version."
+	},
+	{
+	  "name": "osSupportUrl",
+	  "type": "string",
+	  "label": "OS Support URL",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies a support URL for the OsVersion. Must be a valid and absolute URI (a URL or a UNC)."
+	},
+	{
+	  "name": "packageMode",
+	  "type": "picklist",
+	  "label": "Package Mode",
+	  "defaultValue": "both",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies which manifests to create.",
+	  "options":
+	  {
+		"application": "Create an application manifest only",
+		"deployment": "Create a deployment manifest only",
+		"both": "Create both application and deployment manifests",
+		"none": "Do not create manifests (validation only)"
+	  }
+	},
+	{
+	  "name": "useBootstrapper",
+	  "type": "pickList",
+	  "label": "Bootstrapper",
+	  "defaultValue": "auto",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies whether or not a bootstrapper should be created.",
+	  "options": 
+	  {
+		"always": "Always create a bootstrapper",
+		"never": "Never create a bootstrapper",
+		"auto": "Create a boostrapper if the entry point is not a .Net Framework assembly"
+	  }
+	},
+	{
+	  "name": "useDeployExtension",
+	  "type": "boolean",
+	  "label": "Use .deploy extension",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment."
+	},
+	{
+	  "name": "useApplicationTrust",
+	  "type": "boolean",
+	  "label": "Use Application Trust",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest."
+	},
+	{
+	  "name": "verbosity",
+	  "type": "pickList",
+	  "label": "Log Verbosity",
+	  "defaultValue": "normal",
+	  "groupName": "advanced",
+	  "helpMarkDown": "Specifies the level of logging to emit",
+	  "options":
+	  {
+		"quiet": "Quiet",
+		"normal": "Normal",
+		"verbose": "Verbose"
+	  }
+	}
+  ],
+  "execution": {
+    "Node10": {
+      "target": "clickonce.js"
+    }
+  }
+}
