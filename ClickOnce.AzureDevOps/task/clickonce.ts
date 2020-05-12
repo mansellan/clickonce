@@ -3,9 +3,10 @@ import * as tl from "azure-pipelines-task-lib/task";
 
 
 async function exec(source: string): Promise<number> {
-    const clickOnceToolRunner = tl.tool(path.resolve(__dirname, "./signtool.exe"));
+    const clickOnceToolRunner = tl.tool(path.resolve(__dirname, "./bin/ClickOnce.exe"));
     console.log("Creating ClickOnce package");
 
+    clickOnceToolRunner.arg("create");
     clickOnceToolRunner.arg(["--source", source]);
 
     return clickOnceToolRunner.exec();

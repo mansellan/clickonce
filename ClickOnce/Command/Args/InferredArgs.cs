@@ -39,9 +39,9 @@ namespace ClickOnce
             ?? Utilities.GetFileInfo(project.EntryPoint?.RootedPath, FileInfoKind.ProductVersion);
 
         public override string Publisher =>
-            entryPointAssembly.Value?.GetAttributeValue<AssemblyCompanyAttribute>() 
+            entryPointAssembly.Value?.GetAttributeValue<AssemblyCompanyAttribute>()
             ?? Utilities.GetFileInfo(project.EntryPoint?.RootedPath, FileInfoKind.CompanyName)
-            ?? entryPoint.Value;
+            ?? Name;
 
         public override string Description => 
             entryPointAssembly.Value?.GetAttributeValue<AssemblyDescriptionAttribute>()
@@ -53,7 +53,7 @@ namespace ClickOnce
 
         public override string PackagePath => Path.Combine("Application Files", $"{(project.Name?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
 
-        public override string ApplicationManifestFile => (project.Name?.Value ?? Name + ".exe") + ".manifest";
+        public override string ApplicationManifestFile => (project.Name?.Value ?? Name) + ".exe.manifest";
 
         public override string DeploymentManifestFile => (project.Name?.Value ?? Name) + ".application";
 
@@ -89,6 +89,8 @@ namespace ClickOnce
         public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? project.Version.Value : null;
 
         public override string UseBootstrapper => "auto";
+
+        public override bool? UseDeployExtension => true;
 
         private string GetEntryPoint()
         {

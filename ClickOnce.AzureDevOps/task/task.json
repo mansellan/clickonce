@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "17"
+    "Patch": "25"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "$(verb) ClickOnce Package",
@@ -351,6 +351,7 @@
 	  "name": "useDeployExtension",
 	  "type": "boolean",
 	  "label": "Use .deploy extension",
+	  "default": true,
 	  "groupName": "advanced",
 	  "helpMarkDown": "Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment."
 	},
@@ -358,6 +359,7 @@
 	  "name": "useApplicationTrust",
 	  "type": "boolean",
 	  "label": "Use Application Trust",
+	  "default": false,
 	  "groupName": "advanced",
 	  "helpMarkDown": "Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest."
 	},

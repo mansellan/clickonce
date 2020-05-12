@@ -52,13 +52,15 @@ namespace ClickOnce
 
             var versionInfo = FileVersionInfo.GetVersionInfo(file);
 
-            return kind switch
+            var ret = kind switch
             {
                 FileInfoKind.ProductVersion => $"{versionInfo.ProductMajorPart}.{versionInfo.ProductMinorPart}.{versionInfo.ProductBuildPart}.{versionInfo.ProductPrivatePart}",
                 FileInfoKind.CompanyName => versionInfo.CompanyName,
                 FileInfoKind.FileDescription => versionInfo.FileDescription,
                 _ => throw new InvalidEnumArgumentException(nameof(kind), (int) kind, typeof(FileInfoKind))
             };
+
+            return string.IsNullOrWhiteSpace(ret) ? null : ret;
         }
     }
 }
