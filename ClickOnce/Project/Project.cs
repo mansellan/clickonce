@@ -16,7 +16,7 @@ namespace ClickOnce
 
         internal PathOption Source => args.GetPath();
         internal PathOption Target => args.GetPath();
-        internal StringOption Name => args.GetString();
+        internal StringOption Identity => args.GetString();
         internal StringOption Product => args.GetString();
         internal VersionOption Version => args.GetVersion();
         internal StringOption Suite => args.GetString();
@@ -36,7 +36,7 @@ namespace ClickOnce
         internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value);
         internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value);
         internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value);
-        internal StringOption DeploymentUrl => args.GetString();
+        internal StringOption UpdateUrl => args.GetString();
         internal StringOption ErrorUrl => args.GetString();
         internal StringOption SupportUrl => args.GetString();
         internal EnumOption<PackageMode> PackageMode => args.GetEnum<PackageMode>();
@@ -45,7 +45,7 @@ namespace ClickOnce
         internal VersionOption MinimumVersion => args.GetVersion();
         internal BooleanOption TrustUrlParameters => args.GetBoolean();
         internal BooleanOption UseDeployExtension => args.GetBoolean();
-        internal EnumOption<UseBootstrapper> UseBootstrapper => args.GetEnum<UseBootstrapper>();
+        internal EnumOption<UseLauncher> UseLauncher => args.GetEnum<UseLauncher>();
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
         //internal StringOption TrustInfo => args.GetString();
@@ -81,9 +81,9 @@ namespace ClickOnce
                 throw new ApplicationException($"Icon file '{IconFile}' not found.");
             }
 
-            if (Update.Value.Enabled && DeploymentUrl.Value is null)
+            if (Update.Value.Enabled && UpdateUrl.Value is null)
             {
-                throw new ApplicationException("DeploymentUrl is required if update mode is not 'none'.");
+                throw new ApplicationException("UpdateUrl is required if update mode is not 'none'.");
             }
         }
     }

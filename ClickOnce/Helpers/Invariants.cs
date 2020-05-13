@@ -59,7 +59,7 @@ namespace ClickOnce
         Itanium
     }
 
-    public enum UseBootstrapper
+    public enum UseLauncher
     {
         True,
         False,
@@ -85,7 +85,7 @@ namespace ClickOnce
         internal const string PackageMode = @"[nN][oO][nN][eE]|[aA][pP][pP][lL][iI][cC][aA][tT][iI][oO][nN]|[dD][eE][pP][lL][oO][yY][mM][eE][nN][tT]|[bB][oO][tT][hH]";
         internal const string LaunchMode = @"^[sS][tT][aA][rR][tT]|[uU][rR][lL]|[bB][oO][tT][hH]|[bB][rR][oO][wW][sS][eE][rR]$";
         internal const string UpdateMode = @"^(?:[nN][oO][nN][eE]|[sS][tT][aA][rR][tT](?:[iI][nN][gG]|[eE][dD])|(?:\d{1,3}|[1-7]\d{3}|8[0-6]\d{2}|87[0-5]\d|8760)h|(?:\d{1,2}|[1-2]\d{2}|3[0-5]\d|36[0-5])d|(?:|\d|[1-4]\d|5[0-2])w)$";
-        internal const string UseBootstrapper = @"^[tT][rR][uU][eE]|[fF][aA][lL][sS][eE]|[aA][uU][tT][oO]$";
+        internal const string UseLauncher = @"^[tT][rR][uU][eE]|[fF][aA][lL][sS][eE]|[aA][uU][tT][oO]$";
     }
 
     internal static class WindowsVersions

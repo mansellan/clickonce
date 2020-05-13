@@ -40,8 +40,6 @@
     <Content Include="overview.md" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <Content Include="task\clickonce.js" />
-    <Content Include="task\clickonce.js.map" />
     <Content Include="task\task.json" />
     <Content Include="tsconfig.json" />
     <Content Include="vss-extension.json" />

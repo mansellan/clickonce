@@ -2,8 +2,8 @@
   "profiles": {
     "Orbit": {
       "commandName": "Project",
-      "commandLineArgs": "create --verbose=true --name=MarketSeeder.Test --product=\"Smartodds Market Seeder (Test)\" --publisher=\"Smartodds Ltd\" --suite=\"Market Seeder\"",
-      "workingDirectory": "C:\\Test\\MarketSeeder"
+      "commandLineArgs": "create --verbose=true",
+      "workingDirectory": "C:\\Test\\drop"
     }
   }
 }

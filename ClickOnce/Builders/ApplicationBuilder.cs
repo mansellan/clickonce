@@ -84,9 +84,9 @@ namespace ClickOnce
             var assembly = project.EntryPoint.RootedPath;
             var assemblyIdentity = AssemblyIdentity.FromManagedAssembly(assembly);
 
-            if (assemblyIdentity is null || project.UseBootstrapper.Value == UseBootstrapper.True)
+            if (assemblyIdentity is null || project.UseLauncher.Value == UseLauncher.True)
             {
-                if (project.UseBootstrapper.Value == UseBootstrapper.False)
+                if (project.UseLauncher.Value == UseLauncher.False)
                 {
                     throw new ApplicationException(string.Format(Messages.Build_Exceptions_EntryPoint_NotManaged, assembly));
                 }

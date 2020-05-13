@@ -31,7 +31,7 @@ namespace ClickOnce
                 Publisher = project.Publisher.Value,
                 Description = project.Description.Value,
                 TargetFrameworkMoniker = project.TargetFramework.Moniker,
-                DeploymentUrl = project.DeploymentUrl.Value,
+                DeploymentUrl = project.UpdateUrl.Value,
                 ErrorReportUrl = project.ErrorUrl.Value,
                 SupportUrl = project.SupportUrl.Value,
                 Install = project.LaunchMode.Value.HasFlag(LaunchMode.Start),

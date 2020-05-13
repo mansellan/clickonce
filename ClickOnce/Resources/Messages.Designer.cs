@@ -423,24 +423,6 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if UpdateMode is any value other than &apos;off&apos;..
-        /// </summary>
-        public static string Help_Arg_DeploymentUrl {
-            get {
-                return ResourceManager.GetString("Help.Arg.DeploymentUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
-        /// </summary>
-        public static string Help_Arg_DeploymentUrl_Constraint {
-            get {
-                return ResourceManager.GetString("Help.Arg.DeploymentUrl.Constraint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Specifies a description for the application..
         /// </summary>
         public static string Help_Arg_Description {
@@ -531,6 +513,24 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifies the identity of the application. This is used for the application and deployment manifest file names and the packge folder name..
+        /// </summary>
+        public static string Help_Arg_Identity {
+            get {
+                return ResourceManager.GetString("Help.Arg.Identity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, a name is inferred from the EntryPoint..
+        /// </summary>
+        public static string Help_Arg_Identity_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.Identity.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specifies whether the application can be launched from the Start menu, from a URL, or both. Also allows browser-hosted deployments (Internet Explorer only)..
         /// </summary>
         public static string Help_Arg_LaunchMode {
@@ -572,24 +572,6 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_MinimumVersion_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.MinimumVersion.Constraint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Specifies the name of the application. This is used for the application and deployment manifest file names and the packge folder name..
-        /// </summary>
-        public static string Help_Arg_Name {
-            get {
-                return ResourceManager.GetString("Help.Arg.Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If not specified, a name is inferred from the EntryPoint..
-        /// </summary>
-        public static string Help_Arg_Name_Create {
-            get {
-                return ResourceManager.GetString("Help.Arg.Name.Create", resourceCulture);
             }
         }
         
@@ -927,6 +909,24 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if UpdateMode is any value other than &apos;off&apos;..
+        /// </summary>
+        public static string Help_Arg_UpdateUrl {
+            get {
+                return ResourceManager.GetString("Help.Arg.UpdateUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
+        /// </summary>
+        public static string Help_Arg_UpdateUrl_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.UpdateUrl.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Boolean. Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest..
         /// </summary>
         public static string Help_Arg_UseApplicationTrust {
@@ -945,33 +945,6 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specifies whether or not a bootstrapper should be created. If &apos;auto&apos;, a bootstrapper will be created if the EntryPoint is not a .Net Framework executable..
-        /// </summary>
-        public static string Help_Arg_UseBootstrapper {
-            get {
-                return ResourceManager.GetString("Help.Arg.UseBootstrapper", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Must be one of &apos;true&apos;, &apos;false&apos;, &apos;auto&apos;..
-        /// </summary>
-        public static string Help_Arg_UseBootstrapper_Constraint {
-            get {
-                return ResourceManager.GetString("Help.Arg.UseBootstrapper.Constraint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If not specified, defaults to &apos;auto&apos;..
-        /// </summary>
-        public static string Help_Arg_UseBootstrapper_Create {
-            get {
-                return ResourceManager.GetString("Help.Arg.UseBootstrapper.Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Boolean. Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment..
         /// </summary>
         public static string Help_Arg_UseDeployExtension {
@@ -986,6 +959,33 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_UseDeployExtension_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.UseDeployExtension.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies whether or not a launcher should be created. If &apos;auto&apos;, a launcher will be created if the EntryPoint is not a .Net Framework executable..
+        /// </summary>
+        public static string Help_Arg_UseLauncher {
+            get {
+                return ResourceManager.GetString("Help.Arg.UseLauncher", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be one of &apos;true&apos;, &apos;false&apos;, &apos;auto&apos;..
+        /// </summary>
+        public static string Help_Arg_UseLauncher_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.UseLauncher.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;auto&apos;..
+        /// </summary>
+        public static string Help_Arg_UseLauncher_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.UseLauncher.Create", resourceCulture);
             }
         }
         

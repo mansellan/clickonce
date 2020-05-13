@@ -30,10 +30,10 @@ namespace ClickOnce
         private string target;
         public static string Help_Arg_Target => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_Name), ResourceType = typeof(Args))]
-        public virtual string Name { get => name; set => SetValue(value, ref name); }
-        private string name;
-        public static string Help_Arg_Name => GetHelpText();
+        [Option(HelpText = nameof(Help_Arg_Identity), ResourceType = typeof(Args))]
+        public virtual string Identity { get => identity; set => SetValue(value, ref identity); }
+        private string identity;
+        public static string Help_Arg_Identity => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_Product), ResourceType = typeof(Args))]
         public virtual string Product { get => product; set => SetValue(value, ref product); }
@@ -138,11 +138,11 @@ namespace ClickOnce
         private IEnumerable<string> dataFiles;
         public static string Help_Arg_DataFiles => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_DeploymentUrl), ResourceType = typeof(Args))]
+        [Option(HelpText = nameof(Help_Arg_UpdateUrl), ResourceType = typeof(Args))]
         [Uri]
-        public virtual string DeploymentUrl { get => deploymentUrl; set => SetValue(value, ref deploymentUrl); }
-        private string deploymentUrl;
-        public static string Help_Arg_DeploymentUrl => GetHelpText();
+        public virtual string UpdateUrl { get => updateUrl; set => SetValue(value, ref updateUrl); }
+        private string updateUrl;
+        public static string Help_Arg_UpdateUrl => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_ErrorUrl), ResourceType = typeof(Args))]
         [Uri]
@@ -190,11 +190,11 @@ namespace ClickOnce
         private bool? useDeployExtension;
         public static string Help_Arg_UseDeployExtension => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_UseBootstrapper), ResourceType = typeof(Args))]
-        [RegularExpression(RegExPatterns.UseBootstrapper, ErrorMessageResourceName = nameof(Messages.Help_Arg_UseBootstrapper_Constraint), ErrorMessageResourceType = typeof(Messages))]
-        public virtual string UseBootstrapper { get => useBootstrapper; set => SetValue(value, ref useBootstrapper); }
-        private string useBootstrapper;
-        public static string Help_Arg_UseBootstrapper => GetHelpText();
+        [Option(HelpText = nameof(Help_Arg_UseLauncher), ResourceType = typeof(Args))]
+        [RegularExpression(RegExPatterns.UseLauncher, ErrorMessageResourceName = nameof(Messages.Help_Arg_UseLauncher_Constraint), ErrorMessageResourceType = typeof(Messages))]
+        public virtual string UseLauncher { get => useLauncher; set => SetValue(value, ref useLauncher); }
+        private string useLauncher;
+        public static string Help_Arg_UseLauncher => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_CreateDesktopShortcut), ResourceType = typeof(Args))]
         public virtual bool? CreateDesktopShortcut { get => createDesktopShortcut; set => SetValue(value, ref createDesktopShortcut); }
