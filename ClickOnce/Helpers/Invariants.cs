@@ -14,8 +14,7 @@ namespace ClickOnce
         CommandLine, 
         ProjectFile, 
         Settings, 
-        Inferred, 
-        Default, 
+        Inferred,
         Internal
     }
 
@@ -78,7 +77,7 @@ namespace ClickOnce
         internal const string ExeFile = @"^[\w\-.][\w\-. ]*\.[eE][xX][eE]$";
         internal const string IconFile = @"^[\w\-.][\w\-. ]*\.[iI][cC][oO]$";
         internal const string Platform = @"^[aA][nN][yY][cC][pP][uU]|[xX]86|[xX]64|[iI][tT][aA][nN][iI][uU][mM]$";
-        internal const string AssemblyVersionNumber = @"^(?:\d{1,4}|[0-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-4])(?:\.(?:\d{1,4}|[0-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-4])){0,3}$";
+        internal const string AssemblyVersionNumber = @"^((?:(\d{1,4}|[0-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-4])|(yyyy|yy?(MM?|dd?|hh?|HH?|mm?|ss?)?|MM?(yy?|dd?|hh?|HH?|mm?|ss?)?|dd?(yy?|MM?|hh?|HH?|mm?|ss?)?|hh?(yy?|MM?|dd?|HH?|mm?|ss?)?|HH?(yy?|MM?|dd?|hh?|mm?|ss?)?|mm?(yy?|MM?|dd?|hh?|HH?|ss?)?|ss?(yy?|MM?|dd?|hh?|HH?|mm?)?))(?:\.(?:(\d{1,4}|[0-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-4])|(yyyy|yy?(MM?|dd?|hh?|HH?|mm?|ss?)?|MM?(yy?|dd?|hh?|HH?|mm?|ss?)?|dd?(yy?|MM?|hh?|HH?|mm?|ss?)?|hh?(yy?|MM?|dd?|HH?|mm?|ss?)?|HH?(yy?|MM?|dd?|hh?|mm?|ss?)?|mm?(yy?|MM?|dd?|hh?|HH?|ss?)?|ss?(yy?|MM?|dd?|hh?|HH?|mm?)?))){0,3})$";
         internal const string WindowsVersionNumber = @"^(?:4\.0|4\.1|4\.9|5\.0|5\.1|5\.2|6\.0|6\.1|6\.2|6\.3|10\.0)(?:\.\d{1,5}(?:\.\d{1,5})?)?$";
         internal const string Culture = @"^[nN][eE][uU][tT][rR][aA][lL]|[a-zA-Z]{2}-[a-zA-Z]{2}$";
         internal const string TargetFramework = @"^[nN][oO][nN][eE]|[nN][eE][tT](?:20|30|35|40|403|45|451|452|46|461|462|47|471|472|48\d?)$";
