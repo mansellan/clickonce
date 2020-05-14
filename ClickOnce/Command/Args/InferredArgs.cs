@@ -29,9 +29,9 @@ namespace ClickOnce
 
         public override string Target => "publish";
 
-        public override string Name => Path.GetFileNameWithoutExtension(entryPoint.Value);
+        public override string Identity => Path.GetFileNameWithoutExtension(entryPoint.Value);
 
-        public override string Product => project.Name?.Value ?? Name;
+        public override string Product => project.Identity?.Value ?? Identity;
 
         public override string Version =>
             entryPointAssembly.Value?.GetAttributeValue<AssemblyVersionAttribute>()
@@ -41,7 +41,7 @@ namespace ClickOnce
         public override string Publisher =>
             entryPointAssembly.Value?.GetAttributeValue<AssemblyCompanyAttribute>()
             ?? Utilities.GetFileInfo(project.EntryPoint?.RootedPath, FileInfoKind.CompanyName)
-            ?? Name;
+            ?? Identity;
 
         public override string Description => 
             entryPointAssembly.Value?.GetAttributeValue<AssemblyDescriptionAttribute>()
@@ -51,11 +51,11 @@ namespace ClickOnce
 
         public override string IconFile => iconFile.Value;
 
-        public override string PackagePath => Path.Combine("Application Files", $"{(project.Name?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
+        public override string PackagePath => Path.Combine("Application Files", $"{(project.Identity?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
 
-        public override string ApplicationManifestFile => (project.Name?.Value ?? Name) + ".exe.manifest";
+        public override string ApplicationManifestFile => (project.Identity?.Value ?? Identity) + ".exe.manifest";
 
-        public override string DeploymentManifestFile => (project.Name?.Value ?? Name) + ".application";
+        public override string DeploymentManifestFile => (project.Identity?.Value ?? Identity) + ".application";
 
         public override string Platform =>
             (entryPointAssembly.Value?.GetName().ProcessorArchitecture.ToString()
@@ -88,7 +88,7 @@ namespace ClickOnce
 
         public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? project.Version.Value : null;
 
-        public override string UseBootstrapper => "auto";
+        public override string UseLauncher => "auto";
 
         public override bool? UseDeployExtension => true;
 

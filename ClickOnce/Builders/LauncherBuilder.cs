@@ -32,7 +32,7 @@ namespace ClickOnce
 
             var exeName = project.EntryPoint?.Value;
             var launcherName = $"{Path.GetFileNameWithoutExtension(exeName)}.Launcher";
-            var launcherExe = $"{launcherName}.exe";
+            var launcherExe = $"{launcherName}.exe{(project.UseDeployExtension.Value ? ".deploy" : "")}";
 
             var start = typeof(Process).GetMethod("Start", new[] { typeof(string) });
             var builder = AppDomain.CurrentDomain.DefineDynamicAssembly(new AssemblyName(launcherName), AssemblyBuilderAccess.Save, project.PackagePath.RootedPath);

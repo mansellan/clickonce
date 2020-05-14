@@ -84,9 +84,9 @@ namespace ClickOnce
             var assembly = project.EntryPoint.RootedPath;
             var assemblyIdentity = AssemblyIdentity.FromManagedAssembly(assembly);
 
-            if (assemblyIdentity is null || project.UseBootstrapper.Value == UseBootstrapper.True)
+            if (assemblyIdentity is null || project.UseLauncher.Value == UseLauncher.True)
             {
-                if (project.UseBootstrapper.Value == UseBootstrapper.False)
+                if (project.UseLauncher.Value == UseLauncher.False)
                 {
                     throw new ApplicationException(string.Format(Messages.Build_Exceptions_EntryPoint_NotManaged, assembly));
                 }
@@ -101,13 +101,13 @@ namespace ClickOnce
                 throw new ApplicationException(Messages.Build_Exceptions_EntryPoint_Failed);
             }
 
-            var assemblyReference = new AssemblyReference(assembly)
+            var assemblyReference = new AssemblyReference(assembly.Replace(".deploy", ""))
             {
                 AssemblyIdentity = assemblyIdentity,
-                TargetPath = Path.GetFileName(assembly)
+                TargetPath = Path.GetFileName(assembly.Replace(".deploy", ""))
             };
 
-            if (!application.Add(project, assemblyReference.SourcePath, assemblyReference.TargetPath, GlobKind.Assemblies))
+            if (!application.Add(project, assembly, assemblyReference.TargetPath, GlobKind.Assemblies))
             {
                 throw new ApplicationException(Messages.Build_Exceptions_EntryPoint_Failed);
             }
@@ -176,12 +176,12 @@ namespace ClickOnce
             if (source is null) return;
 
             target = Path.Combine(project.PackagePath.RootedPath, target);
-            if (source.Equals(target, StringComparison.InvariantCultureIgnoreCase)) return;
 
             if (project.UseDeployExtension.Value)
             {
                 target += ".deploy";
             }
+            if (source.Equals(target, StringComparison.InvariantCultureIgnoreCase)) return;
 
             Directory.CreateDirectory(Path.GetDirectoryName(target));
             File.Copy(source, target, true);

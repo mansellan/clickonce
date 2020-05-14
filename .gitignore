@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+*.vsix
+/ClickOnce.AzureDevOps/task/*.js
+/ClickOnce.AzureDevOps/task/*.js.map

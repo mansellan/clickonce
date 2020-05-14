@@ -5,6 +5,8 @@ namespace ClickOnce
 {
     public class VersionOption : Option<VersionSettings>
     {
+        private static DateTime now = DateTime.UtcNow;
+
         public VersionOption(Option<string> option)
             : base(option.Source, option.Name, Convert(option.Value), option.Value)
         {
@@ -18,10 +20,17 @@ namespace ClickOnce
             try
             {
                 var elements = value.Split('.');
-                var major = int.Parse(elements[0]);
-                var minor = int.Parse(elements[1]);
-                var build = elements.Length > 2 ? int.Parse(elements[2]) : 0;
-                var revision = elements.Length > 3 ? int.Parse(elements[3]) : 0;
+                var major = Parse(elements[0]);
+                var minor = elements.Length > 1 ? Parse(elements[1]) : "0";
+                var build = elements.Length > 2 ? Parse(elements[2]) : "0";
+                var revision = elements.Length > 3 ? Parse(elements[3]) : "0";
+
+                string Parse(string segment)
+                {
+                    return int.TryParse(segment, out var _)
+                        ? segment
+                        : now.ToString(segment);
+                }
 
                 return new VersionSettings(major, minor, build, revision);
             }
@@ -36,7 +45,7 @@ namespace ClickOnce
 
     public class VersionSettings
     {
-        public VersionSettings(int major, int minor, int build, int revision)
+        public VersionSettings(string major, string minor, string build, string revision)
         {
             Major = major;
             Minor = minor;
@@ -44,10 +53,10 @@ namespace ClickOnce
             Revision = revision;
         }
 
-        public int Major { get; }
-        public int Minor { get; }
-        public int Build { get; }
-        public int Revision { get; }
+        private string Major { get; }
+        private string Minor { get; }
+        private string Build { get; }
+        private string Revision { get; }
 
         public static implicit  operator string(VersionSettings settings) => 
             settings is null 
