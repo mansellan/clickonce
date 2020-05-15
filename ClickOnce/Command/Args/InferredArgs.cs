@@ -84,13 +84,19 @@ namespace ClickOnce
 
         public override string LaunchMode => "both";
 
-        public override string UpdateMode => "none";
+        public override string UpdateMode => project.TargetFramework?.Value?.EqualsAny("net20", "net30") ?? false ? "none" : "starting";
 
         public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? project.Version.Value : null;
 
         public override string UseLauncher => "auto";
 
         public override bool? UseDeployExtension => true;
+
+        public override bool? TrustUrlParameters => true;
+
+        public override bool? CreateDesktopShortcut => false;
+
+        public override bool? CreateAutoRun => false;
 
         private string GetEntryPoint()
         {

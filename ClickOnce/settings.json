@@ -1,9 +1,7 @@
 {
   "create": {
-    "target": "publish",
     "assemblies": [ "**/*.exe", "**/*.dll" ],
     "files": [ "**/*.exe", "**/*.dll", "**/*.config", "**/*.json", "**/*.bmp", "**/*.jpg", "**/*.ico", "**/*.gif", "**/*.xml", "**/*.md"],
-    "dataFiles": [ "**/*.dat", "**/*.user", "**/*.mdb" ],
-    "packageMode": "both"
+    "dataFiles": [ "**/*.dat", "**/*.user", "**/*.mdb" ]
   } 
 }

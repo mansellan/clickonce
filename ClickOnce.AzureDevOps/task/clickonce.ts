@@ -58,6 +58,7 @@ async function run(): Promise<void> {
             ["useDeployExtension", "true"],
             ["useLauncher", "auto"],
             ["createDesktopShortcut", "false"],
+            ["createAutoRun", "false"],
             ["useApplicationTrust", "false"]]);
 
         const entryPoint = tl.getInput("entryPoint");

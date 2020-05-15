@@ -22,6 +22,9 @@ namespace ClickOnce
                 ? null
                 : value;
 
+        internal static bool EqualsAny(this string value, params string[] compareTo) =>
+            compareTo.Any(compare => compare.Equals(value));
+
         internal static ProcessorArchitecture PlatformConverter(string platform) =>
             platform?.ToLowerInvariant() switch
             {

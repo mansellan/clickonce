@@ -47,6 +47,7 @@ namespace ClickOnce
         internal BooleanOption UseDeployExtension => args.GetBoolean();
         internal EnumOption<UseLauncher> UseLauncher => args.GetEnum<UseLauncher>();
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
+        internal BooleanOption CreateAutoRun => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
         //internal StringOption TrustInfo => args.GetString();
         //internal StringOption CertificateSource => args.GetString();
@@ -81,9 +82,9 @@ namespace ClickOnce
                 throw new ApplicationException($"Icon file '{IconFile}' not found.");
             }
 
-            if (Update.Value.Enabled && UpdateUrl.Value is null)
+            if (TargetFramework.Value.EqualsAny("net20", "net30") && Update.Value.Enabled && UpdateUrl.Value is null)
             {
-                throw new ApplicationException("UpdateUrl is required if update mode is not 'none'.");
+                throw new ApplicationException("For target frameworks prior to net35, UpdateUrl is required if update mode is not 'none'.");
             }
         }
     }

@@ -198,6 +198,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating autorun.inf....
+        /// </summary>
+        public static string Build_Proces_AutoRun {
+            get {
+                return ResourceManager.GetString("Build.Proces.AutoRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processing application....
         /// </summary>
         public static string Build_Process_Application {
@@ -338,6 +347,24 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_CertificateSource {
             get {
                 return ResourceManager.GetString("Help.Arg.CertificateSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boolean. Specifies whether or not to create an autorun.inf to launch the ClickOnce installer when deployed to removable media..
+        /// </summary>
+        public static string Help_Arg_CreateAutoRun {
+            get {
+                return ResourceManager.GetString("Help.Arg.CreateAutoRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to false..
+        /// </summary>
+        public static string Help_Arg_CreateAutoRun_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.CreateAutoRun.Create", resourceCulture);
             }
         }
         
@@ -900,7 +927,7 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If not specified, defaults to &apos;none&apos;..
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;starting&apos; if TargetFramework is &apos;net35&apos; or higher; otherwise, defaults to &apos;none&apos;..
         /// </summary>
         public static string Help_Arg_UpdateMode_Create {
             get {
@@ -909,7 +936,7 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if UpdateMode is any value other than &apos;off&apos;..
+        ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if target framework is prior to &apos;net35&apos; and UpdateMode is any value other than &apos;off&apos;. If not specified and UpdateMode is not &apos;none&apos;, the application will only look for updates in its installation directory..
         /// </summary>
         public static string Help_Arg_UpdateUrl {
             get {

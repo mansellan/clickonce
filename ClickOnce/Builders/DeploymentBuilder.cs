@@ -61,6 +61,15 @@ namespace ClickOnce
             ManifestWriter.WriteManifest(deployment, project.DeploymentManifestFile.RootedPath, project.TargetFramework.Version);
             File.Copy(project.DeploymentManifestFile.RootedPath, Path.Combine(project.PackagePath.RootedPath, Path.GetFileName(project.DeploymentManifestFile.Value)), true);
             Logger.Quiet(Messages.Build_Process_Manifest, 1, 2, project.DeploymentManifestFile.RootedPath);
+
+            if (!project.CreateAutoRun.Value)
+                return;
+
+            Logger.Quiet(Messages.Build_Proces_AutoRun);
+            using var autoRunFile = new StreamWriter(Path.Combine(project.Target.RootedPath, "autorun.inf"));
+            autoRunFile.WriteLine("[autorun]");
+            autoRunFile.WriteLine($"open={Path.GetFileName(project.DeploymentManifestFile.Value)}");
+            Logger.Quiet(Messages.Result_Done, 1, 2);
         }
     }
 }

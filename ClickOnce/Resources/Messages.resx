@@ -172,7 +172,7 @@
     <value>Specifies a colon-separated list of globbing patterns to match data files to be included.</value>
   </data>
   <data name="Help.Arg.UpdateUrl" xml:space="preserve">
-    <value>Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'off'.</value>
+    <value>Specifies the deployment and update location for the application. Required if target framework is prior to 'net35' and UpdateMode is any value other than 'off'. If not specified and UpdateMode is not 'none', the application will only look for updates in its installation directory.</value>
   </data>
   <data name="Help.Arg.EntryPoint" xml:space="preserve">
     <value>Specifies the application assembly that starts when the application is run.</value>
@@ -393,7 +393,7 @@ See license text for details (MIT)</value>
     <value>Must be one of 'none', 'starting', 'started', or a number of hours, weeks or days (e.g. '1w'). Only one unit can be specifed, and the interval cannot describe more than 1 year, regardless of unit.</value>
   </data>
   <data name="Help.Arg.UpdateMode.Create" xml:space="preserve">
-    <value>If not specified, defaults to 'none'.</value>
+    <value>If not specified, defaults to 'starting' if TargetFramework is 'net35' or higher; otherwise, defaults to 'none'.</value>
   </data>
   <data name="Help.Arg.Version.Constraint" xml:space="preserve">
     <value>Must be a dotted version number with 1 to 4 elements, each less than 63356.</value>
@@ -457,5 +457,14 @@ See license text for details (MIT)</value>
   </data>
   <data name="Help.Arg.UseLauncher.Create" xml:space="preserve">
     <value>If not specified, defaults to 'auto'.</value>
+  </data>
+  <data name="Build.Proces.AutoRun" xml:space="preserve">
+    <value>Creating autorun.inf...</value>
+  </data>
+  <data name="Help.Arg.CreateAutoRun" xml:space="preserve">
+    <value>Boolean. Specifies whether or not to create an autorun.inf to launch the ClickOnce installer when deployed to removable media.</value>
+  </data>
+  <data name="Help.Arg.CreateAutoRun.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
   </data>
 </root>

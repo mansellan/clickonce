@@ -68,7 +68,7 @@ Copious arguments are available to take full control of manifest generation, lis
 | Assemblies | Specifies a colon-separated list of globbing patterns to match assemblies to be included. Will only consider managed assemblies, hence a pattern of \*.dll will exclude native libraries. |
 | Files | Specifies a colon-separated list of globbing patterns to match non-assembly files to be included. |
 | DataFiles | Specifies a colon-separated list of globbing patterns to match data files to be included. These files are considered mutable, and can be migrated between application versions. |
-| UpdateUrl | Specifies the deployment and update location for the application. Required if UpdateMode is any value other than 'none'. Must be a valid and absolute URI (a URL or a UNC). |
+| UpdateUrl | Specifies the deployment and update location for the application. Required if target framework is prior to net35 and UpdateMode is any value other than 'none'. Must be a valid and absolute URI (a URL or a UNC). If not specified, defaults to 'net472'.|
 | ErrorUrl | Specifies the URL of the web page that is displayed in dialog boxes during ClickOnce installation. Must be a valid and absolute URI (a URL or a UNC). |
 | SupportUrl | Specifies the URL of the web page that is displayed in the Add or Remove Programs dialog box for the application. Must be a valid and absolute URI (a URL or a UNC). |
 | PackageMode | Specifies which manifests to create. Must be one of 'none', 'application', 'deployment', 'both'. If 'none', only validation of supplied arguments is performed. If not specified, defaults to 'both'. |
@@ -79,6 +79,7 @@ Copious arguments are available to take full control of manifest generation, lis
 | UseDeployExtension | Boolean. Specifies whether the .deploy file name extension mapping is used. If this parameter is true, every program file is published with a .deploy file name extension. This option is useful for web server security to limit the number of file name extensions that must be unblocked to enable ClickOnce application deployment. If not specified, defaults to false. |
 | UseLauncher | Specifies whether or not a launcher should be created. If 'auto', a launcher will be created if the EntryPoint is not a .Net Framework executable. Must be one of 'true', 'false', 'auto'. If not specified, defaults to 'auto'. |
 | CreateDesktopShortcut | Boolean. Specifies whether a shortcut to the application should be added to the user's desktop'. Has no effect if LaunchMode is 'url'. If not specified, defaults to false. |
+| CreateAutoRun | Boolean. Specifies whether or not to create an autorun.inf to launch the ClickOnce installer when deployed to removable media. If not specified, defaults to false. |
 | UseApplicationTrust | Boolean. Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest. If not specified, defaults to false. |
 | Quiet | Boolean. Displays only minimal information when the ClickOnce package is built. If not specified, defaults to false. |
 | Verbose | Boolean. Displays extra information when the ClickOnce package is built. If not specified, defaults to false. |

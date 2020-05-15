@@ -14,10 +14,10 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "43"
+    "Patch": "48"
   },
   "minimumAgentVersion": "2.116.0",
-  "instanceNameFormat": "$(verb) ClickOnce Package",
+  "instanceNameFormat": "ClickOnce Package",
   "groups": [
 	  {
       "name": "description",
@@ -106,6 +106,14 @@
 			"defaultValue": false,
 			"helpMarkDown": "Specifies whether a shortcut to the application should be added to the user's desktop.",
 			"visibleRule": "launchMode = start || launchMode = both"
+		},
+		{
+			"name": "createAutoRun",
+			"type": "boolean",
+			"label": "Create autorun.inf file",
+			"defaultValue": false,
+			"helpMarkDown": "Specifies whether or not to create an autorun.inf to launch the ClickOnce installer when deployed to removable media.",
+			"visibleRule": "launchMode = start || launchMode = url || launchMode = both"
 		},
 		{
 			"name": "useDeployExtension",
@@ -215,7 +223,7 @@
 			"type": "pickList",
 			"label": "Update mode",
 			"groupName": "updates",
-			"defaultValue": "none",
+			"defaultValue": "starting",
 			"helpMarkDown": "Specifies how application updates should be deployed.",
 			"options": {
 				"none": "Do not update application",
@@ -252,8 +260,7 @@
 			"type": "string",
 			"label": "Update URL",
 			"groupName": "updates",
-			"required": true,
-			"helpMarkDown": "Specifies the update location for the application. Must be a valid and absolute URI (a URL or a UNC).",
+			"helpMarkDown": "Specifies the update location for the application. Must be a valid and absolute URI (a URL or a UNC). Required if target framework is earlier than net35 and updates are enabled. Note, if this is not specified, the application will not be able to change its installation location, see [here](https://docs.microsoft.com/en-gb/visualstudio/deployment/deploying-clickonce-applications-for-testing-and-production-servers-without-resigning?view=vs-2015&redirectedfrom=MSDN) for more details.",
 			"visibleRule": "updateMode = starting || updateMode = started || updateMode = scheduled"
 		},
 		{
@@ -262,8 +269,8 @@
 			"label": "Minimum version",
 			"groupName": "updates",
 			"helpMarkdown": "Specifies the minimum version the user must update to when starting the application. Must be a dotted version number with 1 to 4 elements, each less than 63356. Must be equal to or lower than Version. If not specified and UpdateMode is not 'none', defaults to Version.",
-			"visibleRule":  "updateMode = starting || updateMode = started || updateMode = scheduled" 
-    },
+			"visibleRule": "updateMode = starting || updateMode = started || updateMode = scheduled"
+		},
 		{
 			"name": "identity",
 			"type": "string",
@@ -343,27 +350,27 @@
 			}
 		},
 		{
-      "name": "packageMode",
-      "type": "pickList",
-      "label": "Package mode",
-      "defaultValue": "both",
-      "groupName": "advanced",
-      "helpMarkDown": "Specifies which manifests to create.",
-      "options": {
-        "application": "Create an application manifest only",
-        "deployment": "Create a deployment manifest only",
-        "both": "Create both application and deployment manifests"
-      }
-    },
+			"name": "packageMode",
+			"type": "pickList",
+			"label": "Package mode",
+			"defaultValue": "both",
+			"groupName": "advanced",
+			"helpMarkDown": "Specifies which manifests to create.",
+			"options": {
+				"application": "Create an application manifest only",
+				"deployment": "Create a deployment manifest only",
+				"both": "Create both application and deployment manifests"
+			}
+		},
 		{
 			"name": "useApplicationTrust",
 			"type": "boolean",
 			"label": "Use application trust",
-			"default": false,
+			"defaultValue": false,
 			"groupName": "advanced",
 			"helpMarkDown": "Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest.",
-		  "visibleRule":  "packageMode = application || packageMode = both" 
-    },
+			"visibleRule": "packageMode = application || packageMode = both"
+		},
 		{
 			"name": "verbosity",
 			"type": "pickList",

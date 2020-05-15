@@ -201,6 +201,11 @@ namespace ClickOnce
         private bool? createDesktopShortcut;
         public static string Help_Arg_CreateDesktopShortcut => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_CreateAutoRun), ResourceType = typeof(Args))]
+        public virtual bool? CreateAutoRun { get => createAutoRun; set => SetValue(value, ref createAutoRun); }
+        private bool? createAutoRun;
+        public static string Help_Arg_CreateAutoRun => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_UseApplicationTrust), ResourceType = typeof(Args))]
         public virtual bool? UseApplicationTrust { get => useApplicationTrust; set => SetValue(value, ref useApplicationTrust); }
         private bool? useApplicationTrust;
