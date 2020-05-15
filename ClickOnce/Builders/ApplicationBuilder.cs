@@ -49,7 +49,7 @@ namespace ClickOnce
             application.ResolveFiles();
             application.UpdateFileInfo(project.TargetFramework.Version);
 
-            Logger.Quiet(Messages.Build_Process_Application);
+            Logger.Normal(Messages.Build_Process_Application);
             application.Validate();
             Logger.OutputMessages(application.OutputMessages, 1);
 
@@ -58,7 +58,7 @@ namespace ClickOnce
 
             Directory.CreateDirectory(Path.GetDirectoryName(project.ApplicationManifestFile.RootedPath));
             ManifestWriter.WriteManifest(application, project.ApplicationManifestFile.RootedPath, project.TargetFramework.Version);
-            Logger.Quiet(Messages.Build_Process_Manifest, 1, 2, project.ApplicationManifestFile.RootedPath);
+            Logger.Normal(Messages.Build_Process_Manifest, 1, 2, project.ApplicationManifestFile.RootedPath);
 
         }
 

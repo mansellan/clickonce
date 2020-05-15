@@ -33,7 +33,9 @@ namespace ClickOnce
 
         public override string Product => project.Identity?.Value ?? Identity;
 
-        public override string Version =>
+        public override string Version => ApplicationVersion;
+
+        public override string ApplicationVersion =>
             entryPointAssembly.Value?.GetAttributeValue<AssemblyVersionAttribute>()
             ?? entryPointIdentity.Value?.Version
             ?? Utilities.GetFileInfo(project.EntryPoint?.RootedPath, FileInfoKind.ProductVersion);

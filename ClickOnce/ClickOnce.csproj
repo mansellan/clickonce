@@ -9,6 +9,14 @@
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="publish.template.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="publish.template.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.7.82" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="16.5.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.3" />

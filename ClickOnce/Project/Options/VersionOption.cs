@@ -27,7 +27,7 @@ namespace ClickOnce
 
                 string Parse(string segment)
                 {
-                    return int.TryParse(segment, out var _)
+                    return int.TryParse(segment, out _)
                         ? segment
                         : now.ToString(segment);
                 }
@@ -58,7 +58,7 @@ namespace ClickOnce
         private string Build { get; }
         private string Revision { get; }
 
-        public static implicit  operator string(VersionSettings settings) => 
+        public static implicit operator string(VersionSettings settings) => 
             settings is null 
                 ? null 
                 :  $"{settings.Major}.{settings.Minor}.{settings.Build}.{settings.Revision}";

@@ -467,4 +467,19 @@ See license text for details (MIT)</value>
   <data name="Help.Arg.CreateAutoRun.Create" xml:space="preserve">
     <value>If not specified, defaults to false.</value>
   </data>
+  <data name="Help.Arg.DeploymentPage" xml:space="preserve">
+    <value>Specifies the name of the deployment page.</value>
+  </data>
+  <data name="Help.Arg.DeploymentPage.Constraint" xml:space="preserve">
+    <value>Must end in '.htm' or '.html'.</value>
+  </data>
+  <data name="Help.Arg.DeploymentPage.Create" xml:space="preserve">
+    <value>If not specifed, no deployment page is created.</value>
+  </data>
+  <data name="Build.Exceptions.DeploymentPage.TemplateNotFound" xml:space="preserve">
+    <value>Template not found at '{0}'</value>
+  </data>
+  <data name="Build.Process.DeploymentPage" xml:space="preserve">
+    <value>Creating deployment page...</value>
+  </data>
 </root>

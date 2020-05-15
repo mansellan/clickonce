@@ -45,6 +45,7 @@ async function run(): Promise<void> {
             ["osDescription", null],
             ["osSupportUrl", null],
             ["targetFramework", "net472"],
+            ["deploymentPage", null],
             ["assemblies", "**/*.exe:**/*/.dll"],
             ["files", "**/*.exe:**/*.dll:**/*.config:**/*.json:**/*.bmp:**/*.jpg:**/*.ico:**/*.gif:**/*.xml:**/*.md"],
             ["dataFiles", "**/*.dat:**/*.user:**/*.mdb"],

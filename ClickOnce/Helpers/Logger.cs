@@ -48,7 +48,7 @@ namespace ClickOnce
                 Verbose(header, 1);
                 foreach (var arg in group)
                 {
-                    Verbose(arg, 2);
+                    Verbose($"{arg.Name}: {arg}", 2);
                 }
                 Verbose();
             }

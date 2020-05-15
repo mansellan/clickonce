@@ -126,6 +126,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Template not found at &apos;{0}&apos;.
+        /// </summary>
+        public static string Build_Exceptions_DeploymentPage_TemplateNotFound {
+            get {
+                return ResourceManager.GetString("Build.Exceptions.DeploymentPage.TemplateNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to add entry point.
         /// </summary>
         public static string Build_Exceptions_EntryPoint_Failed {
@@ -221,6 +230,15 @@ namespace ClickOnce.Resources {
         public static string Build_Process_Deployment {
             get {
                 return ResourceManager.GetString("Build.Process.Deployment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Creating deployment page....
+        /// </summary>
+        public static string Build_Process_DeploymentPage {
+            get {
+                return ResourceManager.GetString("Build.Process.DeploymentPage", resourceCulture);
             }
         }
         
@@ -446,6 +464,33 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_DeploymentManifestFile_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.DeploymentManifestFile.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies the name of the deployment page..
+        /// </summary>
+        public static string Help_Arg_DeploymentPage {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must end in &apos;.htm&apos; or &apos;.html&apos;..
+        /// </summary>
+        public static string Help_Arg_DeploymentPage_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentPage.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specifed, no deployment page is created..
+        /// </summary>
+        public static string Help_Arg_DeploymentPage_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentPage.Create", resourceCulture);
             }
         }
         

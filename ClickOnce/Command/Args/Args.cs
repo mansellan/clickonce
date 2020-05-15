@@ -73,6 +73,12 @@ namespace ClickOnce
         private string iconFile;
         public static string Help_Arg_IconFile => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_DeploymentPage), ResourceType = typeof(Args))]
+        [RegularExpression(RegExPatterns.HtmlFile, ErrorMessageResourceName = nameof(Messages.Help_Arg_DeploymentPage_Constraint), ErrorMessageResourceType = typeof(Messages))]
+        public virtual string DeploymentPage { get => deploymentPage; set => SetValue(value, ref deploymentPage); }
+        private string deploymentPage;
+        public static string Help_Arg_DeploymentPage => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_PackagePath), ResourceType = typeof(Args))]
         public virtual string PackagePath { get => packagePath; set => SetValue(value, ref packagePath); }
         private string packagePath;
@@ -235,6 +241,8 @@ namespace ClickOnce
         public virtual bool? Verbose { get => verbose; set => SetValue(value, ref verbose); }
         private bool? verbose;
         public static string Help_Arg_Verbose => GetHelpText();
+
+        public virtual string ApplicationVersion { get; set; } // Not settable from the command line, inferred only.
 
         protected void SetValue<T>(T value, ref T backingField, [CallerMemberName] string caller = null)
         {

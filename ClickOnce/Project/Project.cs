@@ -19,11 +19,13 @@ namespace ClickOnce
         internal StringOption Identity => args.GetString();
         internal StringOption Product => args.GetString();
         internal VersionOption Version => args.GetVersion();
+        internal VersionOption ApplicationVersion => args.GetVersion();
         internal StringOption Suite => args.GetString();
         internal StringOption Publisher => args.GetString();
         internal StringOption Description => args.GetString();
         internal PathOption EntryPoint => args.GetPath();
         internal PathOption IconFile => args.GetPath();
+        internal StringOption DeploymentPage => args.GetString();
         internal PathOption PackagePath => args.GetPath(Target.RootedPath);
         internal PathOption ApplicationManifestFile => args.GetPath(PackagePath.RootedPath);
         internal PathOption DeploymentManifestFile => args.GetPath(Target.RootedPath);

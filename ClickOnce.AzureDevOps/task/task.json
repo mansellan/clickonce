@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "48"
+    "Patch": "53"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "ClickOnce Package",
@@ -194,6 +194,14 @@
 			"groupName": "files",
 			"helpMarkDown": "Specifies the application icon file. This is used for the Start Menu and Add/Remove Programs dialog. Must be an .ico file. If not specified, the source directory is recursively searched for .ico files. If exactly one is found it is used; otherwise, a default icon is used."
 		},
+    {
+			"name": "deploymentPage",
+			"type": "string",
+			"label": "Deployment page",
+			"groupName": "files",
+			"defaultValue": "install.htm", 
+			"helpMarkdown": "Specifies the name of the deployment page to create. If not specified, no deployment page will be created."
+    },
 		{
 			"name": "assemblies",
 			"type": "multiLine",

@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
 using ClickOnce.Resources;
 using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 
@@ -31,7 +35,7 @@ namespace ClickOnce
                 Publisher = project.Publisher.Value,
                 Description = project.Description.Value,
                 TargetFrameworkMoniker = project.TargetFramework.Moniker,
-                DeploymentUrl = project.UpdateUrl.Value,
+                DeploymentUrl = project.UpdateUrl.Value is null ? null : Path.Combine(project.UpdateUrl.Value, Path.GetFileName(project.DeploymentManifestFile.Value)),
                 ErrorReportUrl = project.ErrorUrl.Value,
                 SupportUrl = project.SupportUrl.Value,
                 Install = project.LaunchMode.Value.HasFlag(LaunchMode.Start),
@@ -50,7 +54,7 @@ namespace ClickOnce
             deployment.ResolveFiles();
             deployment.UpdateFileInfo(project.TargetFramework.Version);
 
-            Logger.Quiet(Messages.Build_Process_Deployment);
+            Logger.Normal(Messages.Build_Process_Deployment);
             deployment.Validate();
             Logger.OutputMessages(deployment.OutputMessages, 1);
 
@@ -60,16 +64,49 @@ namespace ClickOnce
             Directory.CreateDirectory(Path.GetDirectoryName(project.DeploymentManifestFile.RootedPath));
             ManifestWriter.WriteManifest(deployment, project.DeploymentManifestFile.RootedPath, project.TargetFramework.Version);
             File.Copy(project.DeploymentManifestFile.RootedPath, Path.Combine(project.PackagePath.RootedPath, Path.GetFileName(project.DeploymentManifestFile.Value)), true);
-            Logger.Quiet(Messages.Build_Process_Manifest, 1, 2, project.DeploymentManifestFile.RootedPath);
+            Logger.Normal(Messages.Build_Process_Manifest, 1, 2, project.DeploymentManifestFile.RootedPath);
 
-            if (!project.CreateAutoRun.Value)
-                return;
+            if (project.CreateAutoRun.Value)
+            {
+                Logger.Normal(Messages.Build_Proces_AutoRun);
+                using var autoRunFile = new StreamWriter(Path.Combine(project.Target.RootedPath, "autorun.inf"));
+                autoRunFile.WriteLine("[autorun]");
+                autoRunFile.WriteLine($"open={Path.GetFileName(project.DeploymentManifestFile.Value)}");
+                Logger.Normal(Messages.Result_Done, 1, 2);
+            }
 
-            Logger.Quiet(Messages.Build_Proces_AutoRun);
-            using var autoRunFile = new StreamWriter(Path.Combine(project.Target.RootedPath, "autorun.inf"));
-            autoRunFile.WriteLine("[autorun]");
-            autoRunFile.WriteLine($"open={Path.GetFileName(project.DeploymentManifestFile.Value)}");
-            Logger.Quiet(Messages.Result_Done, 1, 2);
+            if (project.DeploymentPage.Value != null)
+            {
+                Logger.Normal(Messages.Build_Process_DeploymentPage);
+
+                var templateFile = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "publish.template.html");
+                if (!File.Exists(templateFile))
+                {
+                    Logger.Normal(Messages.Build_Exceptions_DeploymentPage_TemplateNotFound);
+                }
+                else
+                {
+                    using var reader = new StreamReader(templateFile);
+                    var deploymentPage = reader.ReadToEnd();
+                    deploymentPage = Regex.Replace(deploymentPage, @"\$\{PublishedAt\}", $"{DateTime.UtcNow:G} (UTC)", RegexOptions.IgnoreCase);
+
+                    var placeholder = Regex.Match(deploymentPage, @"\$\{\w+\}", RegexOptions.IgnoreCase);
+                    while (placeholder.Success)
+                    {
+                        var option = project.FirstOrDefault(o => o.Name.Equals(placeholder.Value.Substring(2, placeholder.Length - 3), StringComparison.InvariantCultureIgnoreCase));
+                        if (option != null)
+                        {
+                            deploymentPage = deploymentPage.Replace(placeholder.Value, option.ToString());
+                        }
+
+                        placeholder = placeholder.NextMatch();
+                    }
+
+                    using var writer = new StreamWriter(Path.Combine(project.Target.RootedPath, project.DeploymentPage.Value));
+                    writer.Write(deploymentPage);
+                    Logger.Normal(Messages.Result_Done, 1, 2);
+                }
+            }
         }
     }
 }

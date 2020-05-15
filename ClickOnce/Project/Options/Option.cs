@@ -17,11 +17,9 @@ namespace ClickOnce
 
         public override string ToString()
         {
-            var formatted = Value is IEnumerable<string> enumerable
+            return Value is IEnumerable<string> enumerable
                 ? enumerable.Any() ? string.Join(":", enumerable) : ""
                 : Value?.ToString();
-
-            return $"{Name}: {formatted ?? "null"}";
         }
     }
 
