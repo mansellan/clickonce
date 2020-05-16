@@ -495,6 +495,33 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifies the template to use to create the deployment page..
+        /// </summary>
+        public static string Help_Arg_DeploymentPageTemplate {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentPageTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must end in &apos;.htm&apos; or &apos;.html&apos;..
+        /// </summary>
+        public static string Help_Arg_DeploymentPageTemplate_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentPageTemplate.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, a default deployment page template will be used..
+        /// </summary>
+        public static string Help_Arg_DeploymentPageTemplate_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentPageTemplate.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specifies a description for the application..
         /// </summary>
         public static string Help_Arg_Description {
@@ -644,6 +671,24 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_MinimumVersion_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.MinimumVersion.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies a path under which optional files are stored. The first level of directories under this path will be used as the group names for the optional download groups. The DataFiles glob will be ignored for this path, as data files cannot be optional..
+        /// </summary>
+        public static string Help_Arg_OptionalFilesPath {
+            get {
+                return ResourceManager.GetString("Help.Arg.OptionalFilesPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;Optional&apos;..
+        /// </summary>
+        public static string Help_Arg_OptionalFilesPath_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.OptionalFilesPath.Create", resourceCulture);
             }
         }
         

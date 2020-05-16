@@ -482,4 +482,19 @@ See license text for details (MIT)</value>
   <data name="Build.Process.DeploymentPage" xml:space="preserve">
     <value>Creating deployment page...</value>
   </data>
+  <data name="Help.Arg.DeploymentPageTemplate" xml:space="preserve">
+    <value>Specifies the template to use to create the deployment page.</value>
+  </data>
+  <data name="Help.Arg.DeploymentPageTemplate.Constraint" xml:space="preserve">
+    <value>Must end in '.htm' or '.html'.</value>
+  </data>
+  <data name="Help.Arg.DeploymentPageTemplate.Create" xml:space="preserve">
+    <value>If not specified, a default deployment page template will be used.</value>
+  </data>
+  <data name="Help.Arg.OptionalFilesPath" xml:space="preserve">
+    <value>Specifies a path under which optional files are stored. The first level of directories under this path will be used as the group names for the optional download groups. The DataFiles glob will be ignored for this path, as data files cannot be optional.</value>
+  </data>
+  <data name="Help.Arg.OptionalFilesPath.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'Optional'.</value>
+  </data>
 </root>

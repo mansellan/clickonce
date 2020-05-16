@@ -53,6 +53,8 @@ namespace ClickOnce
 
         public override string IconFile => iconFile.Value;
 
+        public override string OptionalFilesPath => "Optional";
+
         public override string PackagePath => Path.Combine("Application Files", $"{(project.Identity?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
 
         public override string ApplicationManifestFile => (project.Identity?.Value ?? Identity) + ".exe.manifest";

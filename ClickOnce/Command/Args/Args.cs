@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using ClickOnce.Resources;
 using CommandLine;
 
@@ -79,6 +80,12 @@ namespace ClickOnce
         private string deploymentPage;
         public static string Help_Arg_DeploymentPage => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_DeploymentPageTemplate), ResourceType = typeof(Args))]
+        [RegularExpression(RegExPatterns.HtmlFile, ErrorMessageResourceName = nameof(Messages.Help_Arg_DeploymentPage_Constraint), ErrorMessageResourceType = typeof(Messages))]
+        public virtual string DeploymentPageTemplate { get => deploymentPageTemplate; set => SetValue(value, ref deploymentPageTemplate); }
+        private string deploymentPageTemplate;
+        public static string Help_Arg_DeploymentPageTemplate => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_PackagePath), ResourceType = typeof(Args))]
         public virtual string PackagePath { get => packagePath; set => SetValue(value, ref packagePath); }
         private string packagePath;
@@ -143,6 +150,11 @@ namespace ClickOnce
         public virtual IEnumerable<string> DataFiles { get => dataFiles; set => SetValue(value, ref dataFiles); }
         private IEnumerable<string> dataFiles;
         public static string Help_Arg_DataFiles => GetHelpText();
+
+        [Option(HelpText = nameof(Help_Arg_OptionalFilesPath), ResourceType = typeof(Args))]
+        public virtual string OptionalFilesPath { get => optionalFilesPath; set => SetValue(value, ref optionalFilesPath); }
+        private string optionalFilesPath;
+        public static string Help_Arg_OptionalFilesPath => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_UpdateUrl), ResourceType = typeof(Args))]
         [Uri]

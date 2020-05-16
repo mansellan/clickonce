@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "53"
+    "Patch": "57"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "ClickOnce Package",
@@ -227,6 +227,14 @@
 			"helpMarkDown": "Specifies a list of globbing patterns to match data files to be included. These files are considered mutable, and can be migrated between application versions."
 		},
 		{
+			"name": "optionalFilesPath",
+			"type": "string",
+			"label": "Optional files path",
+			"groupName": "files",
+			"defaultValue": "Optional",
+			"helpMarkDown": "Specifies a path under which optional files are stored, relative to the source path. The first level of directories under this path will be used as the group names for the optional download groups. The DataFiles glob will be ignored for this path, as data files cannot be optional."
+		},
+		{
 			"name": "updateMode",
 			"type": "pickList",
 			"label": "Update mode",
@@ -322,6 +330,13 @@
 			"label": "Deployment manifest file",
 			"groupName": "advanced",
 			"helpMarkDown": "Specifies the name of the deployment manifest file. Must be a valid file name, and should use an .application extension. If not specified, a name is inferred from the EntryPoint, e.g. 'MyApp.application'."
+		},
+		{
+			"name": "deploymentPageTemplate",
+			"type": "string",
+			"label": "Deployment page template",
+			"groupName": "advanced",
+			"helpMarkdown": "Specifies the template to use to create the deployment page. Must end in '.htm' or '.html'. If not specified, a default deployment page template will be used."
 		},
 		{
 			"name": "osVersion",

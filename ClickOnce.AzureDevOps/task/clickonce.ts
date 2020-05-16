@@ -3,11 +3,15 @@ import * as tl from "azure-pipelines-task-lib/task";
 
 function setArgs(toolRunner, args: string[][]) {
     for (let arg of args) {
-        setArg(toolRunner, arg[0], arg[1]);
+        if (arg.length === 2) {
+            setArg(toolRunner, arg[0], arg[1]);
+        } else {
+            setArg(toolRunner, arg[0]);
+        }
     }
 }
 
-function setArg(toolRunner, arg: string, ignore: string) {
+function setArg(toolRunner, arg: string, ignore: string = null) {
 
     let value = tl.getInput(arg);
 
@@ -28,33 +32,35 @@ async function run(): Promise<void> {
         clickOnceToolRunner.arg("create");
 
         setArgs(clickOnceToolRunner, [
-            ["source", null],
+            ["source"],
             ["target", "publish"],
-            ["identity", null],
-            ["product", null],
-            ["version", null],
-            ["suite", null],
-            ["publisher", null],
-            ["description", null],
-            ["packagePath", null],
-            ["applicationManifestFile", null],
-            ["deploymentManifestFile", null],
+            ["identity"],
+            ["product"],
+            ["version"],
+            ["suite"],
+            ["publisher"],
+            ["description"],
+            ["packagePath"],
+            ["applicationManifestFile"],
+            ["deploymentManifestFile"],
             ["platform", "auto"],
             ["culture", "neutral"],
-            ["osVersion", null],
-            ["osDescription", null],
-            ["osSupportUrl", null],
+            ["osVersion"],
+            ["osDescription"],
+            ["osSupportUrl"],
             ["targetFramework", "net472"],
-            ["deploymentPage", null],
+            ["deploymentPage"],
+            ["deploymentPageTemplate"],
             ["assemblies", "**/*.exe:**/*/.dll"],
             ["files", "**/*.exe:**/*.dll:**/*.config:**/*.json:**/*.bmp:**/*.jpg:**/*.ico:**/*.gif:**/*.xml:**/*.md"],
             ["dataFiles", "**/*.dat:**/*.user:**/*.mdb"],
-            ["updateUrl", null],
-            ["errorUrl", null],
-            ["supportUrl", null],
+            ["optionalFilesPath", "Optional"],
+            ["updateUrl"],
+            ["errorUrl"],
+            ["supportUrl"],
             ["packageMode", "both"],
             ["launchMode", "both"],
-            ["minimumVersion", null],
+            ["minimumVersion"],
             ["trustUrlParameters", "true"],
             ["useDeployExtension", "true"],
             ["useLauncher", "auto"],
@@ -82,7 +88,7 @@ async function run(): Promise<void> {
         const updateMode = tl.getInput("updateMode");
         if (updateMode === "scheduled") {
             clickOnceToolRunner.arg(["--updateMode", tl.getInput("updateInterval") + tl.getInput("updateUnit").slice(0, 1).toLowerCase()]);
-        } else if (updateMode !== "none") {
+        } else if (updateMode !== "starting") {
             clickOnceToolRunner.arg(["--updateMode", updateMode]);
         }
 

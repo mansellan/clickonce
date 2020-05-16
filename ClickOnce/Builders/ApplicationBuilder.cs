@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using ClickOnce.Resources;
 using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 
@@ -48,7 +49,7 @@ namespace ClickOnce
 
             application.ResolveFiles();
             application.UpdateFileInfo(project.TargetFramework.Version);
-
+            
             Logger.Normal(Messages.Build_Process_Application);
             application.Validate();
             Logger.OutputMessages(application.OutputMessages, 1);
@@ -66,10 +67,19 @@ namespace ClickOnce
         {
             var any = false;
             Logger.Normal(Messages.Build_Process_Glob_Adding, 0, 1, glob.Kind.ToString().SplitPascalCase().ToLowerInvariant());
-            foreach (var item in glob.Expand())
+            foreach (var item in glob.ExpandRequired())
             {
                 any |= application.Add(project, Path.Combine(project.Source.Value, item), item, glob.Kind);
             }
+
+            if (glob.Kind != GlobKind.DataFiles)
+            {
+                foreach (var item in glob.ExpandOptional())
+                {
+                    any |= application.Add(project, Path.Combine(project.Source.Value, item.Value), item.Value, glob.Kind, item.Key);
+                }
+            }
+
             if (!any)
             {
                 Logger.Normal(Messages.Result_NoneFound, 1);
@@ -127,7 +137,7 @@ namespace ClickOnce
             Logger.Normal();
         }
 
-        private static bool Add(this Manifest application, Project project, string source, string target, GlobKind kind)
+        private static bool Add(this Manifest application, Project project, string source, string target, GlobKind kind, string group = null)
         {
             if (source is null || target is null)
                 return false;
@@ -148,7 +158,9 @@ namespace ClickOnce
                 {
                     SourcePath = source,
                     TargetPath = target,
-                    AssemblyIdentity = AssemblyIdentity.FromFile(source)
+                    AssemblyIdentity = AssemblyIdentity.FromFile(source),
+                    IsOptional = group != null,
+                    Group = group
             });
             }
             else if (application.AssemblyReferences.FindTargetPath(target) is null 
@@ -158,7 +170,9 @@ namespace ClickOnce
                 {
                     SourcePath = source,
                     TargetPath = target,
-                    IsDataFile = kind == GlobKind.DataFiles
+                    IsDataFile = kind == GlobKind.DataFiles,
+                    IsOptional = group != null,
+                    Group = group
                 });
             }
             else
@@ -167,7 +181,10 @@ namespace ClickOnce
             }
 
             CopyFile(source, target, project);
-            Logger.Normal(source, 1);
+
+            var logEntry = group is null ? source : $"[{group}]: {source}";
+            Logger.Normal(logEntry, 1);
+
             return true;
         }
 

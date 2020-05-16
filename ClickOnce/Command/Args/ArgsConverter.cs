@@ -81,7 +81,7 @@ namespace ClickOnce
         public static EnumOption<T> GetEnum<T>(this IEnumerable<Args> args, Func<string, T> converter = null, [CallerMemberName] string name = null) where T : struct, Enum =>
             new EnumOption<T>(args.Get<string>(null, name), converter);
 
-        public static GlobOption GetGlob(this IEnumerable<Args> args, GlobKind kind, string source, string target, [CallerMemberName] string name = null) =>
-            new GlobOption(args.Get<IEnumerable<string>>(null, name), kind, source, target);
+        public static GlobOption GetGlob(this IEnumerable<Args> args, GlobKind kind, string source, string target, string optionalFilesPath, [CallerMemberName] string name = null) =>
+            new GlobOption(args.Get<IEnumerable<string>>(null, name), kind, source, target, optionalFilesPath);
     }
 }

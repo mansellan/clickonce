@@ -26,6 +26,7 @@ namespace ClickOnce
         internal PathOption EntryPoint => args.GetPath();
         internal PathOption IconFile => args.GetPath();
         internal StringOption DeploymentPage => args.GetString();
+        internal StringOption DeploymentPageTemplate => args.GetString();
         internal PathOption PackagePath => args.GetPath(Target.RootedPath);
         internal PathOption ApplicationManifestFile => args.GetPath(PackagePath.RootedPath);
         internal PathOption DeploymentManifestFile => args.GetPath(Target.RootedPath);
@@ -35,9 +36,10 @@ namespace ClickOnce
         internal StringOption OsDescription => args.GetString();
         internal StringOption OsSupportUrl => args.GetString();
         internal FrameworkOption TargetFramework => args.GetFramework();
-        internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value);
-        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value);
-        internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value);
+        internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
+        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
+        internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
+        internal StringOption OptionalFilesPath => args.GetString();
         internal StringOption UpdateUrl => args.GetString();
         internal StringOption ErrorUrl => args.GetString();
         internal StringOption SupportUrl => args.GetString();
