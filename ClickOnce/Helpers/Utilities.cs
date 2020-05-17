@@ -1,10 +1,13 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security;
 using System.Text.RegularExpressions;
 using ClickOnce.Resources;
+using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 
 namespace ClickOnce
 {
@@ -64,6 +67,35 @@ namespace ClickOnce
             };
 
             return string.IsNullOrWhiteSpace(ret) ? null : ret;
+        }
+
+        internal static bool Sign(string file, Project project)
+        {
+            if (project.CertificateSource.Value is null)
+            {
+                return false;
+            }
+
+            try
+            {
+                var certificateSource = project.CertificateSource.Value;
+                var timestampUrl = project.TimestampUrl.Value is null ? null : new Uri(project.TimestampUrl.Value, UriKind.Absolute);
+
+                if (certificateSource.Length == 40 && Regex.IsMatch(certificateSource, "[a-fA-F0-9]*"))
+                {
+                    SecurityUtilities.SignFile(certificateSource, timestampUrl, file);
+                }
+                else
+                {
+                    SecurityUtilities.SignFile(Path.Combine(project.Source.Value, project.CertificateSource.Value), project.CertificatePassword.Value, timestampUrl, file);
+                }
+
+                return true;
+            }
+            catch
+            {
+                throw new ApplicationException($"An error occurred signing the manifest. Check that all signature parameters are correct.");
+            }
         }
     }
 }

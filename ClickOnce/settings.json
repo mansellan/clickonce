@@ -1,7 +1,7 @@
 {
   "create": {
     "assemblies": [ "**/*.exe", "**/*.dll" ],
-    "files": [ "**/*.exe", "**/*.dll", "**/*.config", "**/*.json", "**/*.bmp", "**/*.jpg", "**/*.ico", "**/*.gif", "**/*.xml", "**/*.md"],
-    "dataFiles": [ "**/*.dat", "**/*.user", "**/*.mdb" ]
+    "dataFiles": [ "**/*.mdb" ],
+    "files": [ "**/*" ]
   } 
 }

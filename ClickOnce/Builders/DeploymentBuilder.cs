@@ -35,7 +35,7 @@ namespace ClickOnce
                 Publisher = project.Publisher.Value,
                 Description = project.Description.Value,
                 TargetFrameworkMoniker = project.TargetFramework.Moniker,
-                DeploymentUrl = project.UpdateUrl.Value is null ? null : Path.Combine(project.UpdateUrl.Value, Path.GetFileName(project.DeploymentManifestFile.Value)),
+                DeploymentUrl = project.DeploymentUrl.Value is null ? null : Path.Combine(project.DeploymentUrl.Value, Path.GetFileName(project.DeploymentManifestFile.Value)),
                 ErrorReportUrl = project.ErrorUrl.Value,
                 SupportUrl = project.SupportUrl.Value,
                 Install = project.LaunchMode.Value.HasFlag(LaunchMode.Start),
@@ -63,8 +63,14 @@ namespace ClickOnce
 
             Directory.CreateDirectory(Path.GetDirectoryName(project.DeploymentManifestFile.RootedPath));
             ManifestWriter.WriteManifest(deployment, project.DeploymentManifestFile.RootedPath, project.TargetFramework.Version);
+            var signed = Utilities.Sign(project.DeploymentManifestFile.RootedPath, project);
             File.Copy(project.DeploymentManifestFile.RootedPath, Path.Combine(project.PackagePath.RootedPath, Path.GetFileName(project.DeploymentManifestFile.Value)), true);
-            Logger.Normal(Messages.Build_Process_Manifest, 1, 2, project.DeploymentManifestFile.RootedPath);
+            Logger.Normal(Messages.Build_Process_Manifest, 1, 1, project.DeploymentManifestFile.RootedPath);
+            if (signed)
+            {
+                Logger.Normal(Messages.Build_Process_Manifest_Signed, 1);
+            }
+            Logger.Normal();
 
             if (project.CreateAutoRun.Value)
             {

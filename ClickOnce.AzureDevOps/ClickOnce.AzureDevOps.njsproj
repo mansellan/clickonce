@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="task\clickonce.ts" />
+    <TypeScriptCompile Include="task\securefiledownloader.ts" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
 </Project>

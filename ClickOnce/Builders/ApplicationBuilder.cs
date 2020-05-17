@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text.RegularExpressions;
 using ClickOnce.Resources;
 using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 
@@ -44,8 +43,8 @@ namespace ClickOnce
             application.AddEntryPoint(project);
             application.AddIconFile(project);
             application.AddGlob(project, project.Assemblies);
-            application.AddGlob(project, project.Files);
             application.AddGlob(project, project.DataFiles);
+            application.AddGlob(project, project.Files);
 
             application.ResolveFiles();
             application.UpdateFileInfo(project.TargetFramework.Version);
@@ -59,8 +58,13 @@ namespace ClickOnce
 
             Directory.CreateDirectory(Path.GetDirectoryName(project.ApplicationManifestFile.RootedPath));
             ManifestWriter.WriteManifest(application, project.ApplicationManifestFile.RootedPath, project.TargetFramework.Version);
-            Logger.Normal(Messages.Build_Process_Manifest, 1, 2, project.ApplicationManifestFile.RootedPath);
-
+            var signed = Utilities.Sign(project.ApplicationManifestFile.RootedPath, project);
+            Logger.Normal(Messages.Build_Process_Manifest, 1, 1, project.ApplicationManifestFile.RootedPath);
+            if (signed)
+            {
+                Logger.Normal(Messages.Build_Process_Manifest_Signed, 1);
+            }
+            Logger.Normal();
         }
 
         private static void AddGlob(this ApplicationManifest application, Project project, GlobOption glob)

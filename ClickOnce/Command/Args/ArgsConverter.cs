@@ -83,5 +83,8 @@ namespace ClickOnce
 
         public static GlobOption GetGlob(this IEnumerable<Args> args, GlobKind kind, string source, string target, string optionalFilesPath, [CallerMemberName] string name = null) =>
             new GlobOption(args.Get<IEnumerable<string>>(null, name), kind, source, target, optionalFilesPath);
+
+        public static SecureOption GetSecure(this IEnumerable<Args> args, [CallerMemberName] string name = null) =>
+            new SecureOption(args.Get<string>(null, name));
     }
 }

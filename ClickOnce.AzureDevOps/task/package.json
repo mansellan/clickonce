@@ -1,6 +1,6 @@
 {
   "name": "clickonce.azuredevops",
-  "version": "0.1.57",
+  "version": "0.1.64",
   "description": "Deploy task for Azure DevOps that gives users the ability to create and update ClickOnce packages.",
   "author": "mansellan",
   "license": "MIT",
@@ -20,6 +20,7 @@
     "release"
   ],
   "dependencies": {
+    "azure-devops-node-api": "^7.2.0",
     "azure-pipelines-task-lib": "^2.9.3"
   },
   "scripts": {

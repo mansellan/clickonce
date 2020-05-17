@@ -1,5 +1,6 @@
 ﻿using System;
 using ClickOnce.Resources;
+using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 using static ClickOnce.Utilities;
 
 namespace ClickOnce

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -53,6 +54,12 @@ namespace ClickOnce
 
         public override string IconFile => iconFile.Value;
 
+        public override IEnumerable<string> Assemblies => new[] {"**/*.exe", "**/*.dll"};
+        
+        public override IEnumerable<string> DataFiles => new[] { "**/*.mdb" };
+        
+        public override IEnumerable<string> Files => new[] { "**/*" };
+
         public override string OptionalFilesPath => "Optional";
 
         public override string PackagePath => Path.Combine("Application Files", $"{(project.Identity?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");
@@ -86,7 +93,7 @@ namespace ClickOnce
 
         public override string PackageMode => "both";
 
-        public override string LaunchMode => "both";
+        public override string LaunchMode => "start";
 
         public override string UpdateMode => project.TargetFramework?.Value?.EqualsAny("net20", "net30") ?? false ? "none" : "starting";
 
@@ -96,7 +103,7 @@ namespace ClickOnce
 
         public override bool? UseDeployExtension => true;
 
-        public override bool? TrustUrlParameters => true;
+        public override bool? TrustUrlParameters => project.LaunchMode.Value.HasFlag(ClickOnce.LaunchMode.Url);
 
         public override bool? CreateDesktopShortcut => false;
 

@@ -171,8 +171,8 @@
   <data name="Help.Arg.DataFiles" xml:space="preserve">
     <value>Specifies a colon-separated list of globbing patterns to match data files to be included.</value>
   </data>
-  <data name="Help.Arg.UpdateUrl" xml:space="preserve">
-    <value>Specifies the deployment and update location for the application. Required if target framework is prior to 'net35' and UpdateMode is any value other than 'off'. If not specified and UpdateMode is not 'none', the application will only look for updates in its installation directory.</value>
+  <data name="Help.Arg.DeploymentUrl" xml:space="preserve">
+    <value>Specifies the deployment and update location for the application. Required if target framework is prior to 'net35' and UpdateMode is any value other than 'off'. If not specified and UpdateMode is not 'none', the application will only look for updates in its installation directory. If not specified, the application can only be installed by launching the .application file directly, not by downloading it.</value>
   </data>
   <data name="Help.Arg.EntryPoint" xml:space="preserve">
     <value>Specifies the application assembly that starts when the application is run.</value>
@@ -351,7 +351,7 @@ See license text for details (MIT)</value>
     <value>Must be one of 'start', 'url', 'both', 'browser'.</value>
   </data>
   <data name="Help.Arg.LaunchMode.Create" xml:space="preserve">
-    <value>If not specified, defaults to 'both'.</value>
+    <value>If not specified, defaults to 'start'.</value>
   </data>
   <data name="Help.Arg.MinimumVersion.Constraint" xml:space="preserve">
     <value>Must be a dotted version number with 1 to 4 elements, each less than 63356. Must be equal to or lower than Version.</value>
@@ -401,7 +401,7 @@ See license text for details (MIT)</value>
   <data name="Help.Arg.CreateDesktopShortcut.Create" xml:space="preserve">
     <value>If not specified, defaults to false.</value>
   </data>
-  <data name="Help.Arg.UpdateUrl.Constraint" xml:space="preserve">
+  <data name="Help.Arg.DeploymentUrl.Constraint" xml:space="preserve">
     <value>Must be a valid and absolute URI (a URL or a UNC).</value>
   </data>
   <data name="Help.Arg.ErrorUrl.Constraint" xml:space="preserve">
@@ -494,7 +494,13 @@ See license text for details (MIT)</value>
   <data name="Help.Arg.OptionalFilesPath" xml:space="preserve">
     <value>Specifies a path under which optional files are stored. The first level of directories under this path will be used as the group names for the optional download groups. The DataFiles glob will be ignored for this path, as data files cannot be optional.</value>
   </data>
+  <data name="Build.Process.Manifest.Signed" xml:space="preserve">
+    <value>Manifest signed.</value>
+  </data>
   <data name="Help.Arg.OptionalFilesPath.Create" xml:space="preserve">
     <value>If not specified, defaults to 'Optional'.</value>
+  </data>
+  <data name="Help.Arg.TimestampUrl" xml:space="preserve">
+    <value>Specifies the URL of a timestamp server to use when signing manifests.</value>
   </data>
 </root>

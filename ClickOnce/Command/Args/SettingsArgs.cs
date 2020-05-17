@@ -16,9 +16,9 @@ namespace ClickOnce
                     .GetSection(verb)
                     .Bind(this);
             }
-            catch (Exception exception)
+            catch
             {
-                // TODO - log
+                // TODO: think about what to log for settings failures when #1 is done
             }
         }
     }

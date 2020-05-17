@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 namespace ClickOnce
 {
@@ -16,6 +15,7 @@ namespace ClickOnce
 
         internal PathOption Source => args.GetPath();
         internal PathOption Target => args.GetPath();
+        internal StringOption DeploymentUrl => args.GetString();
         internal StringOption Identity => args.GetString();
         internal StringOption Product => args.GetString();
         internal VersionOption Version => args.GetVersion();
@@ -37,10 +37,9 @@ namespace ClickOnce
         internal StringOption OsSupportUrl => args.GetString();
         internal FrameworkOption TargetFramework => args.GetFramework();
         internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
-        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
         internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
+        internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
         internal StringOption OptionalFilesPath => args.GetString();
-        internal StringOption UpdateUrl => args.GetString();
         internal StringOption ErrorUrl => args.GetString();
         internal StringOption SupportUrl => args.GetString();
         internal EnumOption<PackageMode> PackageMode => args.GetEnum<PackageMode>();
@@ -54,8 +53,9 @@ namespace ClickOnce
         internal BooleanOption CreateAutoRun => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
         //internal StringOption TrustInfo => args.GetString();
-        //internal StringOption CertificateSource => args.GetString();
-        //internal StringOption CertificatePassword => args.GetString();
+        internal StringOption CertificateSource => args.GetString();
+        internal SecureOption CertificatePassword => args.GetSecure();
+        internal StringOption TimestampUrl => args.GetString();
         internal BooleanOption Quiet => args.GetBoolean();
         internal BooleanOption Verbose => args.GetBoolean();
 
@@ -86,9 +86,9 @@ namespace ClickOnce
                 throw new ApplicationException($"Icon file '{IconFile}' not found.");
             }
 
-            if (TargetFramework.Value.EqualsAny("net20", "net30") && Update.Value.Enabled && UpdateUrl.Value is null)
+            if (TargetFramework.Value.EqualsAny("net20", "net30") && Update.Value.Enabled && DeploymentUrl.Value is null)
             {
-                throw new ApplicationException("For target frameworks prior to net35, UpdateUrl is required if update mode is not 'none'.");
+                throw new ApplicationException("For target frameworks prior to net35, DeploymentUrl is required if update mode is not 'none'.");
             }
         }
     }

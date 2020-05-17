@@ -31,6 +31,12 @@ namespace ClickOnce
         private string target;
         public static string Help_Arg_Target => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_DeploymentUrl), ResourceType = typeof(Args))]
+        [Uri]
+        public virtual string DeploymentUrl { get => deploymentUrl; set => SetValue(value, ref deploymentUrl); }
+        private string deploymentUrl;
+        public static string Help_Arg_DeploymentUrl => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_Identity), ResourceType = typeof(Args))]
         public virtual string Identity { get => identity; set => SetValue(value, ref identity); }
         private string identity;
@@ -141,26 +147,20 @@ namespace ClickOnce
         private IEnumerable<string> assemblies;
         public static string Help_Arg_Assemblies => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_Files), ResourceType = typeof(Args))]
-        public virtual IEnumerable<string> Files { get => files; set => SetValue(value, ref files); }
-        private IEnumerable<string> files;
-        public static string Help_Arg_Files => GetHelpText();
-
         [Option(HelpText = nameof(Help_Arg_DataFiles), ResourceType = typeof(Args))]
         public virtual IEnumerable<string> DataFiles { get => dataFiles; set => SetValue(value, ref dataFiles); }
         private IEnumerable<string> dataFiles;
         public static string Help_Arg_DataFiles => GetHelpText();
 
+        [Option(HelpText = nameof(Help_Arg_Files), ResourceType = typeof(Args))]
+        public virtual IEnumerable<string> Files { get => files; set => SetValue(value, ref files); }
+        private IEnumerable<string> files;
+        public static string Help_Arg_Files => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_OptionalFilesPath), ResourceType = typeof(Args))]
         public virtual string OptionalFilesPath { get => optionalFilesPath; set => SetValue(value, ref optionalFilesPath); }
         private string optionalFilesPath;
         public static string Help_Arg_OptionalFilesPath => GetHelpText();
-
-        [Option(HelpText = nameof(Help_Arg_UpdateUrl), ResourceType = typeof(Args))]
-        [Uri]
-        public virtual string UpdateUrl { get => updateUrl; set => SetValue(value, ref updateUrl); }
-        private string updateUrl;
-        public static string Help_Arg_UpdateUrl => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_ErrorUrl), ResourceType = typeof(Args))]
         [Uri]
@@ -234,15 +234,21 @@ namespace ClickOnce
         //private string trustInfo;
         //public static string Help_Arg_TrustInfo => GetHelpText();
 
-        //[Option(HelpText = nameof(Help_Arg_CertificateSource), ResourceType = typeof(Args))]
-        //public virtual string CertificateSource { get => certificateSource; set => SetValue(value, ref certificateSource); }
-        //private string certificateSource;
-        //public static string Help_Arg_CertificateSource => GetHelpText();
+        [Option(HelpText = nameof(Help_Arg_CertificateSource), ResourceType = typeof(Args))]
+        public virtual string CertificateSource { get => certificateSource; set => SetValue(value, ref certificateSource); }
+        private string certificateSource;
+        public static string Help_Arg_CertificateSource => GetHelpText();
 
-        //[Option(HelpText = nameof(Help_Arg_CertificatePassword), ResourceType = typeof(Args))]
-        //public virtual string CertificatePassword { get => certificatePassword; set => SetValue(value, ref certificatePassword); }
-        //private string certificatePassword;
-        //public static string Help_Arg_CertificatePassword => GetHelpText();
+        [Option(HelpText = nameof(Help_Arg_CertificatePassword), ResourceType = typeof(Args))]
+        public virtual string CertificatePassword { get => certificatePassword; set => SetValue(value, ref certificatePassword); }
+        private string certificatePassword;
+        public static string Help_Arg_CertificatePassword => GetHelpText();
+
+        [Option(HelpText = nameof(Help_Arg_TimestampUrl), ResourceType = typeof(Args))]
+        [Uri]
+        public virtual string TimestampUrl { get => timestampUrl; set => SetValue(value, ref timestampUrl); }
+        private string timestampUrl;
+        public static string Help_Arg_TimestampUrl => GetHelpText();
 
         [Option(SetName = "Quiet", HelpText = nameof(Help_Arg_Quiet), ResourceType = typeof(Args))]
         public virtual bool? Quiet { get => quiet; set => SetValue(value, ref quiet); }

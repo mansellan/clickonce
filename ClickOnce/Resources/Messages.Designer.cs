@@ -297,6 +297,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manifest signed..
+        /// </summary>
+        public static string Build_Process_Manifest_Signed {
+            get {
+                return ResourceManager.GetString("Build.Process.Manifest.Signed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Validating project....
         /// </summary>
         public static string Build_Process_Project_Validating {
@@ -522,6 +531,24 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if target framework is prior to &apos;net35&apos; and UpdateMode is any value other than &apos;off&apos;. If not specified and UpdateMode is not &apos;none&apos;, the application will only look for updates in its installation directory. If not specified, the application can only be installed by launching the .application file directly, not by downloading it..
+        /// </summary>
+        public static string Help_Arg_DeploymentUrl {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
+        /// </summary>
+        public static string Help_Arg_DeploymentUrl_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.DeploymentUrl.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specifies a description for the application..
         /// </summary>
         public static string Help_Arg_Description {
@@ -648,7 +675,7 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If not specified, defaults to &apos;both&apos;..
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;start&apos;..
         /// </summary>
         public static string Help_Arg_LaunchMode_Create {
             get {
@@ -972,6 +999,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specifies the URL of a timestamp server to use when signing manifests..
+        /// </summary>
+        public static string Help_Arg_TimestampUrl {
+            get {
+                return ResourceManager.GetString("Help.Arg.TimestampUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specify trust information. Must be one of: &apos;full&apos;, &apos;intranet&apos;, &apos;internet&apos;, or a path to an XML file containing custom trust info..
         /// </summary>
         public static string Help_Arg_TrustInfo {
@@ -1022,24 +1058,6 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_UpdateMode_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.UpdateMode.Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Specifies the deployment and update location for the application. Required if target framework is prior to &apos;net35&apos; and UpdateMode is any value other than &apos;off&apos;. If not specified and UpdateMode is not &apos;none&apos;, the application will only look for updates in its installation directory..
-        /// </summary>
-        public static string Help_Arg_UpdateUrl {
-            get {
-                return ResourceManager.GetString("Help.Arg.UpdateUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Must be a valid and absolute URI (a URL or a UNC)..
-        /// </summary>
-        public static string Help_Arg_UpdateUrl_Constraint {
-            get {
-                return ResourceManager.GetString("Help.Arg.UpdateUrl.Constraint", resourceCulture);
             }
         }
         
