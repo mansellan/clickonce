@@ -52,7 +52,8 @@ namespace ClickOnce
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
         internal BooleanOption CreateAutoRun => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
-        //internal StringOption TrustInfo => args.GetString();
+        internal TrustOption TrustInfo => args.GetTrust(SameSite.Value, Source.RootedPath);
+        internal BooleanOption SameSite => args.GetBoolean();
         internal StringOption CertificateSource => args.GetString();
         internal SecureOption CertificatePassword => args.GetSecure();
         internal StringOption TimestampUrl => args.GetString();

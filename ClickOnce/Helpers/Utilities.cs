@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security;
 using System.Text.RegularExpressions;
+using System.Xml;
 using ClickOnce.Resources;
 using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 
@@ -96,6 +97,28 @@ namespace ClickOnce
             {
                 throw new ApplicationException($"An error occurred signing the manifest. Check that all signature parameters are correct.");
             }
+        }
+
+        /// <summary>
+        /// Gets the XmlDeclaration if it exists, creates a new if not.
+        /// </summary>
+        /// <param name="xmlDocument"></param>
+        /// <returns></returns>
+        public static XmlDeclaration GetOrCreateXmlDeclaration(this XmlDocument xmlDocument, string version, string encoding = null, string standalone = null)
+        {
+            XmlDeclaration xmlDeclaration = null;
+            if (xmlDocument.HasChildNodes)
+                xmlDeclaration = xmlDocument.FirstChild as XmlDeclaration;
+
+            if (xmlDeclaration != null)
+                return xmlDeclaration;
+            //Create an XML declaration. 
+            xmlDeclaration = xmlDocument.CreateXmlDeclaration(version, encoding, standalone);
+
+            //Add the new node to the document.
+            XmlElement root = xmlDocument.DocumentElement;
+            xmlDocument.InsertBefore(xmlDeclaration, root);
+            return xmlDeclaration;
         }
     }
 }

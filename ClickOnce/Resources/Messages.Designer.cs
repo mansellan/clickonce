@@ -909,6 +909,24 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Boolean. Specifies whether or not the application should have access to its site of origin. Has no effect if TrustInfo is &apos;FullTrust&apos; or a custom trust file..
+        /// </summary>
+        public static string Help_Arg_SameSite {
+            get {
+                return ResourceManager.GetString("Help.Arg.SameSite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to true..
+        /// </summary>
+        public static string Help_Arg_SameSite_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.SameSite.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Specifies the base directory for all source globbing patterns..
         /// </summary>
         public static string Help_Arg_Source {
@@ -1008,11 +1026,29 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Specify trust information. Must be one of: &apos;full&apos;, &apos;intranet&apos;, &apos;internet&apos;, or a path to an XML file containing custom trust info..
+        ///   Looks up a localized string similar to Specify trust information..
         /// </summary>
         public static string Help_Arg_TrustInfo {
             get {
                 return ResourceManager.GetString("Help.Arg.TrustInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be one of: &apos;Full&apos;, &apos;LocalIntranet&apos;, &apos;Internet&apos;, or a path to an XML file containing custom trust info..
+        /// </summary>
+        public static string Help_Arg_TrustInfo_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.TrustInfo.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;Full&apos;..
+        /// </summary>
+        public static string Help_Arg_TrustInfo_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.TrustInfo.Create", resourceCulture);
             }
         }
         

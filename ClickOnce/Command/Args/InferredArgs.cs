@@ -103,6 +103,10 @@ namespace ClickOnce
 
         public override bool? UseDeployExtension => true;
 
+        public override string TrustInfo => "Full";
+
+        public override bool? SameSite => true;
+
         public override bool? TrustUrlParameters => project.LaunchMode.Value.HasFlag(ClickOnce.LaunchMode.Url);
 
         public override bool? CreateDesktopShortcut => false;

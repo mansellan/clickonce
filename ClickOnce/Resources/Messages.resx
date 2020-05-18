@@ -208,7 +208,7 @@
     <value>Specifies the target framework of the application. Only .Net Framework targets net20 through to net48 are valid.</value>
   </data>
   <data name="Help.Arg.TrustInfo" xml:space="preserve">
-    <value>Specify trust information. Must be one of: 'full', 'intranet', 'internet', or a path to an XML file containing custom trust info.</value>
+    <value>Specify trust information.</value>
   </data>
   <data name="Help.Arg.TrustUrlParameters" xml:space="preserve">
     <value>Boolean. Specifies whether URL query-string parameters should be made available to the application. Has no effect if LaunchMode is 'start'.</value>
@@ -502,5 +502,17 @@ See license text for details (MIT)</value>
   </data>
   <data name="Help.Arg.TimestampUrl" xml:space="preserve">
     <value>Specifies the URL of a timestamp server to use when signing manifests.</value>
+  </data>
+  <data name="Help.Arg.SameSite" xml:space="preserve">
+    <value>Boolean. Specifies whether or not the application should have access to its site of origin. Has no effect if TrustInfo is 'FullTrust' or a custom trust file.</value>
+  </data>
+  <data name="Help.Arg.SameSite.Create" xml:space="preserve">
+    <value>If not specified, defaults to true.</value>
+  </data>
+  <data name="Help.Arg.TrustInfo.Constraint" xml:space="preserve">
+    <value>Must be one of: 'Full', 'LocalIntranet', 'Internet', or a path to an XML file containing custom trust info.</value>
+  </data>
+  <data name="Help.Arg.TrustInfo.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'Full'.</value>
   </data>
 </root>

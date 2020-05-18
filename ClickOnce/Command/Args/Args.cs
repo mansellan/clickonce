@@ -229,10 +229,16 @@ namespace ClickOnce
         private bool? useApplicationTrust;
         public static string Help_Arg_UseApplicationTrust => GetHelpText();
 
-        //[Option(HelpText = nameof(Help_Arg_TrustInfo), ResourceType = typeof(Args))]
-        //public virtual string TrustInfo { get => trustInfo; set => SetValue(value, ref trustInfo); }
-        //private string trustInfo;
-        //public static string Help_Arg_TrustInfo => GetHelpText();
+        [Option(HelpText = nameof(Help_Arg_TrustInfo), ResourceType = typeof(Args))]
+        [RegularExpression(RegExPatterns.TrustInfo, ErrorMessageResourceName = nameof(Messages.Help_Arg_TrustInfo_Constraint), ErrorMessageResourceType = typeof(Messages))]
+        public virtual string TrustInfo { get => trustInfo; set => SetValue(value, ref trustInfo); }
+        private string trustInfo;
+        public static string Help_Arg_TrustInfo => GetHelpText();
+
+        [Option(HelpText = nameof(Help_Arg_SameSite), ResourceType = typeof(Args))]
+        public virtual bool? SameSite { get => sameSite; set => SetValue(value, ref sameSite); }
+        private bool? sameSite;
+        public static string Help_Arg_SameSite => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_CertificateSource), ResourceType = typeof(Args))]
         public virtual string CertificateSource { get => certificateSource; set => SetValue(value, ref certificateSource); }

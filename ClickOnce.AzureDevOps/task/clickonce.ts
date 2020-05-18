@@ -65,6 +65,7 @@ async function run(): Promise<void> {
                 ["packageMode", "both"],
                 ["launchMode", "start"],
                 ["minimumVersion"],
+                ["sameSite", "true"],
                 ["trustUrlParameters", "true"],
                 ["useDeployExtension", "true"],
                 ["useLauncher", "auto"],
@@ -86,6 +87,7 @@ async function run(): Promise<void> {
         const verbosity = tl.getInput("verbosity");
         if (verbosity === "quiet") {
             clickOnceToolRunner.arg(["--quiet", "true"]);
+
         } else if (verbosity === "verbose") {
             clickOnceToolRunner.arg(["--verbose", "true"]);
         }
@@ -93,8 +95,8 @@ async function run(): Promise<void> {
         const updateMode = tl.getInput("updateMode");
         if (updateMode === "scheduled") {
             clickOnceToolRunner.arg([
-                "--updateMode", tl.getInput("updateInterval") + tl.getInput("updateUnit").slice(0, 1).toLowerCase()
-            ]);
+                "--updateMode", tl.getInput("updateInterval") + tl.getInput("updateUnit").slice(0, 1).toLowerCase()]);
+
         } else if (updateMode !== "starting") {
             clickOnceToolRunner.arg(["--updateMode", updateMode]);
         }
@@ -114,11 +116,65 @@ async function run(): Promise<void> {
             clickOnceToolRunner.arg(["--timestampUrl", tl.getInput("timestampUrl")]);
         }
 
+        const trustMode = tl.getInput("trustMode");
+        if (trustMode === "LocalIntranet" || trustMode === "Internet") {
+            clickOnceToolRunner.arg(["--trustInfo", trustMode]);
+
+        } else if (trustMode === "Custom") {
+            clickOnceToolRunner.arg(["--trustInfo", tl.getInput("trustFile")]);
+        }
+
+        const minimumOs = tl.getInput("minimumOs");
+        switch (minimumOs) {
+            case "win10":
+                clickOnceToolRunner.arg(["--osVersion", "10.0"]);
+                break;
+
+            case "win81":
+                clickOnceToolRunner.arg(["--osVersion", "6.3"]);
+                break;
+
+            case "win8":
+                clickOnceToolRunner.arg(["--osVersion", "6.2"]);
+                break;
+
+            case "win7":
+                clickOnceToolRunner.arg(["--osVersion", "6.1"]);
+                break;
+
+            case "winVista":
+                clickOnceToolRunner.arg(["--osVersion", "6.0"]);
+                break;
+
+            case "winXp":
+                clickOnceToolRunner.arg(["--osVersion", "5.1"]);
+                break;
+
+            case "win2k":
+                clickOnceToolRunner.arg(["--osVersion", "5.0"]);
+                break;
+
+            case "winMe":
+                clickOnceToolRunner.arg(["--osVersion", "4.9"]);
+                break;
+
+            case "win98":
+                clickOnceToolRunner.arg(["--osVersion", "4.1"]);
+                break;
+
+            case "custom":
+                clickOnceToolRunner.arg(["--osVersion", tl.getInput("osVersion")]);
+                clickOnceToolRunner.arg(["--osDescription", tl.getInput("osDescription")]);
+                break;
+        }
+
         await clickOnceToolRunner.exec();
 
         tl.setResult(tl.TaskResult.Succeeded, "All done!");
+
     } catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
+
     } finally {
         if (certificatePath && tl.exist(certificatePath)) {
             fs.unlinkSync(certificatePath);

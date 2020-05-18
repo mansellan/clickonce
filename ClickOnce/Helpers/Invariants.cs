@@ -79,13 +79,14 @@ namespace ClickOnce
         internal const string HtmlFile = @"^[\w\-.][\w\-. ]*\.[hH][tT][mM][lL]?$";
         internal const string Platform = @"^[aA][nN][yY][cC][pP][uU]|[xX]86|[xX]64|[iI][tT][aA][nN][iI][uU][mM]$";
         internal const string AssemblyVersionNumber = @"^((?:(\d{1,4}|[0-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-4])|(yyyy|yy?(MM?|dd?|hh?|HH?|mm?|ss?)?|MM?(yy?|dd?|hh?|HH?|mm?|ss?)?|dd?(yy?|MM?|hh?|HH?|mm?|ss?)?|hh?(yy?|MM?|dd?|HH?|mm?|ss?)?|HH?(yy?|MM?|dd?|hh?|mm?|ss?)?|mm?(yy?|MM?|dd?|hh?|HH?|ss?)?|ss?(yy?|MM?|dd?|hh?|HH?|mm?)?))(?:\.(?:(\d{1,4}|[0-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-4])|(yyyy|yy?(MM?|dd?|hh?|HH?|mm?|ss?)?|MM?(yy?|dd?|hh?|HH?|mm?|ss?)?|dd?(yy?|MM?|hh?|HH?|mm?|ss?)?|hh?(yy?|MM?|dd?|HH?|mm?|ss?)?|HH?(yy?|MM?|dd?|hh?|mm?|ss?)?|mm?(yy?|MM?|dd?|hh?|HH?|ss?)?|ss?(yy?|MM?|dd?|hh?|HH?|mm?)?))){0,3})$";
-        internal const string WindowsVersionNumber = @"^(?:4\.0|4\.1|4\.9|5\.0|5\.1|5\.2|6\.0|6\.1|6\.2|6\.3|10\.0)(?:\.\d{1,5}(?:\.\d{1,5})?)?$";
+        internal const string WindowsVersionNumber = @"^(?:4\.1|4\.9|5\.0|5\.1|5\.2|6\.0|6\.1|6\.2|6\.3|10\.0)(?:\.\d{1,5}(?:\.\d{1,5})?)?$";
         internal const string Culture = @"^[nN][eE][uU][tT][rR][aA][lL]|[a-zA-Z]{2}-[a-zA-Z]{2}$";
         internal const string TargetFramework = @"^[nN][oO][nN][eE]|[nN][eE][tT](?:20|30|35|40|403|45|451|452|46|461|462|47|471|472|48\d?)$";
         internal const string PackageMode = @"[nN][oO][nN][eE]|[aA][pP][pP][lL][iI][cC][aA][tT][iI][oO][nN]|[dD][eE][pP][lL][oO][yY][mM][eE][nN][tT]|[bB][oO][tT][hH]";
         internal const string LaunchMode = @"^[sS][tT][aA][rR][tT]|[uU][rR][lL]|[bB][oO][tT][hH]|[bB][rR][oO][wW][sS][eE][rR]$";
         internal const string UpdateMode = @"^(?:[nN][oO][nN][eE]|[sS][tT][aA][rR][tT](?:[iI][nN][gG]|[eE][dD])|(?:\d{1,3}|[1-7]\d{3}|8[0-6]\d{2}|87[0-5]\d|8760)h|(?:\d{1,2}|[1-2]\d{2}|3[0-5]\d|36[0-5])d|(?:|\d|[1-4]\d|5[0-2])w)$";
         internal const string UseLauncher = @"^[tT][rR][uU][eE]|[fF][aA][lL][sS][eE]|[aA][uU][tT][oO]$";
+        internal const string TrustInfo = @"^(([fF][uU][lL][lL]|[iI][nN][tT][eE][rR][nN][eE][tT]|[lL][oO][cC][aA][lL][iI][nN][tT][rR][aA][nN][eE][tT])|[\w\-.][\w\-. ]*\.[xX][mM][lL])$";
     }
 
     internal static class WindowsVersions

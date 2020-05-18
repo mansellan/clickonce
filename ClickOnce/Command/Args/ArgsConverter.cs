@@ -86,5 +86,8 @@ namespace ClickOnce
 
         public static SecureOption GetSecure(this IEnumerable<Args> args, [CallerMemberName] string name = null) =>
             new SecureOption(args.Get<string>(null, name));
+
+        public static TrustOption GetTrust(this IEnumerable<Args> args, bool sameSite, string sourcePath, [CallerMemberName] string name = null) =>
+            new TrustOption(args.Get<string>(null, name), sameSite, sourcePath);
     }
 }

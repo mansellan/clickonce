@@ -27,7 +27,7 @@ namespace ClickOnce
                     ProcessorArchitecture = project.ProcessorArchitecture.Value.ToString().ToLowerInvariant()
                 },
                 UseApplicationTrust = project.UseApplicationTrust.Value,
-                TrustInfo = new TrustInfo()
+                TrustInfo = project.TrustInfo.Resolve()
             };
 
             if (project.UseApplicationTrust.Value)

@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "64"
+    "Patch": "67"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "ClickOnce Package",
@@ -338,13 +338,45 @@
 			"visibleRule": "signingMode = installed || signingMode = file"
 		},
 		{
+			"name": "trustMode",
+			"type": "pickList",
+			"label": "Trust level",
+			"defaultValue": "Full",
+			"groupName": "security",
+			"helpMarkDown": "Specifies the level of trust to grant. If using a launcher, this must be set to Full Trust.",
+			"options": {
+				"Full": "Full Trust",
+				"LocalIntranet": "Local Intranet",
+				"Internet": "Internet",
+				"Custom": "Custom"
+			}
+		},
+		{
+			"name": "sameSite",
+			"type": "boolean",
+			"label": "Grant the application access to its site of origin",
+			"defaultValue": true, 
+			"groupName": "security",
+			"helpMarkDown": "Specifies whether the application can access services hosted at the URL it is deployed to.",
+			"visibleRule": "trustMode = localIntranet || trustMode = internet"
+		},
+		{
+			"name": "trustFile",
+			"type": "filePath",
+			"label": "Custom trust file",
+			"groupName": "security",
+			"required": true,
+			"helpMarkDown": "Specifies an XML file which contains custom trust info. This should be the <trustInfo> element from a manifest file.",
+			"visibleRule": "trustMode = custom"
+		},
+		{
 			"name": "useApplicationTrust",
-      "type": "boolean",
-      "label": "Use application trust",
-      "defaultValue": false,
-      "groupName": "advanced",
-      "helpMarkDown": "Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest."
-    },
+			"type": "boolean",
+			"label": "Use application trust",
+			"defaultValue": false,
+			"groupName": "security",
+			"helpMarkDown": "Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest."
+		},
 		{
 			"name": "identity",
 			"type": "string",
@@ -352,6 +384,51 @@
 			"defaultValue": null,
 			"groupName": "advanced",
 			"helpMarkDown": "Specifies the identity name of the application. This is used for the application and deployment manifest file names and the package folder name. If not specified, a name is inferred from the EntryPoint."
+		},
+		{
+			"name": "deploymentPageTemplate",
+			"type": "string",
+			"label": "Deployment page template",
+			"groupName": "advanced",
+			"helpMarkdown": "Specifies the template to use to create the deployment page. Must end in '.htm' or '.html'. If not specified, a default deployment page template will be used."
+		},
+		{
+			"name": "minimumOs",
+			"type": "pickList",
+			"label": "Minimum OS",
+			"defaultValue": "auto",
+			"groupName": "advanced",
+			"helpMarkdown": "Specifies the minimum OS version required by the application. If you require specific service pack levels, select Custom.",
+			"options": {
+				"auto": "Infer from target framework",
+				"win10": "Windows 10",
+				"win81": "Windows 8.1",
+				"win8": "Windows 8",
+				"win7": "Windows 7",
+				"winVista": "Windows Vista",
+				"winXP": "Windows XP",
+				"win2k": "Windows 2000",
+				"winMe": "Windows Millennium",
+				"win98": "Windows 98",
+				"custom": "Custom"
+			}
+		},
+		{
+			"name": "osVersion",
+			"type": "string",
+			"label": "OS Version",
+			"required": true,
+			"groupName": "advanced",
+			"helpMarkdown": "Specifies the minimum required operating system (OS) version required by the application. For example, the value '5.1.2600.0' indicates the operating system is Windows XP. Must be a dotted version number with 2 to 4 elements. The first 2 elements must match a known Windows version (e.g. '6.0' for Windows Vista)",
+			"visibleRule": "minimumOs = Custom"
+		},
+		{
+			"name": "osDescription",
+			"type": "string",
+			"label": "OS Description",
+      "groupName": "advanced",
+			"helpMarkdown": "Specifies a description of the OS Version.",
+			"visibleRule": "minimumOs = Custom"
 		},
 		{
 			"name": "useLauncher",
