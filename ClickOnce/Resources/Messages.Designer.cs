@@ -225,6 +225,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Creating prerequisites bootstrapper....
+        /// </summary>
+        public static string Build_Process_Bootstrapper {
+            get {
+                return ResourceManager.GetString("Build.Process.Bootstrapper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Processing deployment....
         /// </summary>
         public static string Build_Process_Deployment {
@@ -851,6 +860,42 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_Platform_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.Platform.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies a colon-separated list of prerequisites to be installed. These must match a known bootstrapper product code..
+        /// </summary>
+        public static string Help_Arg_Prerequisites {
+            get {
+                return ResourceManager.GetString("Help.Arg.Prerequisites", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies where prerequisites should be downloaded from..
+        /// </summary>
+        public static string Help_Arg_PrerequisitesLocation {
+            get {
+                return ResourceManager.GetString("Help.Arg.PrerequisitesLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Must be one of &apos;vendor&apos;, &apos;deployment&apos; or a URL..
+        /// </summary>
+        public static string Help_Arg_PrerequisitesLocation_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.PrerequisitesLocation.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to &apos;vendor&apos;..
+        /// </summary>
+        public static string Help_Arg_PrerequisitesLocation_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.PrerequisitesLocation.Create", resourceCulture);
             }
         }
         

@@ -47,6 +47,9 @@ namespace ClickOnce
         public static StringOption GetString(this IEnumerable<Args> args, Func<string, string> converter = null, [CallerMemberName] string name = null) =>
             new StringOption(args.Get(converter, name));
 
+        public static StringsOption GetStrings(this IEnumerable<Args> args, [CallerMemberName] string name = null) =>
+            new StringsOption(args.Get<IEnumerable<string>>(null, name));
+
         public static BooleanOption GetBoolean(this IEnumerable<Args> args, [CallerMemberName] string name = null) =>
             new BooleanOption(args.Get<bool>(null, name));
 
@@ -89,5 +92,7 @@ namespace ClickOnce
 
         public static TrustOption GetTrust(this IEnumerable<Args> args, bool sameSite, string sourcePath, [CallerMemberName] string name = null) =>
             new TrustOption(args.Get<string>(null, name), sameSite, sourcePath);
+
+
     }
 }

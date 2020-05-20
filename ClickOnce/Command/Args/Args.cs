@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using System.Windows.Forms;
 using ClickOnce.Resources;
 using CommandLine;
 
@@ -156,6 +155,16 @@ namespace ClickOnce
         public virtual IEnumerable<string> Files { get => files; set => SetValue(value, ref files); }
         private IEnumerable<string> files;
         public static string Help_Arg_Files => GetHelpText();
+        
+        [Option(HelpText = nameof(Help_Arg_Prerequisites), ResourceType = typeof(Args), Separator = ':')]
+        public virtual IEnumerable<string> Prerequisites { get => prerequisites; set => SetValue(value, ref prerequisites); }
+        private IEnumerable<string> prerequisites;
+        public static string Help_Arg_Prerequisites => GetHelpText();
+
+        [Option(HelpText = nameof(Help_Arg_PrerequisitesLocation), ResourceType = typeof(Args))]
+        public virtual string PrerequisitesLocation { get => prerequisitesLocation; set => SetValue(value, ref prerequisitesLocation); }
+        private string prerequisitesLocation;
+        public static string Help_Arg_PrerequisitesLocation => GetHelpText();
 
         [Option(HelpText = nameof(Help_Arg_OptionalFilesPath), ResourceType = typeof(Args))]
         public virtual string OptionalFilesPath { get => optionalFilesPath; set => SetValue(value, ref optionalFilesPath); }

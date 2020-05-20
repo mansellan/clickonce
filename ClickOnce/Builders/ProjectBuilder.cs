@@ -26,6 +26,7 @@ namespace ClickOnce
 
                 ApplicationBuilder.Build(project);
                 DeploymentBuilder.Build(project);
+                PrerequisitesBuilder.Build(project);
 
                 return 0;
             }

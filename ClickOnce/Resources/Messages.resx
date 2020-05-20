@@ -515,4 +515,19 @@ See license text for details (MIT)</value>
   <data name="Help.Arg.TrustInfo.Create" xml:space="preserve">
     <value>If not specified, defaults to 'Full'.</value>
   </data>
+  <data name="Help.Arg.Prerequisites" xml:space="preserve">
+    <value>Specifies a colon-separated list of prerequisites to be installed. These must match a known bootstrapper product code.</value>
+  </data>
+  <data name="Help.Arg.PrerequisitesLocation" xml:space="preserve">
+    <value>Specifies where prerequisites should be downloaded from.</value>
+  </data>
+  <data name="Help.Arg.PrerequisitesLocation.Constraint" xml:space="preserve">
+    <value>Must be one of 'vendor', 'deployment' or a URL.</value>
+  </data>
+  <data name="Help.Arg.PrerequisitesLocation.Create" xml:space="preserve">
+    <value>If not specified, defaults to 'vendor'.</value>
+  </data>
+  <data name="Build.Process.Bootstrapper" xml:space="preserve">
+    <value>Creating prerequisites bootstrapper...</value>
+  </data>
 </root>

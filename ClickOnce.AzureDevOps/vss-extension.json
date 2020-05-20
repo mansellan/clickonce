@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "clickonce",
     "name": "ClickOnce Packager",
-    "version": "0.1.68",
+    "version": "0.1.80",
     "public": false,
     "publisher": "mansellan",
     "targets": [

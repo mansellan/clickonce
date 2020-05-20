@@ -60,6 +60,8 @@ namespace ClickOnce
         
         public override IEnumerable<string> Files => new[] { "**/*" };
 
+        public new string PrerequisitesLocation => "vendor";
+
         public override string OptionalFilesPath => "Optional";
 
         public override string PackagePath => Path.Combine("Application Files", $"{(project.Identity?.Value ?? Path.GetFileNameWithoutExtension(EntryPoint))}_{(project.Version?.Value ?? Version).Replace('.', '_')}");

@@ -168,6 +168,44 @@ async function run(): Promise<void> {
                 break;
         }
 
+        const prerequisitesMode = tl.getInput("prerequisitesMode");
+        if (prerequisitesMode === "vendor" || prerequisitesMode === "deployment") {
+            clickOnceToolRunner.arg(["--prerequisitesLocation", prerequisitesMode]);
+
+        } else if (prerequisitesMode === "custom") {
+            clickOnceToolRunner.arg(["--prerequisitesLocation", tl.getInput("prerequisitesUrl")]);
+        }
+
+        let prerequisites: string = null;
+        const prerequisite1 = tl.getInput("prerequisite1");
+        if (prerequisite1 !== "none") {
+            prerequisites = prerequisite1;
+
+            const prerequisite2 = tl.getInput("prerequisite2");
+            if (prerequisite2 !== "none") {
+                prerequisites += `:${prerequisite2}`;
+
+                const prerequisite3 = tl.getInput("prerequisite3");
+                if (prerequisite3 !== "none") {
+                    prerequisites += `:${prerequisite3}`;
+
+                    const prerequisite4 = tl.getInput("prerequisite4");
+                    if (prerequisite4 !== "none") {
+                        prerequisites += `:${prerequisite4}`;
+
+                        const prerequisite5 = tl.getInput("prerequisite5");
+                        if (prerequisite5 !== "none") {
+                            prerequisites += `:${prerequisite5}`;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (prerequisites !== null) {
+            clickOnceToolRunner.arg(["--prerequisites", prerequisites]);
+        }
+
         await clickOnceToolRunner.exec();
 
         tl.setResult(tl.TaskResult.Succeeded, "All done!");

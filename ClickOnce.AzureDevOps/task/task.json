@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "68"
+    "Patch": "80"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "ClickOnce Package",
@@ -23,9 +23,13 @@
       "name": "details",
       "displayName": "Details"
     },
-	  {
-      "name": "files",
-      "displayName": "Application Files"
+		{
+			"name": "files",
+			"displayName": "Application Files"
+		},
+    {
+			"name": "prerequisites",
+			"displayName": "Prerequisites" 
     },
 		{
 			"name": "updates",
@@ -245,6 +249,174 @@
 			"helpMarkDown": "Specifies a path under which optional files are stored, relative to the source path. The first level of directories under this path will be used as the group names for the optional download groups. The DataFiles glob will be ignored for this path, as data files cannot be optional."
 		},
 		{
+			"name": "prerequisitesMode",
+			"type": "pickList",
+			"label": "Download mode",
+			"groupName": "prerequisites",
+			"defaultValue": "none",
+			"helpMarkDown": "Specifies the location that prerequisites should be downloaded from",
+			"options": {
+				"none": "Do not install prerequisites",
+				"vendor": "Download from vendor website",
+				"deployment": "Download from deployment URL",
+				"custom": "Download from the specified URL"
+			}
+		},
+		{
+			"name": "prerequisitesUrl",
+			"type": "string",
+			"label": "Download URL",
+			"groupName": "prerequisites",
+			"helpMarkDown": "Specifies the location to download prerequisites from.",
+			"required": true,
+			"visibleRule": "prerequisitesMode = custom"
+		},
+		{
+			"name": "prerequisite1",
+			"type": "pickList",
+			"label": "Prerequisite",
+			"groupName": "prerequisites",
+			"helpMarkDown": "Specifies a prerequisite to install",
+			"visibleRule": "prerequisitesMode != none",
+			"defaultValue": "none",
+			"options": {
+        "none": "Not set",
+        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+			}
+		},
+		{
+			"name": "prerequisite2",
+			"type": "pickList",
+			"label": "Prerequisite",
+			"groupName": "prerequisites",
+			"helpMarkDown": "Specifies a prerequisite to install",
+			"visibleRule": "prerequisite1 != none",
+			"defaultValue": "none",
+			"options": {
+        "none": "Not set",
+        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+			}
+		},
+		{
+			"name": "prerequisite3",
+			"type": "pickList",
+			"label": "Prerequisite",
+			"groupName": "prerequisites",
+			"helpMarkDown": "Specifies a prerequisite to install",
+			"visibleRule": "prerequisite2 != none",
+			"defaultValue": "none",
+			"options": {
+        "none": "Not set",
+        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+			}
+		},
+		{
+			"name": "prerequisite4",
+			"type": "pickList",
+			"label": "Prerequisite",
+			"groupName": "prerequisites",
+			"helpMarkDown": "Specifies a prerequisite to install",
+			"visibleRule": "prerequisite3 != none",
+			"defaultValue": "none",
+			"options": {
+        "none": "Not set",
+        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+			}
+		},
+    {
+      "name": "prerequisite5",
+      "type": "pickList",
+      "label": "Prerequisite",
+      "groupName": "prerequisites",
+      "helpMarkDown": "Specifies a prerequisite to install",
+      "visibleRule": "prerequisite4 != none",
+      "defaultValue": "none",
+			"options": {
+        "none": "Not set",
+        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+			}
+    },
+		{
 			"name": "updateMode",
 			"type": "pickList",
 			"label": "Update mode",
@@ -355,7 +527,7 @@
 			"name": "sameSite",
 			"type": "boolean",
 			"label": "Grant the application access to its site of origin",
-			"defaultValue": true, 
+			"defaultValue": true,
 			"groupName": "security",
 			"helpMarkDown": "Specifies whether the application can access services hosted at the URL it is deployed to.",
 			"visibleRule": "trustMode = localIntranet || trustMode = internet"
@@ -426,7 +598,7 @@
 			"name": "osDescription",
 			"type": "string",
 			"label": "OS Description",
-      "groupName": "advanced",
+			"groupName": "advanced",
 			"helpMarkdown": "Specifies a description of the OS Version.",
 			"visibleRule": "minimumOs = Custom"
 		},

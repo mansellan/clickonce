@@ -39,6 +39,8 @@ namespace ClickOnce
         internal GlobOption Assemblies => args.GetGlob(GlobKind.Assemblies, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
         internal GlobOption DataFiles => args.GetGlob(GlobKind.DataFiles, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
         internal GlobOption Files => args.GetGlob(GlobKind.Files, Source.RootedPath, Target.Value, OptionalFilesPath.Value);
+        internal StringsOption Prerequisites => args.GetStrings();
+        internal StringOption PrerequisitesLocation => args.GetString();
         internal StringOption OptionalFilesPath => args.GetString();
         internal StringOption ErrorUrl => args.GetString();
         internal StringOption SupportUrl => args.GetString();
