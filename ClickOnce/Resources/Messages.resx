@@ -530,4 +530,13 @@ See license text for details (MIT)</value>
   <data name="Build.Process.Bootstrapper" xml:space="preserve">
     <value>Creating prerequisites bootstrapper...</value>
   </data>
+  <data name="Build.Process.FileAssociations" xml:space="preserve">
+    <value>Adding file associations...</value>
+  </data>
+  <data name="Help.Arg.FileAssociations" xml:space="preserve">
+    <value>Specifies a colon-separated list of file associations to be registered.</value>
+  </data>
+  <data name="Help.Arg.FileAssociations.Constraint" xml:space="preserve">
+    <value>Each entry must be a semi-colon delimited set of the following fields: {extension};{description};{progid};{icon}.</value>
+  </data>
 </root>

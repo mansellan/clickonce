@@ -45,6 +45,7 @@ namespace ClickOnce
             application.AddGlob(project, project.Assemblies);
             application.AddGlob(project, project.DataFiles);
             application.AddGlob(project, project.Files);
+            application.AddFileAssociations(project);
 
             application.ResolveFiles();
             application.UpdateFileInfo(project.TargetFramework.Version);
@@ -87,6 +88,33 @@ namespace ClickOnce
             if (!any)
             {
                 Logger.Normal(Messages.Result_NoneFound, 1);
+            }
+            Logger.Normal();
+        }
+
+        private static void AddFileAssociations(this ApplicationManifest application, Project project)
+        {
+            Logger.Normal(Messages.Build_Process_FileAssociations);
+
+            if (project.FileAssociations.Value is null)
+            {
+                Logger.Normal(Messages.Result_NoneFound, 1, 2);
+                return;
+            }
+
+            foreach (var item  in project.FileAssociations.Value.Split(':'))
+            {
+                var elements = item.Split(';');
+                var fileAssociation = new FileAssociation
+                {
+                    Extension = elements[0],
+                    Description = elements[1],
+                    ProgId = elements[2],
+                    DefaultIcon = elements[3]
+                };
+                Logger.Normal(fileAssociation.Extension, 1);
+                application.FileAssociations.Add(fileAssociation);
+                application.Add(project, Path.Combine(project.Source.Value, fileAssociation.DefaultIcon), fileAssociation.DefaultIcon, GlobKind.Files);
             }
             Logger.Normal();
         }

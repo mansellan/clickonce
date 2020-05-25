@@ -53,6 +53,7 @@ namespace ClickOnce
         internal EnumOption<UseLauncher> UseLauncher => args.GetEnum<UseLauncher>();
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
         internal BooleanOption CreateAutoRun => args.GetBoolean();
+        internal StringOption FileAssociations => args.GetString();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
         internal TrustOption TrustInfo => args.GetTrust(SameSite.Value, Source.RootedPath);
         internal BooleanOption SameSite => args.GetBoolean();

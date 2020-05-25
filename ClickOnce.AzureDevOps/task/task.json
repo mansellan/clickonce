@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "80"
+    "Patch": "90"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "ClickOnce Package",
@@ -36,9 +36,13 @@
 			"displayName": "Updates",
 			"visibleRule": "launchMode = start || launchMode = both"
 		},
-    {
+		{
 			"name": "security",
-			"displayName": "Security" 
+			"displayName": "Security"
+		},
+    {
+			"name": "fileAssociations",
+			"displayName": "File Associations" 
     },
 	  {
 	    "name": "advanced",
@@ -280,24 +284,24 @@
 			"visibleRule": "prerequisitesMode != none",
 			"defaultValue": "none",
 			"options": {
-        "none": "Not set",
-        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
-        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
-        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
-        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
-        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
-        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
-        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
-        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
-        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
-        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
-        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
-        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
-        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
-        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
-        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+				"none": "Not set",
+				"Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+				".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+				".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+				".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+				".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+				".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+				".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+				".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+				".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+				"Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+				"Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+				"Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+				"Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+				"Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+				"Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
 			}
 		},
 		{
@@ -309,24 +313,24 @@
 			"visibleRule": "prerequisite1 != none",
 			"defaultValue": "none",
 			"options": {
-        "none": "Not set",
-        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
-        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
-        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
-        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
-        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
-        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
-        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
-        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
-        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
-        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
-        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
-        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
-        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
-        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
-        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+				"none": "Not set",
+				"Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+				".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+				".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+				".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+				".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+				".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+				".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+				".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+				".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+				"Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+				"Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+				"Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+				"Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+				"Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+				"Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
 			}
 		},
 		{
@@ -338,24 +342,24 @@
 			"visibleRule": "prerequisite2 != none",
 			"defaultValue": "none",
 			"options": {
-        "none": "Not set",
-        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
-        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
-        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
-        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
-        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
-        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
-        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
-        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
-        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
-        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
-        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
-        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
-        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
-        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
-        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+				"none": "Not set",
+				"Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+				".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+				".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+				".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+				".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+				".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+				".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+				".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+				".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+				"Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+				"Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+				"Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+				"Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+				"Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+				"Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
 			}
 		},
 		{
@@ -367,55 +371,334 @@
 			"visibleRule": "prerequisite3 != none",
 			"defaultValue": "none",
 			"options": {
-        "none": "Not set",
-        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
-        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
-        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
-        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
-        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
-        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
-        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
-        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
-        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
-        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
-        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
-        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
-        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
-        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
-        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+				"none": "Not set",
+				"Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+				".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+				".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+				".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+				".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+				".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+				".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+				".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+				".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+				"Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+				"Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+				"Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+				"Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+				"Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+				"Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
 			}
 		},
-    {
-      "name": "prerequisite5",
-      "type": "pickList",
-      "label": "Prerequisite",
-      "groupName": "prerequisites",
-      "helpMarkDown": "Specifies a prerequisite to install",
-      "visibleRule": "prerequisite4 != none",
-      "defaultValue": "none",
+		{
+			"name": "prerequisite5",
+			"type": "pickList",
+			"label": "Prerequisite",
+			"groupName": "prerequisites",
+			"helpMarkDown": "Specifies a prerequisite to install",
+			"visibleRule": "prerequisite4 != none",
+			"defaultValue": "none",
 			"options": {
-        "none": "Not set",
-        "Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
-        ".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
-        ".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
-        ".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
-        ".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
-        ".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
-        ".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
-        ".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
-        ".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
-        "Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
-        "Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
-        "Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
-        "Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
-        "Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
-        "Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
-        "Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
+				"none": "Not set",
+				"Microsoft.Net.Framework.3.5.SP1": ".NET Framework 3.5 SP1",
+				".NETFramework,Version=v4.5.2": "Microsoft .NET Framework 4.5.2 (x86 and x64)",
+				".NETFramework,Version=v4.6": "Microsoft .NET Framework 4.6 (x86 and x64)",
+				".NETFramework,Version=v4.6.1": "Microsoft .NET Framework 4.6.1 (x86 and x64)",
+				".NETFramework,Version=v4.6.2": "Microsoft .NET Framework 4.6.2 (x86 and x64)",
+				".NETFramework,Version=v4.7": "Microsoft .NET Framework 4.7 (x86 and x64)",
+				".NETFramework,Version=v4.7.1": "Microsoft .NET Framework 4.7.1 (x86 and x64)",
+				".NETFramework,Version=v4.7.2": "Microsoft .NET Framework 4.7.2 (x86 and x64)",
+				".NETFramework,Version=v4.8": "Microsoft .NET Framework 4.8 (x86 and x64)",
+				"Microsoft.VSTORuntime.4.0": "Microsoft Visual Studio 2010 Tools for Office Runtime (x86 and x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x64": "Microsoft System CLR Types for SQL Server 2014 (x64)",
+				"Microsoft.SqlServer.SQLSysClrTypes.12.0.x86": "Microsoft System CLR Types for SQL Server 2014 (x86)",
+				"Microsoft.SqlServer.Express.10.5": "SQL Server 2008 R2 Express",
+				"Microsoft.SqlServer.Express.11.0": "SQL Server 2012 Express",
+				"Microsoft.SqlServer.SqlLocalDB.11.1": "SQL Server 2012 Express LocalDB",
+				"Microsoft.Visual.C++.14.0.x64": "Visual C++ 14 Runtime Libraries (x64)",
+				"Microsoft.Visual.C++.14.0.x86": "Visual C++ 14 Runtime Libraries (x86)"
 			}
-    },
+		},
+		{
+			"name": "extension1",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot."
+		},
+		{
+			"name": "extension1Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension1 != \"\""
+		},
+		{
+			"name": "extension1ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension1 != \"\""
+		},
+		{
+			"name": "extension1Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension1 != \"\""
+		},
+		{
+			"name": "extension2",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+			"visibleRule": "extension1 != \"\""
+		},
+		{
+			"name": "extension2Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension2 != \"\""
+		},
+		{
+			"name": "extension2ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension2 != \"\""
+		},
+		{
+			"name": "extension2Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension2 != \"\""
+		},
+		{
+			"name": "extension3",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+      "visibleRule": "extension2 != \"\""
+		},
+		{
+			"name": "extension3Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension3 != \"\""
+		},
+		{
+			"name": "extension3ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension3 != \"\""
+		},
+		{
+			"name": "extension3Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension3 != \"\""
+		},
+		{
+			"name": "extension4",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+			"visibleRule": "extension3 != \"\""
+		},
+		{
+			"name": "extension4Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension4 != \"\""
+		},
+		{
+			"name": "extension4ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension4 != \"\""
+		},
+		{
+			"name": "extension4Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension4 != \"\""
+		},
+		{
+			"name": "extension5",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+      "visibleRule": "extension4 != \"\""
+		},
+		{
+			"name": "extension5Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension5 != \"\""
+		},
+		{
+			"name": "extension5ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension5 != \"\""
+		},
+		{
+			"name": "extension5Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension5 != \"\""
+		},
+		{
+			"name": "extension6",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+			"visibleRule": "extension5 != \"\""
+		},
+		{
+			"name": "extension6Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension6 != \"\""
+		},
+		{
+			"name": "extension6ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension6 != \"\""
+		},
+		{
+			"name": "extension6Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension6 != \"\""
+		},
+		{
+			"name": "extension7",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+      "visibleRule": "extension6 != \"\""
+		},
+		{
+			"name": "extension7Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension7 != \"\""
+		},
+		{
+			"name": "extension7ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension7 != \"\""
+		},
+		{
+			"name": "extension7Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a default icon for the file extension",
+			"visibleRule": "extension7 != \"\""
+		},
+		{
+			"name": "extension8",
+			"type": "string",
+			"label": "Extension",
+			"groupName": "fileAssociations",
+			"helpMarkDown": "Specifies the file extension. Include the leading dot.",
+			"visibleRule": "extension7 != \"\""
+		},
+		{
+			"name": "extension8Description",
+			"type": "string",
+			"label": "Description",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a description for the file extension",
+			"visibleRule": "extension8 != \"\""
+		},
+		{
+			"name": "extension8ProgId",
+			"type": "string",
+			"label": "ProgId",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies the ProgId for the file extension",
+			"visibleRule": "extension8 != \"\""
+		},
+		{
+			"name": "extension8Icon",
+			"type": "filePath",
+			"label": "Default icon",
+			"required": true,
+			"groupName": "fileAssociations",
+			"helpMarkdown": "Specifies a defualt icon for the file extension",
+			"visibleRule": "extension8 != \"\""
+		},
 		{
 			"name": "updateMode",
 			"type": "pickList",

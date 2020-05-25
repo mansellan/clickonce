@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using ClickOnce.Resources;
 using CommandLine;
@@ -233,6 +234,12 @@ namespace ClickOnce
         private bool? createAutoRun;
         public static string Help_Arg_CreateAutoRun => GetHelpText();
 
+        [Option(HelpText = nameof(Messages.Help_Arg_FileAssociations), ResourceType = typeof(Messages))]
+        [RegularExpression(RegExPatterns.FileAssociations, ErrorMessageResourceName = nameof(Messages.Help_Arg_FileAssociations_Constraint), ErrorMessageResourceType = typeof(Messages))]
+        public virtual string FileAssociations { get => fileAssociations; set => SetValue(value, ref fileAssociations); }
+        private string fileAssociations;
+        public static string Help_Arg_FileAssociations => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_UseApplicationTrust), ResourceType = typeof(Args))]
         public virtual bool? UseApplicationTrust { get => useApplicationTrust; set => SetValue(value, ref useApplicationTrust); }
         private bool? useApplicationTrust;
@@ -279,11 +286,11 @@ namespace ClickOnce
 
         protected void SetValue<T>(T value, ref T backingField, [CallerMemberName] string caller = null)
         {
-            if (caller is null) 
+            if (caller is null || value is null || value is IEnumerable<string> enumerable && !enumerable.Any()) 
                 return;
 
             Validator.ValidateProperty(value, new ValidationContext(this) { MemberName = caller });
-
+            
             backingField = value;
         }
 

@@ -261,6 +261,15 @@ namespace ClickOnce.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding file associations....
+        /// </summary>
+        public static string Build_Process_FileAssociations {
+            get {
+                return ResourceManager.GetString("Build.Process.FileAssociations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adding {0}....
         /// </summary>
         public static string Build_Process_Glob_Adding {
@@ -608,6 +617,24 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_ErrorUrl_Constraint {
             get {
                 return ResourceManager.GetString("Help.Arg.ErrorUrl.Constraint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specifies a colon-separated list of file associations to be registered..
+        /// </summary>
+        public static string Help_Arg_FileAssociations {
+            get {
+                return ResourceManager.GetString("Help.Arg.FileAssociations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Each entry must be a semi-colon delimited set of the following fields: {extension};{description};{progid};{icon}..
+        /// </summary>
+        public static string Help_Arg_FileAssociations_Constraint {
+            get {
+                return ResourceManager.GetString("Help.Arg.FileAssociations.Constraint", resourceCulture);
             }
         }
         
