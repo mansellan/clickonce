@@ -60,7 +60,7 @@ namespace ClickOnce
         
         public override IEnumerable<string> Files => new[] { "**/*" };
 
-        public new string PrerequisitesLocation => "vendor";
+        public new string PrerequisitesLocation => "Vendor";
 
         public override string OptionalFilesPath => "Optional";
 
@@ -85,7 +85,7 @@ namespace ClickOnce
         public override string Culture =>
             entryPointAssembly.Value?.GetAttributeValue<AssemblyCultureAttribute>() 
             ?? entryPointIdentity.Value?.Culture
-            ?? "neutral";
+            ?? "Neutral";
 
         public override string OsVersion => DotNetFrameworks.GetMinimumOsVersion(project.TargetFramework.Value ?? TargetFramework);
 
@@ -93,15 +93,15 @@ namespace ClickOnce
 
         public override string TargetFramework => "net472";
 
-        public override string PackageMode => "both";
+        public override string PackageMode => "Both";
 
-        public override string LaunchMode => "start";
+        public override string LaunchMode => "Start";
 
-        public override string UpdateMode => project.TargetFramework?.Value?.EqualsAny("net20", "net30") ?? false ? "none" : "starting";
+        public override string UpdateMode => project.TargetFramework?.Value?.EqualsAny("net20", "net30") ?? false ? "None" : "Starting";
 
         public override string MinimumVersion => project.Update.Value?.Enabled ?? false ? project.Version.Value : null;
 
-        public override string UseLauncher => "auto";
+        public override string UseLauncher => "Auto";
 
         public override bool? UseDeployExtension => true;
 

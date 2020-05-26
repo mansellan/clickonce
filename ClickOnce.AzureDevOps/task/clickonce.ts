@@ -202,28 +202,24 @@ async function run(): Promise<void> {
             toolRunner.arg(["--prerequisites", prerequisites]);
         }
 
-        let fileAssociations: string = tl.getInput("extension1");
-        if (fileAssociations !== "none") {
-            fileAssociations += `;${tl.getInput("extension1Description")};${tl.getInput("extension1ProgId")};${getPath(source, tl.getInput("extension1Icon"), ".ico")}`;
-            for (let i = 2; i <= 8; i++) {
-                const extension = tl.getInput(`extension${i}`);
-                if (extension == null) {
-                    break;
-                }
-                const description = tl.getInput(`extensionDescription${i}`);
-                const progId = tl.getInput(`extensionProgId${i}`);
-                let icon = getPath(source, tl.getInput(`extensionIcon${i}`), ".ico");
-
-                if (icon == null || icon.length <= ".ico".length || icon.length < source.length + 1 || icon.toLowerCase().endsWith(".ico")) {
-                    continue;
-                }
-
-                if (icon.slice(0, source.length).toLowerCase === source.toLowerCase) {
-                    icon = icon.slice(source.length + 1);
-                }
-
-                fileAssociations += `:${extension};${description};${progId};${icon}`;
+        let fileAssociations: string = null;
+        for (let i = 1; i <= 8; i++) {
+            const extension = tl.getInput(`extension${i}`);
+            if (extension == null) {
+                break;
             }
+            const description = tl.getInput(`extensionDescription${i}`);
+            const progId = tl.getInput(`extensionProgId${i}`);
+            let icon = getPath(source, tl.getInput(`extensionIcon${i}`), ".ico");
+
+            if (i > 1) {
+                fileAssociations += ":";
+            }
+
+            fileAssociations += `${extension};${description};${progId};${icon}`;
+        }
+
+        if (fileAssociations != null) {
             toolRunner.arg(["--fileAssociations", fileAssociations]);
         }
 

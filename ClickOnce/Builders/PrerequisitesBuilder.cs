@@ -12,7 +12,7 @@ namespace ClickOnce
     {
         internal static void Build(Project project)
         {
-            if (!project.Prerequisites.Value.Any())
+            if (project.Prerequisites.Value is null || !project.Prerequisites.Value.Any())
                 return;
 
             var location = project.PrerequisitesLocation.Value?.ToLowerInvariant() switch

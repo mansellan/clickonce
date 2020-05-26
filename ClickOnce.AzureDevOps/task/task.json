@@ -14,7 +14,7 @@
   "version": {
     "Major": "0",
     "Minor": "1",
-    "Patch": "90"
+    "Patch": "92"
   },
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "ClickOnce Package",
@@ -217,7 +217,7 @@
 			"type": "string",
 			"label": "Deployment page",
 			"groupName": "files",
-			"defaultValue": "install.htm",
+			"defaultValue": "publish.htm",
 			"helpMarkdown": "Specifies the name of the deployment page to create. If not specified, no deployment page will be created."
 		},
 		{
