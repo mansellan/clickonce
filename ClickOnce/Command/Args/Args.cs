@@ -142,17 +142,17 @@ namespace ClickOnce
         private string targetFramework;
         public static string Help_Arg_TargetFramework => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_Assemblies), ResourceType = typeof(Args))]
+        [Option(HelpText = nameof(Help_Arg_Assemblies), ResourceType = typeof(Args), Separator = ':')]
         public virtual IEnumerable<string> Assemblies { get => assemblies; set => SetValue(value, ref assemblies); }
         private IEnumerable<string> assemblies;
         public static string Help_Arg_Assemblies => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_DataFiles), ResourceType = typeof(Args))]
+        [Option(HelpText = nameof(Help_Arg_DataFiles), ResourceType = typeof(Args), Separator = ':')]
         public virtual IEnumerable<string> DataFiles { get => dataFiles; set => SetValue(value, ref dataFiles); }
         private IEnumerable<string> dataFiles;
         public static string Help_Arg_DataFiles => GetHelpText();
 
-        [Option(HelpText = nameof(Help_Arg_Files), ResourceType = typeof(Args))]
+        [Option(HelpText = nameof(Help_Arg_Files), ResourceType = typeof(Args), Separator = ':')]
         public virtual IEnumerable<string> Files { get => files; set => SetValue(value, ref files); }
         private IEnumerable<string> files;
         public static string Help_Arg_Files => GetHelpText();
