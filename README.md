@@ -1,7 +1,5 @@
-> :warning: **Not quite ready**: This code is not yet fully tested. Be careful.
-
 # ClickOnce packager
-Bringing ClickOnce into the 21st century! Create ClickOnce packages quickly and easily at the command-line.
+Create ClickOnce packages with minimal fuss.
 
 # Why?
 ClickOnce was introduced with .Net Framework 2.0, providing an easy way for users to install desktop applications and automatically update them. Since then, Microsoft have created several replacements, such as AppX and [MSIX](https://docs.microsoft.com/en-us/windows/msix/overview). These have incrementally made life easier for developers and modernised the user experience. Unfortunately they have also become progressively more sandboxed, limiting the capabilities available to application developers.
@@ -13,7 +11,7 @@ MSIX is a great technology, and you should use it if possible. Unfortunately it 
 Until there is a complete replacement for for ClickOnce it remains worthwhile supporting this solid and reliable platform, and making it available to modern development environments.
 
 # At a glance
-* Globbing!
+* Globbing
 * Create ClickOnce packages from SDK projects, native executables and .Net Core applications
 * Able to infer most settings, while retaining full override control
 * Easier and more configurable than Mage
