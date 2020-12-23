@@ -24,7 +24,13 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore ClickOnce.sln
       
-    - name: Build and Publish Web App
+    - name: Install NPM
+      uses: bahmutov/npm-install@v1
+      
+    - name: Install TypeScript
+      run: npm install --save-dev typescript
+      
+    - name: Build and Publish App
       run: msbuild ClickOnce.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
  
     - name: Upload Artifact
