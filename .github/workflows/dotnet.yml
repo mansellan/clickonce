@@ -13,6 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+    - uses: Maetis/github-action-tfxinstaller@v1.0.0-pre
+      with:
+        version: 0.8.x
       
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
@@ -31,9 +35,6 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         working-directory: ClickOnce.AzureDevOps
-        
-    - name: Install TFX
-      uses: actions/TfxInstaller@v1
       
     - name: Create VSIX
       run: tfx extension create --manifest-globs vss-extension.json --rev-version
