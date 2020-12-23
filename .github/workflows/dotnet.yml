@@ -24,16 +24,16 @@ jobs:
     - name: Restore NuGet Packages
       run: nuget restore ClickOnce.sln
       
+    - name: Build and Publish App
+      run: msbuild ClickOnce.sln /p:Configuration=Release
+ 
     - name: Install NPM Packages
       uses: bahmutov/npm-install@v1
       with:
         working-directory: ClickOnce.AzureDevOps
-      
-    - name: Build and Publish App
-      run: msbuild ClickOnce.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
- 
+        
     - name: Upload Artifact
       uses: actions/upload-artifact@v1.0.0
       with:
         name: published_app
-        path: ClickOnce\bin\Release\net472
+        path: ClickOnce.AzureDevOps
