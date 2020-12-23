@@ -12,23 +12,29 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-    - uses: Maetis/github-action-tfxinstaller@v1.0.0-pre
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Setup Node 
+      uses: actions/setup-node@v1
+      
+    - name: Setup TFX-CLI
+      uses: Maetis/github-action-tfxinstaller@v1.0.0-pre
       with:
         version: 0.8.x
       
-    - name: Add msbuild to PATH
+    - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
     
-    - uses: nuget/setup-nuget@v1
+    - name: Setup NuGet 
+      uses: nuget/setup-nuget@v1
       with:
         nuget-version: '5.x'
      
     - name: Restore NuGet Packages
       run: nuget restore ClickOnce.sln
       
-    - name: Build and Publish App
+    - name: Build ClickOnce App
       run: msbuild ClickOnce.sln /p:Configuration=Release
  
     - name: Install NPM Packages
@@ -36,10 +42,10 @@ jobs:
       with:
         working-directory: ClickOnce.AzureDevOps
       
-    - name: Create VSIX
-      run: tfx extension create --manifest-globs vss-extension.json --rev-version
+    - name: Create Azure DevOps extension
+      run: tfx extension create --root ClickOnce.AzureDevOps --manifest-globs vss-extension.json --rev-version
         
-    - name: Upload VSIX
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v1.0.0
       with:
         name: azuredevops_clickonce
