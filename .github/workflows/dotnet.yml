@@ -16,9 +16,10 @@ jobs:
       
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-      
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
+    
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: '5.x'
      
     - name: Restore NuGet Packages
       run: nuget restore ClickOnce.sln
