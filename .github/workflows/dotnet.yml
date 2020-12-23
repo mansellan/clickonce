@@ -43,7 +43,7 @@ jobs:
         working-directory: ClickOnce.AzureDevOps
       
     - name: Create Azure DevOps extension
-      run: tfx extension create --root ClickOnce.AzureDevOps --manifest-globs vss-extension.json --rev-version
+      run: tfx extension create --root ClickOnce.AzureDevOps --manifest-globs vss-extension.json --rev-version --output-path ClickOnce.AzureDevOps
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v1.0.0
