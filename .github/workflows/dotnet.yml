@@ -32,8 +32,11 @@ jobs:
       with:
         working-directory: ClickOnce.AzureDevOps
         
-    - name: Upload Artifact
+    - name: Create VSIX
+      run: tfx extension create --manifest-globs vss-extension.json --rev-version
+        
+    - name: Upload VXIX
       uses: actions/upload-artifact@v1.0.0
       with:
-        name: published_app
-        path: ClickOnce.AzureDevOps
+        name: azuredevops_clickonce
+        path: ClickOnce.AzureDevOps/*.vsix
