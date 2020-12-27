@@ -42,11 +42,14 @@ jobs:
       with:
         working-directory: ClickOnce.AzureDevOps
       
+    - name: Compile TypeScript
+      run: tsc ClickOnce.AzureDevOps/*.ts
+      
     - name: Create Azure DevOps extension
-      run: tfx extension create --root ClickOnce.AzureDevOps --manifest-globs vss-extension.json --rev-version
+      run: tfx extension create --root ClickOnce.AzureDevOps --manifest-globs vss-extension.json --output-path ClickOnce.AzureDevOps/clickonce-azuredevops.vsix
         
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: azuredevops_clickonce
-        path: ./*.vsix
+        path: ClickOnce.AzureDevOps/clickonce-azuredevops.vsix
