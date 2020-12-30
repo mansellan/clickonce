@@ -54,4 +54,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: azuredevops_clickonce
-        path: ClickOnce.AzureDevOps/clickonce-azuredevops.vsix
+        path: ClickOnce.AzureDevOps/*.vsix
