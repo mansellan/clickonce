@@ -15,7 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Setup Node .js
+    - name: Setup Node.js
       uses: actions/setup-node@v1
       
     - name: Setup TFX-CLI
@@ -45,7 +45,7 @@ jobs:
     - name: Install task NPM packages
       uses: bahmutov/npm-install@v1
       with:
-        working-directory: ClickOnce.AzureDevOps/task
+        working-directory: ClickOnce.AzureDevOps/task/v1
         
     - name: Compile TypeScript
       working-directory: ClickOnce.AzureDevOps
@@ -53,7 +53,7 @@ jobs:
       
     - name: Create Azure DevOps extension
       working-directory: ClickOnce.AzureDevOps
-      run: tfx extension create --manifest-globs vss-extension.json
+      run: tfx extension create --manifest vss-extension.json
         
     - name: Upload Azure DevOps extension
       uses: actions/upload-artifact@v2
