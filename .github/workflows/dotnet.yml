@@ -15,7 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     
-    - name: Setup Node 
+    - name: Setup Node .js
       uses: actions/setup-node@v1
       
     - name: Setup TFX-CLI
@@ -31,17 +31,22 @@ jobs:
       with:
         nuget-version: '5.x'
      
-    - name: Restore NuGet Packages
+    - name: Restore NuGet packages
       run: nuget restore ClickOnce.sln
       
-    - name: Build ClickOnce App
+    - name: Build ClickOnce console app
       run: msbuild ClickOnce.sln /p:Configuration=Release
  
-    - name: Install NPM Packages
+    - name: Install pipeline NPM packages
+      uses: bahmutov/npm-install@v1
+      with:
+        working-directory: ClickOnce.AzureDevOps
+        
+    - name: Install task NPM packages
       uses: bahmutov/npm-install@v1
       with:
         working-directory: ClickOnce.AzureDevOps/task
-      
+        
     - name: Compile TypeScript
       working-directory: ClickOnce.AzureDevOps
       run: tsc
@@ -50,7 +55,7 @@ jobs:
       working-directory: ClickOnce.AzureDevOps
       run: tfx extension create --manifest-globs vss-extension.json
         
-    - name: Upload Artifacts
+    - name: Upload Azure DevOps extension
       uses: actions/upload-artifact@v2
       with:
         name: azuredevops_clickonce
