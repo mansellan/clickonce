@@ -59,6 +59,6 @@
 	  <CopyItems Include=".\bin\$(Configuration)\$(TargetFramework)\**\*.*" />
 	</ItemGroup>
 	<RemoveDir Directories="..\ClickOnce.AzureDevOps\bin" />
-	<Copy SourceFiles="@(CopyItems)" DestinationFolder="..\ClickOnce.AzureDevOps\bin\%(RecursiveDir)" />
+	<Copy SourceFiles="@(CopyItems)" DestinationFolder="..\ClickOnce.AzureDevOps\task\bin\%(RecursiveDir)" />
   </Target>
 </Project>
