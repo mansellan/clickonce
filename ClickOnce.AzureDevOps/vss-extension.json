@@ -49,6 +49,9 @@
             "path": "LICENSE"
         }
     },
+	"CustomerQnASupport": {
+        "enableqna": true
+    },
     "files": [
         {
             "path": "task"
