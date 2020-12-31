@@ -118,7 +118,10 @@ async function run(): Promise<void> {
         const signingMode = tl.getInput("signingMode");
         if (signingMode === "installed") {
             toolRunner.arg(["--certificateSource", tl.getInput("thumbprint")]);
-            toolRunner.arg(["--timestampUrl", tl.getInput("timestampUrl")]);
+            
+            if (tl.getInput("timestampUrl")) {
+               toolRunner.arg(["--timestampUrl", tl.getInput("timestampUrl")]);
+            }
 
         } else if (signingMode === "file") {
 
@@ -127,7 +130,10 @@ async function run(): Promise<void> {
 
             toolRunner.arg(["--certificateSource", certificatePath]);
             toolRunner.arg(["--certificatePassword", tl.getInput("certificatePassword")]);
-            toolRunner.arg(["--timestampUrl", tl.getInput("timestampUrl")]);
+            
+            if (tl.getInput("timestampUrl")) {
+                toolRunner.arg(["--timestampUrl", tl.getInput("timestampUrl")]);
+            }
         }
 
         const trustMode = tl.getInput("trustMode");
