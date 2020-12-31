@@ -69,7 +69,7 @@ async function run(): Promise<void> {
                 ["targetFramework", "net472"],
                 ["deploymentPage"],
                 ["deploymentPageTemplate"],
-                ["assemblies", "**/*.exe:**/*/.dll"],
+                ["assemblies", "**/*.exe:**/*.dll"],
                 ["dataFiles", "**/*.mdb"],
                 ["files", "**/*"],
                 ["optionalFilesPath", "Optional"],

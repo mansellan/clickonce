@@ -10,7 +10,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],
-    "description": "Deploy task for Azure DevOps that gives users the ability to create and update ClickOnce packages.",
+    "description": "Create ClickOnce packages from build artifacts with minimal fuss.",
     "categories": [
         "Azure Pipelines"
     ],
