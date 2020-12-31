@@ -225,7 +225,7 @@
 			"type": "multiLine",
 			"label": "Assemblies",
 			"groupName": "files",
-			"defaultValue": "**/*.exe\r\n**/*/.dll",
+			"defaultValue": "**/*.exe\r\n**/*.dll",
 			"helpMarkDown": "Specifies a list of globbing patterns to match assemblies to be included. Will only consider managed assemblies, hence a pattern of *.dll will exclude native libraries."
 		},
 		{
