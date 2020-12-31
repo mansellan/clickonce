@@ -351,3 +351,5 @@ MigrationBackup/
 *.vsix
 /ClickOnce.AzureDevOps/task/*.js
 /ClickOnce.AzureDevOps/task/*.js.map
+/ClickOnce.AzureDevOps/task/v1/*.js
+/ClickOnce.AzureDevOps/task/v1/*.map

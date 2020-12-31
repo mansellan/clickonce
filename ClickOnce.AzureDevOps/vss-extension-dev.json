@@ -1,9 +1,9 @@
 {
     "manifestVersion": 1,
-    "id": "clickonce",
-    "name": "ClickOnce Packager",
+    "id": "clickonce-dev",
+    "name": "ClickOnce Packager (Dev)",
     "version": "1.1.0",
-    "public": true,
+    "public": false,
     "publisher": "mansellan",
     "targets": [
         {
