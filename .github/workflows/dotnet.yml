@@ -57,10 +57,10 @@ jobs:
         tfx extension create --manifests vss-extension.json 
         tfx extension create --manifests vss-extension-dev.json
         
-    - name: Upload Azure DevOps extension
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: clickonce
         path: |
-          ClickOnce.AzureDevOps/*.vsix
           ClickOnce.AzureDevOps/task/v1/bin
+          ClickOnce.AzureDevOps/*.vsix
