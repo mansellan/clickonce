@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper"
+  Name="DisplayName"
+  Culture="Culture"
+  LicenseAgreement="eula.rtf"
+>
+
+    <PackageFiles>
+        <PackageFile Name="eula.rtf"/>
+    </PackageFiles>
+
+    <!-- Defines a localizable string table for error messages-->
+    <Strings>
+        <String Name="DisplayName">Microsoft® System CLR Types para SQL Server® 2014 (x64)</String>
+        <String Name="Culture">br</String>
+        <String Name="AdminRequired">Permissões de administrador são necessárias à instalação do Microsoft® System CLR Types para SQL Server® 2014. Contate o administrador.</String>
+        <String Name="DotNetFxRequired">A instalação do Microsoft® System CLR Types para SQL Server® 2014 requer o Microsoft .NET Framework 3.5. Contate o fornecedor do aplicativo.</String>
+        <String Name="WindowsInstallerImproperInstall">Devido a um erro no Windows Installer, a instalação do Microsoft® System CLR Types para SQL Server® 2014 não pode continuar.</String>
+        <String Name="AnotherInstanceRunning">Outra instância da instalação já está sendo executada. A instância em execução deve ser concluída antes que esta instalação continue.</String>
+        <String Name="BetaProductFailure">A versão beta do Microsoft® System CLR Types para SQL Server® 2014 foi detectada no computador. Desinstale as versões betas anteriores do Microsoft® System CLR Types para SQL Server® 2014 antes de continuar.</String>
+        <String Name="GeneralFailure">Houve uma falha ao tentar instalar o Microsoft® System CLR Types para SQL Server® 2014.</String>
+      	<String Name="SQLSysClrTypesMsi">https://go.microsoft.com/fwlink/?LinkID=509782</String>    
+    </Strings>
+
+</Package>

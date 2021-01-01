@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET Desktop 執行階段 5.0.1 (x86)</String>
+    <String Name="Culture">zh-Hant</String>
+    <String Name="AdminRequired">需要系統管理員權限才能安裝 .NET Desktop 執行階段 5.0。請連絡您的系統管理員。</String>
+    <String Name="InvalidPlatformWinNT">此作業系統不支援安裝 .NET Desktop 執行階段 5.0。請連絡您的應用程式廠商。</String>
+    <String Name="GeneralFailure">嘗試安裝 .NET Desktop 執行階段 5.0 失敗。</String>
+  </Strings>
+</Package>

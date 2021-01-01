@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Runtime di .NET 5.0.1 (x86)</String>
+    <String Name="Culture">it</String>
+    <String Name="AdminRequired">Per installare Microsoft Runtime di .NET 5.0, sono necessarie le autorizzazioni di amministratore. Contattare l'amministratore.</String>
+    <String Name="InvalidPlatformWinNT">L'installazione di Microsoft Runtime di .NET 5.0 non è supportata nel sistema operativo in uso. Contattare il fornitore dell'applicazione.</String>
+    <String Name="GeneralFailure">Si è verificato un errore durante il tentativo di installare Microsoft Runtime di .NET 5.0.</String>
+  </Strings>
+</Package>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" ProductCode=".NETFramework,Version=v4.7">
+  <!-- Defines list of files to be copied on build -->
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="NDP47-KB3186497-x86-x64-AllOS-ENU.exe" HomeSite="DotNetFX47FullWebBootstrapper" PublicKey="3082010a0282010100db4b8be9036a5fc81b5d0a0539e4d50e92d0c4e18be8a40d051958c03cd729dd89b7686e4b9f7ebc9abd548639a9f1383516e61dacfbae6bdc0930efb81edf6cf84a9a559748c82389b3592734bd9531479c0fce40353237fee9f34fa41aa4b379bc809b3f2498c4d16fd57fe7438de4dcf2d2e6ae66ed043a2194a657dc03db2cc61bff2b39a85dbf55fedd49df540594ab33dfa47d31a64dbd56cf1631683f846b1c6df3eed5308aee651b9eb7081c297e93bdf27d42763822d47b7cf4b8b9719ec394f482863582a674bd0233fa548685a325beaa895ee2395f2641981adeb9e6468578bb51320247ece4f91fbd045175e6129b76eb859714220aa113f7610203010001"/>
+    <PackageFile Name="NDP47-KB3186500-Web.exe" HomeSite="DotNetFX47FullWebBootstrapper" CopyOnBuild="False" PublicKey="3082010a0282010100db4b8be9036a5fc81b5d0a0539e4d50e92d0c4e18be8a40d051958c03cd729dd89b7686e4b9f7ebc9abd548639a9f1383516e61dacfbae6bdc0930efb81edf6cf84a9a559748c82389b3592734bd9531479c0fce40353237fee9f34fa41aa4b379bc809b3f2498c4d16fd57fe7438de4dcf2d2e6ae66ed043a2194a657dc03db2cc61bff2b39a85dbf55fedd49df540594ab33dfa47d31a64dbd56cf1631683f846b1c6df3eed5308aee651b9eb7081c297e93bdf27d42763822d47b7cf4b8b9719ec394f482863582a674bd0233fa548685a325beaa895ee2395f2641981adeb9e6468578bb51320247ece4f91fbd045175e6129b76eb859714220aa113f7610203010001"/>
+  </PackageFiles>
+  <RelatedProducts>
+    <IncludesProduct Code=".NETFramework,Version=v4.6.2" />
+  </RelatedProducts>
+  <InstallChecks>
+    <RegistryCheck Property="DotNet47Full_Release" Key="HKLM\Software\Microsoft\NET Framework Setup\NDP\v4\Full" Value="Release" />
+    <RegistryCheck Property="DotNet47Full_OSIntegrated" Key="HKLM\SOFTWARE\Microsoft\NET Framework Setup\OS Integration" Value="v4" />
+  </InstallChecks>
+  <!-- Defines how to invoke the setup for .NET Framework redist -->
+  <Commands Reboot="Immediate">
+    <!--Command for downlevel and future Operating Systems where netfx is not integrated within OS.-->
+    <Command PackageFile="NDP47-KB3186497-x86-x64-AllOS-ENU.exe" Arguments=" /q /norestart /ChainingPackage FullX64Bootstrapper" EstimatedInstalledBytes="437362964" EstimatedInstallSeconds="600" EstimatedTempBytes="2095870765">
+      <!-- These checks determine whether the package is to be installed -->
+      <InstallConditions>
+        <!-- This command is only for Samesite -->
+        <BypassIf Property="InstallMode" Compare="ValueEqualTo" Value="HomeSite" />
+        <!-- This indicates .NET Framework Full is already installed -->
+		<!-- Value for DotNet47Full_Release is hardcoded to 460798 because RS2 build has been finalized. We want to specify the lowest RS2 RTM build number here. Need to revert to token "{NetFxReleaseNumber}" for 4.7.1-->
+        <BypassIf Property="DotNet47Full_Release" Compare="ValueGreaterThanOrEqualTo" Value="460798" />
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired" />
+        <!-- Block install on less than Windows 7 RTM -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.1.0" String="InvalidPlatformWinNT" />
+        <!-- Block install if the platform is IA-64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueEqualTo" Value="IA64" String="InvalidPlatformArchitecture" />
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="false" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+    <!--Command for downlevel and future Operating Systems where netfx is not integrated within OS.-->
+    <Command PackageFile="NDP47-KB3186500-Web.exe" Arguments=" /q /norestart /ChainingPackage FullX64Bootstrapper /lcid 1033" EstimatedInstalledBytes="437362964" EstimatedInstallSeconds="600" EstimatedTempBytes="468232836">
+      <!-- These checks determine whether the package is to be installed -->
+      <InstallConditions>
+        <!-- This command is only for Samesite -->
+        <BypassIf Property="InstallMode" Compare="ValueNotEqualTo" Value="HomeSite" />
+        <!-- This indicates .NET Framework Full is already installed -->
+		<!-- Value for DotNet47Full_Release is hardcoded to 460798 because RS2 build has been finalized. We want to specify the lowest RS2 RTM build number here. Need to revert to token "{NetFxReleaseNumber}" for 4.7.1-->
+        <BypassIf Property="DotNet47Full_Release" Compare="ValueGreaterThanOrEqualTo" Value="460798" />
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired" />
+        <!-- Block install on less than Windows 7 RTM -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.1.0" String="InvalidPlatformWinNT" />
+        <!-- Block install if the platform is IA-64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueEqualTo" Value="IA64" String="InvalidPlatformArchitecture" />
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="false" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+    </Commands>
+</Product>

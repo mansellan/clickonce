@@ -1,0 +1,34 @@
+{
+  "name": "clickonce.azuredevops",
+  "version": "1.0.0",
+  "description": "Deploy task for Azure DevOps that gives users the ability to create and update ClickOnce packages.",
+  "author": "mansellan",
+  "license": "MIT",
+  "homepage": "https://github.com/mansellan/clickonce",
+  "repository": "https://github.com/mansellan/clickonce",
+  "bugs": {
+    "url": "https://github.com/mansellan/clickonce/issues"
+  },
+  "keywords": [
+    "Azure",
+    "DevOps",
+    "ClickOnce",
+    "manifest",
+    "package",
+    "deploy",
+    "build",
+    "release"
+  ],
+  "dependencies": {
+    "azure-devops-node-api": "^7.2.0",
+    "azure-pipelines-task-lib": "^2.9.3"
+  },
+  "scripts": {
+    "clean": "",
+    "build": "tsc -p .",
+    "postbuild": "npm run package",
+    "package": "tfx extension create --rev-version",
+    "testlocal": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

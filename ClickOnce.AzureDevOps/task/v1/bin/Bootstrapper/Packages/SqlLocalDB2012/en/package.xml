@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">en</String>
+    <String Name="DisplayName">SQL Server 2012 Express LocalDB</String>
+    <String Name="sqllocaldb_32">http://go.microsoft.com/fwlink/?LinkId=299274&amp;clcid=0x409</String>
+    <String Name="sqllocaldb_64">http://go.microsoft.com/fwlink/?LinkId=299278&amp;clcid=0x409</String>
+    <String Name="sqlncli_32">http://go.microsoft.com/fwlink/?LinkId=299277&amp;clcid=0x409</String>
+    <String Name="sqlncli_64">http://go.microsoft.com/fwlink/?LinkId=299276&amp;clcid=0x409</String>
+    <String Name="sqlcmdlnutils_32">http://go.microsoft.com/fwlink/?LinkId=299279&amp;clcid=0x409</String>
+    <String Name="sqlcmdlnutils_64">http://go.microsoft.com/fwlink/?LinkId=299275&amp;clcid=0x409</String>
+    <String Name="AdminRequired">You do not have the permissions required to install SQL Server 2012 Express LocalDB. Please contact your administrator.</String>
+    <String Name="GeneralFailure">An error occurred attempting to install SQL Server 2012 Express LocalDB.</String>
+    <String Name="InvalidPlatformOS">The current operating system version does not support SQL Server 2012 Express LocalDB.</String>
+    <String Name="InvalidPlatformOSServicePack">The current operating system does not meet Service Pack level requirements for SQL Server 2012 Express LocalDB. Install the most recent Service Pack from the Microsoft download center at http://www.microsoft.com/downloads before continuing setup.</String>
+  </Strings>
+</Package>
+

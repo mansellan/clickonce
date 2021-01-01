@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET Masaüstü Çalışma Zamanı 5.0.1 (x64)</String>
+    <String Name="Culture">tr</String>
+    <String Name="AdminRequired">.NET Masaüstü Çalışma Zamanı 5.0'i yüklemek için yönetici izinleri gerekir. Yöneticinize başvurun.</String>
+    <String Name="InvalidOS">.NET Masaüstü Çalışma Zamanı 5.0 (x64) yüklemesi yalnızca x64 makinelerde desteklenir.</String>
+    <String Name="InvalidPlatformWinNT">.NET Masaüstü Çalışma Zamanı 5.0 yüklemesi bu işletim sisteminde desteklenmiyor. Uygulama satıcınıza başvurun.</String>
+    <String Name="GeneralFailure">.NET Masaüstü Çalışma Zamanı 5.0 yüklenmeye çalışılırken bir hata oluştu.</String>
+  </Strings>
+</Package>

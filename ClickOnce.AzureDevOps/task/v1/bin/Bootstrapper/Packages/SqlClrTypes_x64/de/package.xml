@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper"
+  Name="DisplayName"
+  Culture="Culture"
+  LicenseAgreement="eula.rtf"
+>
+
+    <PackageFiles>
+        <PackageFile Name="eula.rtf"/>
+    </PackageFiles>
+
+    <!-- Defines a localizable string table for error messages-->
+    <Strings>
+        <String Name="DisplayName">Microsoft®-System-CLR-Typen für SQL Server® 2014 (x64)</String>
+        <String Name="Culture">de</String>
+        <String Name="AdminRequired">Zur Installation von Microsoft®-System-CLR-Typen für SQL Server® 2014 sind Administratorberechtigungen erforderlich. Wenden Sie sich an den Administrator.</String>
+        <String Name="DotNetFxRequired">Zur Installation von Microsoft®-System-CLR-Typen für SQL Server® 2014 ist Microsoft .NET Framework 3.5 erforderlich. Wenden Sie sich an den Hersteller der Anwendung.</String>
+        <String Name="WindowsInstallerImproperInstall">Aufgrund eines Fehlers mit Windows Installer kann die Installation von Microsoft®-System-CLR-Typen für SQL Server® 2014 nicht fortgesetzt werden.</String>
+        <String Name="AnotherInstanceRunning">Es wird bereits eine andere Instanz von Setup ausgeführt. Die ausgeführte Instanz muss erst abgeschlossen werden, bevor Setup fortgesetzt werden kann.</String>
+        <String Name="BetaProductFailure">Eine Betaversion von Microsoft®-System-CLR-Typen für SQL Server® 2014 wurde auf dem Computer gefunden. Deinstallieren Sie alle vorherigen Betaversionen von Microsoft®-System-CLR-Typen für SQL Server® 2014, bevor Sie den Vorgang fortsetzen.</String>
+        <String Name="GeneralFailure">Beim Versuch, Microsoft®-System-CLR-Typen für SQL Server® 2014 zu installieren, ist ein Fehler aufgetreten.</String>
+      	<String Name="SQLSysClrTypesMsi">https://go.microsoft.com/fwlink/?LinkID=509782</String>    
+    </Strings>
+
+</Package>

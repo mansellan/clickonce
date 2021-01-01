@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET Core デスクトップ ランタイムム 3.1.10 (x64)</String>
+    <String Name="Culture">ja</String>
+    <String Name="AdminRequired">.NET Core デスクトップ ランタイム 3.1 をインストールするには、管理者のアクセス許可が必要です。管理者にお問い合わせください。</String>
+    <String Name="InvalidOS">.NET Core デスクトップ ランタイムム 3.1 (x64) のインストールは x64 マシンでのみサポートされています。</String>
+    <String Name="InvalidPlatformWinNT">このオペレーティング システムでは .NET Core デスクトップ ランタイム 3.1 のインストールはサポートされていません。アプリケーションの販売元にお問い合わせください。</String>
+    <String Name="GeneralFailure">.NET Core デスクトップ ランタイム 3.1 をインストールしようとして、エラーが発生しました。</String>
+  </Strings>
+</Package>

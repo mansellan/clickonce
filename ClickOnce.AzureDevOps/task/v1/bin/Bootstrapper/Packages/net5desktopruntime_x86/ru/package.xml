@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Среда выполнения .NET Core для классических приложений 5.0.1 (x86)</String>
+    <String Name="Culture">ru</String>
+    <String Name="AdminRequired">Для установки Среда выполнения .NET для классических приложений 5.0 требуются права администратора. Обратитесь к своему администратору.</String>
+    <String Name="InvalidPlatformWinNT">Установка Среда выполнения .NET для классических приложений 5.0 не поддерживается в этой операционной системе. Обратитесь к поставщику приложений.</String>
+    <String Name="GeneralFailure">Сбой попытки установить Среда выполнения .NET для классических приложений 5.0.</String>
+  </Strings>
+</Package>

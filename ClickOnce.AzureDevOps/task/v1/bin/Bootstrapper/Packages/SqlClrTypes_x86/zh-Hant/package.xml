@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper"
+  Name="DisplayName"
+  Culture="Culture"
+  LicenseAgreement="eula.rtf"
+>
+
+    <PackageFiles>
+        <PackageFile Name="eula.rtf"/>
+    </PackageFiles>
+
+    <!-- Defines a localizable string table for error messages-->
+    <Strings>
+        <String Name="DisplayName">Microsoft® System CLR Types for SQL Server® 2014 ((x86)</String>
+        <String Name="Culture">zh-Hant</String>
+        <String Name="AdminRequired">需要有系統管理員使用權限，才能安裝 Microsoft® System CLR Types for SQL Server® 2014。請連絡您的系統管理員。</String>
+        <String Name="DotNetFxRequired">Microsoft® System CLR Types for SQL Server® 2014 的安裝需要 Microsoft .NET Framework 3.5。請連絡應用程式廠商。</String>
+        <String Name="WindowsInstallerImproperInstall">由於 Windows Installer 發生錯誤，Microsoft® System CLR Types for SQL Server® 2014 的安裝無法繼續。</String>
+        <String Name="AnotherInstanceRunning">另一個安裝的執行個體已經在執行中。執行中的執行個體必須先完成，才可以繼續這項安裝。</String>
+        <String Name="BetaProductFailure">在電腦上偵測到 Microsoft® System CLR Types for SQL Server® 2014 的 Beta 版本。請先解除安裝 Microsoft® System CLR Types for SQL Server® 2014 的任何舊 Beta 版本，再繼續安裝。</String>
+        <String Name="GeneralFailure">嘗試安裝 Microsoft® System CLR Types for SQL Server® 2014 時發生失敗。</String>
+      	<String Name="SQLSysClrTypesMsi">https://go.microsoft.com/fwlink/?LinkID=509781</String>    
+    </Strings>
+
+</Package>

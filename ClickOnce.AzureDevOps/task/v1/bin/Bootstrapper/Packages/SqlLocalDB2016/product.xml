@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" ProductCode="Microsoft.SqlServer.SqlLocalDB.13.2">
+  <InstallChecks>
+    <FileCheck
+      Property="sqllocaldbVersion"
+      FileName="sqlservr.exe"
+      SearchPath="Program Files\Microsoft SQL Server\130\LocalDB\Binn"
+      SpecialFolder="WindowsVolume"
+     />
+  </InstallChecks>
+
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile
+      Name="x64\sqllocaldb.msi"
+      HomeSite="sqllocaldb_64"
+			PublicKey="3082010A0282010100888AB824C3078F9A807915FC2660FC72882CFAF4A397889646B7A3CB5F892F3A332E1E9178FA7CA91F8201B57ACB1ABC03CA46EBC599F7FB041DF2850AFF226EA1F2673DC52718E5281FF504944163ECE3BA158CED139A35DE3870546F3BECAD45093049C1BE8F30990CCB76C9F773951677D18BBB94C7088520ED1EA835F171C2E074004B8AD2DC91EBD678FE8DFAAD60883DBDB91FAE6297BFC584B190AED6AF2BD354FB35DACD7192E61EFFEC716BCB7F087674E0105148D4F100C8484CA30735E5590DFD7C9CC8E65AE385F5D69A0F1F8EA6E48417C1D6CA9F1D01C7FD48A713923397214832F8C224A200B2BE53CA836E295B81EF386E80F3BBEC130BEB0203010001"
+     />
+  </PackageFiles>
+
+  <Commands Reboot="Defer">
+    <Command PackageFile="x64\sqllocaldb.msi" Arguments="IACCEPTSQLLOCALDBLICENSETERMS=YES" EstimatedInstallSeconds="90">
+      <InstallConditions>
+        <BypassIf Property="sqllocaldbVersion" Compare="VersionGreaterThanOrEqualTo" Value="2015.131.5026.0"/>
+        <!-- Block install on any platform other than x64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64" String="InvalidPlatformOS"/>
+      </InstallConditions>
+
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+  </Commands>
+</Product>
+

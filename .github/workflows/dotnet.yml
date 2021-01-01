@@ -1,0 +1,62 @@
+name: .NET
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      
+    - name: Setup TFX-CLI
+      uses: Maetis/github-action-tfxinstaller@v1.0.0-pre
+      with:
+        version: 0.8.x
+      
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.0.2
+    
+    - name: Setup NuGet 
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: '5.x'
+     
+    - name: Restore NuGet packages
+      run: nuget restore ClickOnce.sln
+      
+    - name: Build ClickOnce console app
+      run: msbuild ClickOnce.sln /p:Configuration=Release
+ 
+    - name: Install pipeline NPM packages
+      uses: bahmutov/npm-install@v1
+      with:
+        working-directory: ClickOnce.AzureDevOps
+        
+    - name: Install task NPM packages
+      uses: bahmutov/npm-install@v1
+      with:
+        working-directory: ClickOnce.AzureDevOps/task/v1
+        
+    - name: Compile TypeScript
+      working-directory: ClickOnce.AzureDevOps
+      run: tsc
+      
+    - name: Create Azure DevOps extension
+      working-directory: ClickOnce.AzureDevOps
+      run: tfx extension create --manifests vss-extension.json 
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: clickonce
+        path: ClickOnce.AzureDevOps/*.vsix

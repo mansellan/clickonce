@@ -8,6 +8,9 @@
     <LangVersion>8</LangVersion>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="Bootstrapper\Schemas\Package.xsd" />
     <None Remove="publish.template.html" />
@@ -51,5 +54,11 @@
       <LastGenOutput>Messages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-
+  <Target Name="CopyWwwroot" AfterTargets="Build">
+	<ItemGroup>
+	  <CopyItems Include=".\bin\$(Configuration)\$(TargetFramework)\**\*.*" />
+	</ItemGroup>
+	<RemoveDir Directories="..\ClickOnce.AzureDevOps\bin" />
+	<Copy SourceFiles="@(CopyItems)" DestinationFolder="..\ClickOnce.AzureDevOps\task\v1\bin\%(RecursiveDir)" />
+  </Target>
 </Project>

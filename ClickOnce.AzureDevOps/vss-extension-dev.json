@@ -1,0 +1,76 @@
+{
+    "manifestVersion": 1,
+    "id": "clickonce-dev",
+    "name": "ClickOnce Packager (Dev)",
+    "version": "1.1.0",
+    "public": false,
+    "publisher": "mansellan",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "description": "Create ClickOnce packages from build artifacts with minimal fuss.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "galleryFlags": [],
+    "tags": [
+        "release",
+        "build",
+        "Azure",
+        "DevOps",
+        "ClickOnce",
+        "manifest",
+        "package",
+        "deploy"
+    ],
+    "links": {
+        "support": {
+            "uri": "https://github.com/mansellan/clickonce/issues"
+        }
+    },
+    "icons": {
+        "default": "images/extension-icon.png"
+    },
+    "branding": {
+        "color": "#028c7e",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/mansellan/clickonce"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
+    },
+	"CustomerQnASupport": {
+        "enableqna": true
+    },
+    "files": [
+        {
+            "path": "task"
+        },
+        {
+            "path": "images",
+            "addressable": true
+        }
+    ],
+    "contributions": [
+        {
+            "id": "clickonce-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "task"
+            }
+        }
+    ]
+}

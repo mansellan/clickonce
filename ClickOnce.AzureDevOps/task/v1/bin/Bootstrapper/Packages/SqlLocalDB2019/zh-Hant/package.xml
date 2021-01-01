@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">zh-Hant</String>
+    <String Name="DisplayName">SQL Server 2019 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2127254&amp;clcid=0x404</String>
+    <String Name="AdminRequired">您不具備安裝 SQL Server 2019 Express LocalDB 所需的權限。請連絡您的管理員。</String>
+    <String Name="GeneralFailure">嘗試安裝 SQL Server 2019 Express LocalDB 時發生錯誤。</String>
+    <String Name="InvalidPlatformOS">目前的作業系統版本不支援 SQL Server 2019 Express LocalDB。</String>
+    <String Name="InvalidPlatformOSServicePack">目前的作業系統不符合 SQL Server 2019 Express LocalDB 的 Service Pack 層級需求。在繼續安裝之前，請從位於 https://www.microsoft.com/downloads 的 Microsoft 下載中心安裝最新的 Service Pack。</String>
+  </Strings>
+</Package>

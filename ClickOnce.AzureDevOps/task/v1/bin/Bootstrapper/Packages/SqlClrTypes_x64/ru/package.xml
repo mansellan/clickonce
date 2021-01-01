@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper"
+  Name="DisplayName"
+  Culture="Culture"
+  LicenseAgreement="eula.rtf"
+>
+
+    <PackageFiles>
+        <PackageFile Name="eula.rtf"/>
+    </PackageFiles>
+
+    <!-- Defines a localizable string table for error messages-->
+    <Strings>
+        <String Name="DisplayName">Системные типы Microsoft® CLR для SQL Server® 2014 (x64)</String>
+        <String Name="Culture">ru</String>
+        <String Name="AdminRequired">Для установки системных типов Microsoft® CLR для SQL Server® 2014 требуются разрешения администратора. Обратитесь к администратору.</String>
+        <String Name="DotNetFxRequired">Для установки системных типов Microsoft® CLR для SQL Server® 2014 требуется платформа Microsoft .NET Framework 3.5. Обратитесь к поставщику приложения.</String>
+        <String Name="WindowsInstallerImproperInstall">Невозможно продолжить установку системных типов Microsoft® CLR для SQL Server® 2014 из-за ошибки установщика Windows.</String>
+        <String Name="AnotherInstanceRunning">Другой экземпляр программы установки уже запущен. Перед тем как начать новую установку, необходимо завершить предыдущую.</String>
+        <String Name="BetaProductFailure">На этом компьютере обнаружена бета-версия системных типов Microsoft® CLR для SQL Server® 2014. Перед продолжением удалите все предыдущие бета-версии системных типов Microsoft® CLR для SQL Server® 2014.</String>
+        <String Name="GeneralFailure">При попытке установить системные типы Microsoft® CLR для SQL Server® 2014 возникла ошибка.</String>
+      	<String Name="SQLSysClrTypesMsi">https://go.microsoft.com/fwlink/?LinkID=509782</String>    
+    </Strings>
+
+</Package>

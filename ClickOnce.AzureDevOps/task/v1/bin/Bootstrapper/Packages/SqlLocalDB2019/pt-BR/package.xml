@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">pt-BR</String>
+    <String Name="DisplayName">SQL Server 2019 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2127254&amp;clcid=0x416</String>
+    <String Name="AdminRequired">Você não tem as permissões necessárias para instalar o SQL Server 2019 Express LocalDB. Contate o administrador.</String>
+    <String Name="GeneralFailure">Ocorreu um erro ao tentar instalar o SQL Server 2019 Express LocalDB.</String>
+    <String Name="InvalidPlatformOS">A versão atual do sistema operacional não tem suporte para o SQL Server 2019 Express LocalDB.</String>
+    <String Name="InvalidPlatformOSServicePack">O sistema operacional atual não atende aos requisitos mínimos do Service Pack para o SQL Server 2019 Express LocalDB. Instale o Service Pack mais recente do centro de download da Microsoft em https://www.microsoft.com/downloads antes de continuar a instalação</String>
+  </Strings>
+</Package>

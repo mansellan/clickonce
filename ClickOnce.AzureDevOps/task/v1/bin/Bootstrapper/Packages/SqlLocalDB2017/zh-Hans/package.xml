@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">zh-Hans</String>
+    <String Name="DisplayName">SQL Server 2017 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2126861&amp;clcid=0x804</String>
+    <String Name="AdminRequired">您没有安装 SQL Server 2017 Express LocalDB 所需的权限。请与管理员联系。</String>
+    <String Name="GeneralFailure">尝试安装 SQL Server 2017 Express LocalDB 时发生了错误。</String>
+    <String Name="InvalidPlatformOS">当前操作系统版本不支持 SQL Server 2017 Express LocalDB。</String>
+    <String Name="InvalidPlatformOSServicePack">当前操作系统不符合 SQL Server 2017 Express LocalDB 的 Service Pack 级别要求。请先从位于 https://www.microsoft.com/downloads 的 Microsoft 下载中心安装最新的 Service Pack，然后再继续安装。</String>
+  </Strings>
+</Package>

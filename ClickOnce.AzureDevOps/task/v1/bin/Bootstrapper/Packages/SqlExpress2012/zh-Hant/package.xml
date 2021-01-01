@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper"
+  Name="DisplayName"
+  Culture="Culture"
+  LicenseAgreement="eula.rtf">
+
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="SQLEXPR32_x86_CHT.EXE" HomeSite="SqlExpr32Exe" PublicKey="3082010a0282010100a5717418cbdb9c2ffaf1631980a38effc870830ca1472afafa5ab0ce4d0fbd3bda21cd05d57d7c3fb59976253adca04f20e572d34371e6ff6c14f99f84b22587bd14b55dbe37892ec5ab856071858127b93303f9add69302eeb6551102cb8385f6c185636119a0149c9d9f9c466337d8113c57c748205316f7cc58fef6c01acab6466c0de83a05cea61ce388f0ddaac270835bd1f2f23fb8d9a49da3006eaa81cdee3a04adc04a922c13e0e941760980016c6720b431b03e6bd2400883d570308d30e7be8cd02feed4863f1a5aa5c06885e8897c91034a6e594320489c88fec945b7e84c04010b62cea2ec1c9325fdd0b10ec6f8b6241a7bfb7cd65c4ed167e90203010001"/>
+    <PackageFile Name="SQLEXPR_x64_CHT.EXE" HomeSite="SqlExpr64Exe" PublicKey="3082010a0282010100a5717418cbdb9c2ffaf1631980a38effc870830ca1472afafa5ab0ce4d0fbd3bda21cd05d57d7c3fb59976253adca04f20e572d34371e6ff6c14f99f84b22587bd14b55dbe37892ec5ab856071858127b93303f9add69302eeb6551102cb8385f6c185636119a0149c9d9f9c466337d8113c57c748205316f7cc58fef6c01acab6466c0de83a05cea61ce388f0ddaac270835bd1f2f23fb8d9a49da3006eaa81cdee3a04adc04a922c13e0e941760980016c6720b431b03e6bd2400883d570308d30e7be8cd02feed4863f1a5aa5c06885e8897c91034a6e594320489c88fec945b7e84c04010b62cea2ec1c9325fdd0b10ec6f8b6241a7bfb7cd65c4ed167e90203010001"/>
+    <PackageFile Name="eula.rtf"/>
+  </PackageFiles>
+
+  <InstallChecks>
+    <ExternalCheck Property="SQLExpressChk" PackageFile="SqlExpressChk.exe" Arguments="11.0.2100 1028"/>
+  </InstallChecks>
+
+  <Commands Reboot="Defer">
+
+    <!-- Defines a new installation (x86) -->
+    <Command PackageFile="SQLEXPR32_x86_CHT.EXE"
+         Arguments='/q /hideconsole /action=Install /features=SQL /instancename=SQLEXPRESS /enableranu=1 /AddCurrentUserAsSqlAdmin /IAcceptSqlServerLicenseTerms /skiprules=RebootRequiredCheck'
+         EstimatedInstalledBytes="225000000"
+         EstimatedInstallSeconds="420">
+      <InstallConditions>
+        <FailIf Property="VersionNT" Compare="ValueNotExists" String="InvalidPlatformOS"/>
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.0.0" String="InvalidPlatformOS"/>
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.0.2" String="InvalidPlatformOSServicePack"/>
+        <FailIf Property="VersionNT" Compare="VersionEqualTo" Value="6.1.0" String="InvalidPlatformOSServicePack"/>
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+        <FailIf Property="SQLExpressChk" Compare="ValueEqualTo" Value="-1" String="InvalidUpgradeNotExpress"/>
+        <FailIf Property="SQLExpressChk" Compare="ValueEqualTo" Value="-2" String="InvalidUpgradeNotExpressCore"/>
+        <FailIf Property="SQLExpressChk" Compare="ValueEqualTo" Value="-3" String="InvalidUpgradeLanguage"/>
+        <FailIf Property="SQLExpressChk" Compare="ValueEqualTo" Value="-4" String="InvalidUpgradeWoW"/>
+        <FailIf Property="SQLExpressChk" Compare="ValueLessThan" Value="-4" String="GeneralFailure"/>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="Intel"/>
+        <BypassIf Property="SQLExpressChk" Compare="ValueNotEqualTo" Value="1"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="1641" Result="SuccessReboot"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <!-- 0x84BE0BC2 (1214,3010) -->
+        <ExitCode Value="-2067919934" Result="FailReboot"/>
+        <!-- 0x84C10BC2 (1217,3010) -->
+        <ExitCode Value="-2067723326" Result="FailReboot"/>
+        <!-- 0x84BE0007 (1214,7) -->
+        <ExitCode Value="-2067922937" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84C4001F (1220,31) -->
+        <ExitCode Value="-2067529697" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84BE0001 (1214,1)-->
+        <ExitCode Value="-2067922943" Result="Fail" String="InvalidPlatformOSServicePack"/>
+        <!-- 0x84C4000E (1220,14) -->
+        <ExitCode Value="-2067529714" Result="Fail" String="InvalidPlatformOSLanguage"/>
+        <!-- 0x84C4000B (1220,11) -->
+        <ExitCode Value="-2067529717" Result="Fail" String="AnotherInstanceRunning"/>
+        <!-- 0x84BE01F8 (1214,504) -->
+        <ExitCode Value="-2067922440" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE01FA (1214,506) -->
+        <ExitCode Value="-2067922438" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE0202 (1214,514) -->
+        <ExitCode Value="-2067922430" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <!-- 0x84BE0203 (1214,515) -->
+        <ExitCode Value="-2067922429" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <ExitCode Value="216" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+
+    <!-- Defines an upgrade installation (x86) -->
+    <Command PackageFile="SQLEXPR32_x86_CHT.EXE"
+         Arguments="/q /hideconsole /action=Upgrade /instancename=SQLEXPRESS /IAcceptSqlServerLicenseTerms /skiprules=RebootRequiredCheck"
+         EstimatedInstalledBytes="225000000"
+         EstimatedInstallSeconds="420">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="Intel"/>
+        <BypassIf Property="SQLExpressChk" Compare="ValueNotEqualTo" Value="2"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="1641" Result="SuccessReboot"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <!-- 0x84BE0BC2 (1214,3010) -->
+        <ExitCode Value="-2067919934" Result="FailReboot"/>
+        <!-- 0x84C10BC2 (1217,3010) -->
+        <ExitCode Value="-2067723326" Result="FailReboot"/>
+        <!-- 0x84BE0007 (1214,7) -->
+        <ExitCode Value="-2067922937" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84C4001F (1220,31) -->
+        <ExitCode Value="-2067529697" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84BE0001 (1214,1)-->
+        <ExitCode Value="-2067922943" Result="Fail" String="InvalidPlatformOSServicePack"/>
+        <!-- 0x84C4000E (1220,14) -->
+        <ExitCode Value="-2067529714" Result="Fail" String="InvalidPlatformOSLanguage"/>
+        <!-- 0x84C4000B (1220,11) -->
+        <ExitCode Value="-2067529717" Result="Fail" String="AnotherInstanceRunning"/>
+        <!-- 0x84BE01F8 (1214,504) -->
+        <ExitCode Value="-2067922440" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE01FA (1214,506) -->
+        <ExitCode Value="-2067922438" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE0202 (1214,514) -->
+        <ExitCode Value="-2067922430" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <!-- 0x84BE0203 (1214,515) -->
+        <ExitCode Value="-2067922429" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <ExitCode Value="216" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+
+    <!-- Defines a new installation (amd64) -->
+    <Command PackageFile="SQLEXPR_x64_CHT.EXE"
+         Arguments='/q /hideconsole /action=Install /features=SQL /instancename=SQLEXPRESS /enableranu=1 /AddCurrentUserAsSqlAdmin /IAcceptSqlServerLicenseTerms /skiprules=RebootRequiredCheck'
+         EstimatedInstalledBytes="225000000"
+         EstimatedInstallSeconds="420">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64"/>
+        <BypassIf Property="SQLExpressChk" Compare="ValueNotEqualTo" Value="1"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="1641" Result="SuccessReboot"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <!-- 0x84BE0BC2 (1214,3010) -->
+        <ExitCode Value="-2067919934" Result="FailReboot"/>
+        <!-- 0x84C10BC2 (1217,3010) -->
+        <ExitCode Value="-2067723326" Result="FailReboot"/>
+        <!-- 0x84BE0007 (1214,7) -->
+        <ExitCode Value="-2067922937" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84C4001F (1220,31) -->
+        <ExitCode Value="-2067529697" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84BE0001 (1214,1)-->
+        <ExitCode Value="-2067922943" Result="Fail" String="InvalidPlatformOSServicePack"/>
+        <!-- 0x84C4000E (1220,14) -->
+        <ExitCode Value="-2067529714" Result="Fail" String="InvalidPlatformOSLanguage"/>
+        <!-- 0x84C4000B (1220,11) -->
+        <ExitCode Value="-2067529717" Result="Fail" String="AnotherInstanceRunning"/>
+        <!-- 0x84BE01F8 (1214,504) -->
+        <ExitCode Value="-2067922440" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE01FA (1214,506) -->
+        <ExitCode Value="-2067922438" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE0202 (1214,514) -->
+        <ExitCode Value="-2067922430" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <!-- 0x84BE0203 (1214,515) -->
+        <ExitCode Value="-2067922429" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <ExitCode Value="216" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+
+    <!-- Defines an upgrade installation (amd64) -->
+    <Command PackageFile="SQLEXPR_x64_CHT.EXE"
+         Arguments="/q /hideconsole /action=Upgrade /instancename=SQLEXPRESS /IAcceptSqlServerLicenseTerms /skiprules=RebootRequiredCheck"
+         EstimatedInstalledBytes="225000000"
+         EstimatedInstallSeconds="420">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64"/>
+        <BypassIf Property="SQLExpressChk" Compare="ValueNotEqualTo" Value="2"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="1641" Result="SuccessReboot"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <!-- 0x84BE0BC2 (1214,3010) -->
+        <ExitCode Value="-2067919934" Result="FailReboot"/>
+        <!-- 0x84C10BC2 (1217,3010) -->
+        <ExitCode Value="-2067723326" Result="FailReboot"/>
+        <!-- 0x84BE0007 (1214,7) -->
+        <ExitCode Value="-2067922937" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84C4001F (1220,31) -->
+        <ExitCode Value="-2067529697" Result="Fail" String="AdminRequired"/>
+        <!-- 0x84BE0001 (1214,1)-->
+        <ExitCode Value="-2067922943" Result="Fail" String="InvalidPlatformOSServicePack"/>
+        <!-- 0x84C4000E (1220,14) -->
+        <ExitCode Value="-2067529714" Result="Fail" String="InvalidPlatformOSLanguage"/>
+        <!-- 0x84C4000B (1220,11) -->
+        <ExitCode Value="-2067529717" Result="Fail" String="AnotherInstanceRunning"/>
+        <!-- 0x84BE01F8 (1214,504) -->
+        <ExitCode Value="-2067922440" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE01FA (1214,506) -->
+        <ExitCode Value="-2067922438" Result="Fail" String="BetaComponentsFailure"/>
+        <!-- 0x84BE0202 (1214,514) -->
+        <ExitCode Value="-2067922430" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <!-- 0x84BE0203 (1214,515) -->
+        <ExitCode Value="-2067922429" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <ExitCode Value="216" Result="Fail" String="InvalidPlatformArchitecture"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+
+  </Commands>
+
+  <Strings>
+    <String Name="DisplayName">SQL Server 2012 Express</String>
+    <String Name="Culture">zh-Hant</String>
+    <String Name="SqlExpr32Exe">http://go.microsoft.com/fwlink/?LinkID=230852&amp;clcid=0x404</String>
+    <String Name="SqlExpr64Exe">http://go.microsoft.com/fwlink/?LinkID=230853&amp;clcid=0x404</String>
+    <String Name="AdminRequired">您不具備安裝 SQL Server 2012 Express 所需的權限。請連絡您的管理員。</String>
+    <String Name="GeneralFailure">嘗試安裝 SQL Server 2012 Express 時發生錯誤。</String>
+    <String Name="InvalidPlatformOS">目前的作業系統版本不支援 SQL Server 2012 Express。</String>
+    <String Name="InvalidPlatformOSServicePack">目前的作業系統不符合 SQL Server 2012 Express 的 Service Pack 層級需求。在繼續安裝之前，請從位於 http://www.microsoft.com/downloads 的 Microsoft 下載中心安裝最新的 Service Pack。</String>
+    <String Name="InvalidPlatformOSLanguage">繁體中文版的 SQL Server 2012 Express 只能安裝在相同語言的 Windows 作業系統上。</String>
+    <String Name="AnotherInstanceRunning">安裝程式的另一個執行個體已在執行中。必須等待執行中的執行個體完成，這個安裝程式才能繼續。</String>
+    <String Name="BetaComponentsFailure">電腦上偵測到有 Beta 版的 .NET Framework 或 SQL Server。請先解除安裝之前任何 Beta 版的 SQL Server 2012 元件、SQL Server 支援檔案或 .NET Framework，然後再繼續進行。</String>
+    <String Name="InvalidPlatformArchitecture">目前的處理器架構不支援這一版的 SQL Server 2012 Express。</String>
+    <String Name="InvalidUpgradeNotExpress">名為 'SQLEXPRESS' 的 SQL Server 執行個體不是 SQL Server Express 的執行個體。無法將它升級到 SQL Server 2012 Express。</String>
+    <String Name="InvalidUpgradeNotExpressCore">名為 'SQLEXPRESS' 的 SQL Server Express 執行個體包含了 SQL Server 2012 Express 中未包含的元件。SQL Server 2012 Express 無法升級這個執行個體。請改用 SQL Server 2012 Express with Advanced Services。</String>
+    <String Name="InvalidUpgradeLanguage">名為 'SQLEXPRESS' 的 SQL Server Express 執行個體是不同於 SQL Server 2012 Express 的語言版本。SQL Server 2012 Express 無法升級這個執行個體。</String>
+    <String Name="InvalidUpgradeWoW">SQL Server 2012 Express (x64) 無法升級名為 'SQLEXPRESS' 的現有 SQL Server Express (x64 WoW) 執行個體。請解除安裝這個 SQL Server Express 執行個體，並重試安裝 SQL Server 2012 Express (x64)。</String>
+  </Strings>
+</Package>

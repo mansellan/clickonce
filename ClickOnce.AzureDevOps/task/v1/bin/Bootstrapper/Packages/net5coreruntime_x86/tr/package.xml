@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET Çalışma Zamanı 5.0.1 (x86)</String>
+    <String Name="Culture">tr</String>
+    <String Name="AdminRequired">.NET Çalışma Zamanı 5.0'i yüklemek için yönetici izinleri gerekir. Yöneticinize başvurun.</String>
+    <String Name="InvalidPlatformWinNT">.NET Çalışma Zamanı 5.0 yüklemesi bu işletim sisteminde desteklenmiyor. Uygulama satıcınıza başvurun.</String>
+    <String Name="GeneralFailure">.NET Çalışma Zamanı 5.0 yüklenmeye çalışılırken bir hata oluştu.</String>
+  </Strings>
+</Package>

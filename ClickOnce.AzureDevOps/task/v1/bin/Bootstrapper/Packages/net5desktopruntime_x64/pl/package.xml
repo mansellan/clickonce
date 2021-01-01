@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Klasyczne środowisko uruchomieniowe platformy .NET 5.0.1 (x64)</String>
+    <String Name="Culture">pl</String>
+    <String Name="AdminRequired">Do zainstalowania programu Klasyczne środowisko uruchomieniowe platformy .NET 5.0 są wymagane uprawnienia administratora. Skontaktuj się z administratorem.</String>
+    <String Name="InvalidOS">Instalacja elementu Klasyczne środowisko uruchomieniowe platformy .NET 5.0 (x64) jest obsługiwana tylko na maszynach x64.</String>
+    <String Name="InvalidPlatformWinNT">Instalacja programu Klasyczne środowisko uruchomieniowe platformy .NET 5.0 nie jest obsługiwana w tym systemie operacyjnym. Skontaktuj się z dostawcą aplikacji.</String>
+    <String Name="GeneralFailure">Wystąpił błąd podczas próby zainstalowania programu Klasyczne środowisko uruchomieniowe platformy .NET 5.0.</String>
+  </Strings>
+</Package>
