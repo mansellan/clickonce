@@ -60,5 +60,7 @@ jobs:
     - name: Upload Azure DevOps extension
       uses: actions/upload-artifact@v2
       with:
-        name: azuredevops_clickonce
-        path: ClickOnce.AzureDevOps/*.vsix
+        name: clickonce
+        path: |
+          ClickOnce.AzureDevOps/*.vsix
+          ClickOnce.AzureDevOps/task/v1/bin
