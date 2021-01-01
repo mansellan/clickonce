@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET Core 데스크톱 런타임 3.1.10 (x86)</String>
+    <String Name="Culture">ko</String>
+    <String Name="AdminRequired">Microsoft .NET Core 데스크톱 런타임 3.1을 설치하려면 관리자 권한이 필요합니다. 관리자에게 문의하세요.</String>
+    <String Name="InvalidPlatformWinNT">이 운영 체제에서는 .NET Core 데스크톱 런타임 3.1을 설치할 수 없습니다. 응용 프로그램 공급업체에 문의하세요.</String>
+    <String Name="GeneralFailure">.NET Core 데스크톱 런타임 3.1을 설치하는 중에 오류가 발생했습니다.</String>
+  </Strings>
+</Package>

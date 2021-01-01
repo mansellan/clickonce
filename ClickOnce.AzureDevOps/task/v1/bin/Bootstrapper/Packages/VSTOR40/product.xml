@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+***********************************************************************
+ 
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+ 
+ THIS CODE AND INFORMATION ARE PROVIDED AS IS WITHOUT WARRANTY OF ANY
+ KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+ PARTICULAR PURPOSE.
+***********************************************************************
+-->
+
+<Product 
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" 
+  ProductCode="Microsoft.VSTORuntime.4.0">
+  <RelatedProducts>
+    <EitherProducts>
+      <DependsOnProduct Code="Microsoft.Net.Client.3.5" />
+      <DependsOnProduct Code=".NETFramework,Version=v4.0,Profile=Client" />
+      <DependsOnProduct Code=".NETFramework,Version=v4.5,Profile=Client" />
+      <DependsOnProduct Code=".NETFramework,Version=v4.5.2" />
+    </EitherProducts>
+  </RelatedProducts>
+  <!-- Defines the list of files to be copied on build. -->
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="vstor_redist.exe" HomeSite="VSTORRedist" PublicKey="3082010a0282010100baa4496c10fb229c65a216983bcb6162fa7429ad8d0619d27158198a5e570d69626e36a04efd2279e01dc71a618efafca3112516c8c0582c318a88ae321e88db7f3e7457f785a43653ca41ef69b8699e6d56eb6ee4b2264d73d16471b41fd66184880021ef6858835b498fb4dfd335d6cbd9309f53fc7a6b9a842bb7216774d4f678b6618798947c2acf67e919bed9ba63ed3c4e3e7d02ebf37fafcf0fb7817ef4fbe8f79148bb8f3d8cc807931cf3bd75e4fc6320299f39f34154381e546440b484aa37aef3008ce20dfaa1b20f22b5a7a9aed617b930f002232010fa6b590fe0ad9f9e608193034c0d9b6219b3bb96bc915aa67886769b6ccd4cec12b538470203010001"/>
+  </PackageFiles>
+
+  <InstallChecks>
+    <RegistryCheck Property="VSTORuntimeVersionOfficeInstalled" Key="HKLM\SOFTWARE\Microsoft\VSTO Runtime Setup\v4" Value="Version"/>
+    <RegistryCheck Property="VSTORuntimeVersionInstalled" Key="HKLM\SOFTWARE\Microsoft\VSTO Runtime Setup\v4R" Value="Version"/>
+  </InstallChecks>
+
+  <!-- Defines how to run the Setup package. -->
+  <Commands Reboot="Defer">
+    <Command 
+      PackageFile="vstor_redist.exe" 
+      Arguments=" /q /norestart" 
+      EstimatedInstalledBytes="2600000" 
+      EstimatedTempBytes="4500000"
+      EstimatedInstallSeconds="60">
+      <InstallConditions>
+        <BypassIf Property="VSTORuntimeVersionInstalled" Compare="VersionGreaterThanOrEqualTo" Value="10.0.50903"/>
+        <BypassIf Property="VSTORuntimeVersionOfficeInstalled" Compare="VersionGreaterThanOrEqualTo" Value="10.0.50903"/>
+
+        <!-- Requires the user to be an admin user when installing the prerequisite -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="1641" Result="SuccessReboot"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+  </Commands>
+</Product>

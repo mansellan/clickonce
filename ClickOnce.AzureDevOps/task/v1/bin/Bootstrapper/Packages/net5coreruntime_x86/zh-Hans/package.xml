@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET 运行时 5.0.1 (x86)</String>
+    <String Name="Culture">zh-Hans</String>
+    <String Name="AdminRequired">安装 .NET 运行时 5.0 需要管理员权限。请与管理员联系。</String>
+    <String Name="InvalidPlatformWinNT">在此操作系统上不支持安装 .NET 运行时 5.0。请与应用程序供应商联系。</String>
+    <String Name="GeneralFailure">尝试安装 .NET 运行时 5.0 时出现故障。</String>
+  </Strings>
+</Package>

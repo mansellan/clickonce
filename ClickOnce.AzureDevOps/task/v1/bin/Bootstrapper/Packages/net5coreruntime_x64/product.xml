@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<Product xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" ProductCode="Microsoft.NetCore.CoreRuntime.5.0.x64">
+
+  <!-- Defines list of files to be copied on build -->
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="dotnet-runtime-5.0.1-win-x64.exe"
+                 HomeSite="https://go.microsoft.com/fwlink/?linkid=2150509"
+                 PublicKey="3082010A0282010100CEB7C90B73B3F74FB30A221A2E6077B03059A7ABC032BBB14E85909069B570069D954B85B207641EE134014FC681CE700D0C43E31CA35D3D3F17CF970D6A58BA5C779F4BC8BF597B45D2F4AC3FC344BFA9811EE036A757F0DB007F174747B09DC67D9E5CD2C3C98E496C898A8FC39F71279E2433DD483A088ED8E5338CD0258CF89B8C259F1FB5334354CF1DCE1DC1E8A5B3C18422B6C145BEC85B088E6CBD768D64F8621EF535082F27D167EBE5210FDC76BA4DDD2E3F38BF0B7536E1508AD289C485747D5B11351DDA6D054E2EAA43BA06EBD12CCD2FAA3CC733872F93978861B083A7A4897035FF65D763BC9515CDFDB6579D0ED6634A335B7B1D73CF04970203010001" />
+    <PackageFile Name="NetCoreCheck.exe" />
+  </PackageFiles>
+
+  <!-- Run the NetCoreCheck tool that will determine if the necessary framework is installed -->
+  <InstallChecks>
+    <ExternalCheck Property="NetCoreCheck" PackageFile="NetCoreCheck.exe" Arguments="Microsoft.NETCore.App 5.0.1"/>
+  </InstallChecks>
+
+  <!-- Defines how to invoke the setup for the .Net Runtime 5.0 -->
+  <Commands Reboot="Defer">
+    <Command PackageFile="dotnet-runtime-5.0.1-win-x64.exe" Arguments=' /q '>
+
+      <!-- These checks determine whether the package is to be installed -->
+      <InstallConditions>
+        <!-- Block install on any platform other than x64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="AMD64" String="InvalidOS"/>
+        <!-- Block install on less than Windows 7 RTM -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.1.0" String="InvalidPlatformWinNT"/>
+        <!-- NetCoreCheck returning 0 means the runtime is already installed -->
+        <BypassIf Property="NetCoreCheck" Compare="ValueEqualTo" Value="0"/>
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+      </InstallConditions>
+
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+
+    </Command>
+  </Commands>
+</Product>

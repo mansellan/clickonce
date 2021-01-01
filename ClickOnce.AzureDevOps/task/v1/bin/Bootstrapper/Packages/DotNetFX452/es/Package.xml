@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture" LicenseAgreement="eula.rtf">
+  <!-- Defines list of files to be copied on build -->
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="eula.rtf"/>
+    <PackageFile Name="NDP452-KB2901907-x86-x64-AllOS-ESN.exe" HomeSite="DotNetFX45FullLanguagePackBootstrapper" PublicKey="3082010A0282010100E8AF5CA2200DF8287CBC057B7FADEEEB76AC28533F3ADB407DB38E33E6573FA551153454A5CFB48BA93FA837E12D50ED35164EEF4D7ADB137688B02CF0595CA9EBE1D72975E41B85279BF3F82D9E41362B0B40FBBE3BBAB95C759316524BCA33C537B0F3EB7EA8F541155C08651D2137F02CBA220B10B1109D772285847C4FB91B90B0F5A3FE8BF40C9A4EA0F5C90A21E2AAE3013647FD2F826A8103F5A935DC94579DFB4BD40E82DB388F12FEE3D67A748864E162C4252E2AAE9D181F0E1EB6C2AF24B40E50BCDE1C935C49A679B5B6DBCEF9707B280184B82A29CFBFA90505E1E00F714DFDAD5C238329EBC7C54AC8E82784D37EC6430B950005B14F6571C50203010001"/>
+  </PackageFiles>
+  <InstallChecks>
+    <RegistryCheck Property="DotNet45FullLangPack_Release" Key="HKLM\Software\Microsoft\NET Framework Setup\NDP\v4\Full\3082" Value="Release"/>
+    <RegistryCheck Property="DotNet45FullLangPack_OS_LCID" Key="HKLM\SYSTEM\CurrentControlSet\Control\MUI\UILanguages\es-ES" Value="LCID"/>
+    <RegistryCheck Property="DotNet45FullLangPack_OSIntegrated" Key="HKLM\SOFTWARE\Microsoft\NET Framework Setup\OS Integration" Value="v4"/>
+  </InstallChecks>
+  <!-- Defines how to invoke the setup for .NET Framework redist -->
+  <Commands>
+    <Command PackageFile="NDP452-KB2901907-x86-x64-AllOS-ESN.exe" Arguments=" /q /norestart /skipenucheck /ChainingPackage FullX64ClickOnce" EstimatedInstalledBytes="130718421" EstimatedTempBytes="77473415" EstimatedInstallSeconds="90">
+      <!-- These checks determine whether the package is to be installed -->
+      <InstallConditions>
+        <!-- This indicates .NET Framework is already installed -->
+        <BypassIf Property="DotNet45FullLangPack_Release" Compare="ValueGreaterThanOrEqualTo" Value="379893"/>
+        <!-- If netfx is part of the OS, then bypass this command. -->
+        <BypassIf Property="DotNet45FullLangPack_OSIntegrated" Compare="ValueEqualTo" Value="1"/>
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+        <!-- Block install on less than Windows Vista -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.0.0" String="InvalidPlatformWinNT"/>
+        <!-- Block install if the platform is IA-64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueEqualTo" Value="IA64" String="InvalidPlatformArchitecture"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Success" FormatMessageFromSystem="false" String="GeneralFailure"/>
+      </ExitCodes>
+    </Command>
+    <Command PackageFile="NDP452-KB2901907-x86-x64-AllOS-ESN.exe" Arguments=" /q /norestart /skipenucheck /ChainingPackage FullX64ClickOnce" EstimatedInstalledBytes="130718421" EstimatedTempBytes="77473415" EstimatedInstallSeconds="90">
+      <!-- These checks determine whether the package is to be installed -->
+      <InstallConditions>
+        <!-- This indicates .NET Framework is already installed -->
+        <BypassIf Property="DotNet45FullLangPack_Release" Compare="ValueGreaterThanOrEqualTo" Value="379893"/>
+        <!-- If netfx is not part of the OS, then bypass this command. -->
+        <BypassIf Property="DotNet45Full_OSIntegrated" Compare="ValueNotEqualTo" Value="1"/>
+        <BypassIf Property="DotNet45Full_OSIntegrated" Compare="ValueNotExists" Value="1"/>
+        <!-- Do not attempt to install on OS where NetFx is integrated in OS and MUI LCID doesn't match with this package. -->
+        <BypassIf Property="DotNet45FullLangPack_OS_LCID" Compare="ValueNotEqualTo" Value="3082"/>
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+        <!-- Block install on OS less than Windows 8.0 -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.2.0" String="InvalidPlatformWinNT"/>
+        <!-- Block install on OS greater than Windows 8.1 -->
+        <FailIf Property="VersionNT" Compare="VersionGreaterThanOrEqualTo" Value="6.4.0" String="InvalidPlatformWinNT"/>
+        <!-- Block install if the platform is IA-64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueEqualTo" Value="IA64" String="InvalidPlatformArchitecture"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Success" FormatMessageFromSystem="false" String="GeneralFailure"/>
+      </ExitCodes>
+    </Command>
+  </Commands>
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Microsoft .NET Framework 4.5.2 (x86 y x64)</String>
+    <String Name="Culture">es</String>
+    <String Name="AdminRequired">Se requieren permisos de administrador para instalar Microsoft .NET Framework 4.5.2. Póngase en contacto con el administrador.</String>
+    <String Name="InvalidPlatformWinNT">La instalación de Microsoft .NET Framework 4.5.2 no se admite en este sistema operativo. Póngase en contacto con el administrador.</String>
+    <String Name="InvalidPlatformArchitecture">Esta versión de Microsoft .NET Framework 4.5.2 no se admite en un sistema operativo IA-64. Póngase en contacto con el administrador.</String>
+    <String Name="DotNetFX45FullWebBootstrapper">http://go.microsoft.com/fwlink/?linkid=328843&amp;clcid=0x409</String>
+    <String Name="DotNetFX45FullLanguagePackBootstrapper">http://go.microsoft.com/fwlink/?linkid=328839&amp;clcid=0xc0a</String>
+    <String Name="GeneralFailure">Error al intentar instalar Microsoft .NET Framework 4.5.2.</String>
+  </Strings>
+</Package>

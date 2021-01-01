@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<Product xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" ProductCode="Microsoft.NetCore.DesktopRuntime.3.1.x64">
+
+  <!-- Defines list of files to be copied on build -->
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="windowsdesktop-runtime-3.1.10-win-x64.exe"
+                 HomeSite="https://go.microsoft.com/fwlink/?linkid=2148635"
+                 PublicKey="3082010a0282010100ceb7c90b73b3f74fb30a221a2e6077b03059a7abc032bbb14e85909069b570069d954b85b207641ee134014fc681ce700d0c43e31ca35d3d3f17cf970d6a58ba5c779f4bc8bf597b45d2f4ac3fc344bfa9811ee036a757f0db007f174747b09dc67d9e5cd2c3c98e496c898a8fc39f71279e2433dd483a088ed8e5338cd0258cf89b8c259f1fb5334354cf1dce1dc1e8a5b3c18422b6c145bec85b088e6cbd768d64f8621ef535082f27d167ebe5210fdc76ba4ddd2e3f38bf0b7536e1508ad289c485747d5b11351dda6d054e2eaa43ba06ebd12ccd2faa3cc733872f93978861b083a7a4897035ff65d763bc9515cdfdb6579d0ed6634a335b7b1d73cf04970203010001" />
+    <PackageFile Name="NetCoreCheck.exe" />
+  </PackageFiles>
+
+  <!-- Run the NetCoreCheck tool that will determine if the necessary framework is installed -->
+  <InstallChecks>
+    <ExternalCheck Property="NetCoreCheck" PackageFile="NetCoreCheck.exe" Arguments="Microsoft.WindowsDesktop.App 3.1.10"/>
+  </InstallChecks>
+
+  <!-- Defines how to invoke the setup for the .Net Desktop Runtime 3.1 -->
+  <Commands Reboot="Defer">
+    <Command PackageFile="windowsdesktop-runtime-3.1.10-win-x64.exe" Arguments=' /q '>
+
+      <!-- These checks determine whether the package is to be installed -->
+      <InstallConditions>
+        <!-- Block install on any platform other than x64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="AMD64" String="InvalidOS"/>
+        <!-- Block install on less than Windows 7 RTM -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.1.0" String="InvalidPlatformWinNT"/>
+        <!-- NetCoreCheck returning 0 means the runtime is already installed -->
+        <BypassIf Property="NetCoreCheck" Compare="ValueEqualTo" Value="0"/>
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+      </InstallConditions>
+
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+
+    </Command>
+  </Commands>
+</Product>

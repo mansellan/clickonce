@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture" LicenseAgreement="eula.rtf">
+  <!-- Defines list of files to be copied on build -->
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile Name="eula.rtf"/>
+    <PackageFile Name="NDP47-KB3186497-x86-x64-AllOS-CHT.exe" HomeSite="DotNetFX47FullLanguagePackBootstrapper" PublicKey="3082010a0282010100db4b8be9036a5fc81b5d0a0539e4d50e92d0c4e18be8a40d051958c03cd729dd89b7686e4b9f7ebc9abd548639a9f1383516e61dacfbae6bdc0930efb81edf6cf84a9a559748c82389b3592734bd9531479c0fce40353237fee9f34fa41aa4b379bc809b3f2498c4d16fd57fe7438de4dcf2d2e6ae66ed043a2194a657dc03db2cc61bff2b39a85dbf55fedd49df540594ab33dfa47d31a64dbd56cf1631683f846b1c6df3eed5308aee651b9eb7081c297e93bdf27d42763822d47b7cf4b8b9719ec394f482863582a674bd0233fa548685a325beaa895ee2395f2641981adeb9e6468578bb51320247ece4f91fbd045175e6129b76eb859714220aa113f7610203010001"/>
+  </PackageFiles>
+  <InstallChecks>
+    <RegistryCheck Property="DotNet47FullLangPack_Release" Key="HKLM\Software\Microsoft\NET Framework Setup\NDP\v4\Full\1028" Value="Release"/>
+    <RegistryCheck Property="DotNet47FullLangPack_OS_LCID" Key="HKLM\SYSTEM\CurrentControlSet\Control\MUI\UILanguages\zh-TW" Value="LCID"/>
+    <RegistryCheck Property="DotNet47FullLangPack_OSIntegrated" Key="HKLM\SOFTWARE\Microsoft\NET Framework Setup\OS Integration" Value="v4"/>
+  </InstallChecks>
+  <!-- Defines how to invoke the setup for .NET Framework redist -->
+  <Commands>
+    <Command PackageFile="NDP47-KB3186497-x86-x64-AllOS-CHT.exe" Arguments=" /q /norestart /skipenucheck /ChainingPackage FullX64ClickOnce" EstimatedInstalledBytes="130718421" EstimatedTempBytes="77473415" EstimatedInstallSeconds="90">
+      <!-- These checks determine whether the package is to be installed  in the cases where .NET is not integrated into the OS (MSI install)-->
+      <InstallConditions>
+        <!-- This indicates .NET Framework is already installed -->
+		<!-- Value for DotNet47Full_Release is hardcoded to 460798 because RS2 build has been finalized. We want to specify the lowest RS2 RTM build number here. Need to revert to token "{NetFxReleaseNumber}" for 4.7.1-->
+        <BypassIf Property="DotNet47FullLangPack_Release" Compare="ValueGreaterThanOrEqualTo" Value="460798"/>
+        <!--  If netfx is part of the OS, then bypass this command.  --> 
+        <BypassIf Property="DotNet47FullLangPack_OSIntegrated" Compare="ValueEqualTo" Value="1"/> 
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+        <!-- Block install on less than Windows 7 RTM -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.1.0" String="InvalidPlatformWinNT"/>
+        <!-- Block install if the platform is IA-64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueEqualTo" Value="IA64" String="InvalidPlatformArchitecture"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Success" FormatMessageFromSystem="false" String="GeneralFailure"/>
+      </ExitCodes>
+    </Command>
+    <Command PackageFile="NDP47-KB3186497-x86-x64-AllOS-CHT.exe" Arguments=" /q /norestart /skipenucheck /ChainingPackage FullX64ClickOnce" EstimatedInstalledBytes="130718421" EstimatedTempBytes="77473415" EstimatedInstallSeconds="90">
+      <!-- These checks determine whether the package is to be installed in the cases where .NET is integrated into the OS -->
+      <InstallConditions>
+        <!-- This indicates .NET Framework is already installed -->
+		<!-- Value for DotNet47Full_Release is hardcoded to 460798 because RS2 build has been finalized. We want to specify the lowest RS2 RTM build number here. Need to revert to token "{NetFxReleaseNumber}" for 4.7.1-->
+        <BypassIf Property="DotNet47FullLangPack_Release" Compare="ValueGreaterThanOrEqualTo" Value="460798"/>
+        <!--  If netfx is not part of the OS, then bypass this command.  --> 
+        <BypassIf Property="DotNet47FullLangPack_OSIntegrated" Compare="ValueNotEqualTo" Value="1"/> 
+        <BypassIf Property="DotNet47FullLangPack_OSIntegrated" Compare="ValueNotExists" Value="1"/>           
+        <!-- Do not attempt to install on OS where NetFx is integrated in OS and MUI LCID doesn't match with this package. -->
+        <BypassIf Property="DotNet47FullLangPack_OS_LCID" Compare="ValueNotEqualTo" Value="1028"/>
+        <!-- Block install if user does not have admin privileges -->
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+        <!-- Block install on OS less than Windows 8.0 -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.2.0" String="InvalidPlatformWinNT"/>
+        <!-- Block install if the platform is IA-64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueEqualTo" Value="IA64" String="InvalidPlatformArchitecture"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Success" FormatMessageFromSystem="false" String="GeneralFailure"/>
+      </ExitCodes>
+    </Command>
+  </Commands>
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Microsoft .NET Framework 4.7 (x86 和 x64)</String>
+    <String Name="Culture">zh-Hant</String>
+    <String Name="AdminRequired">需要系統管理員權限才能安裝 Microsoft .NET Framework 4.7。請連絡您的系統管理員。</String>
+    <String Name="InvalidPlatformWinNT">此作業系統不支援安裝 Microsoft .NET Framework 4.7。請連絡您的應用程式廠商。</String>
+    <String Name="InvalidPlatformArchitecture">IA-64 作業系統不支援此版本的 Microsoft .NET Framework 4.7。請連絡您的應用程式廠商。</String>
+    <String Name="DotNetFX47FullWebBootstrapper">http://go.microsoft.com/fwlink/?LinkId=825298&amp;clcid=0x404</String>
+    <String Name="DotNetFX47FullLanguagePackBootstrapper">http://go.microsoft.com/fwlink/?LinkId=825305&amp;clcid=0x404</String>
+    <String Name="GeneralFailure">嘗試安裝 Microsoft .NET Framework 4.7 失敗。</String>
+  </Strings>
+</Package>

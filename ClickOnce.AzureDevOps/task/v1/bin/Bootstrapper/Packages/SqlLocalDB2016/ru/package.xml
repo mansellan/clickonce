@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">ru</String>
+    <String Name="DisplayName">SQL Server 2016 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2126951&amp;clcid=0x419</String>
+    <String Name="AdminRequired">Недостаточно разрешений для установки SQL Server 2016 Express LocalDB. Обратитесь к администратору.</String>
+    <String Name="GeneralFailure">При попытке установки SQL Server 2016 Express LocalDB произошла ошибка.</String>
+    <String Name="InvalidPlatformOS">SQL Server 2016 Express LocalDB не поддерживается в данной версии операционной системы.</String>
+    <String Name="InvalidPlatformOSServicePack">Текущая операционная система не отвечает требованиям версии пакета обновления, необходимого для выпуска SQL Server 2016 Express LocalDB. Перед продолжением установки установите последнюю версию пакета обновления из Центра загрузки Microsoft по адресу https://www.microsoft.com/downloads.</String>
+  </Strings>
+</Package>

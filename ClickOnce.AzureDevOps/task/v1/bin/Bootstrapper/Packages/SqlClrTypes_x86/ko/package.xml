@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper"
+  Name="DisplayName"
+  Culture="Culture"
+  LicenseAgreement="eula.rtf"
+>
+
+    <PackageFiles>
+        <PackageFile Name="eula.rtf"/>
+    </PackageFiles>
+
+    <!-- Defines a localizable string table for error messages-->
+    <Strings>
+        <String Name="DisplayName">SQL Server® 2014용 Microsoft® System CLR 유형(x86)</String>
+        <String Name="Culture">ko</String>
+        <String Name="AdminRequired">SQL Server® 2014용 Microsoft® System CLR 유형을 설치하려면 관리자 권한이 필요합니다. 관리자에게 문의하십시오.</String>
+        <String Name="DotNetFxRequired">SQL Server® 2014용 Microsoft® System CLR 유형을 설치하려면 Microsoft .NET Framework 3.5가 필요합니다. 응용 프로그램 공급업체에 문의하십시오.</String>
+        <String Name="WindowsInstallerImproperInstall">Windows Installer 오류로 인해 SQL Server® 2014용 Microsoft® System CLR 유형 설치를 계속할 수 없습니다.</String>
+        <String Name="AnotherInstanceRunning">설치 프로그램의 다른 인스턴스가 이미 실행 중입니다. 이 설치를 계속하기 전에 실행 중인 인스턴스를 완료해야 합니다.</String>
+        <String Name="BetaProductFailure">컴퓨터에서 SQL Server® 2014용 Microsoft® System CLR 유형의 베타 버전이 검색되었습니다. 계속하기 전에 SQL Server® 2014용 Microsoft® System CLR 유형의 이전 베타 버전을 모두 제거하십시오.</String>
+        <String Name="GeneralFailure">SQL Server® 2014용 Microsoft® System CLR 유형을 설치하는 동안 오류가 발생했습니다.</String>
+      	<String Name="SQLSysClrTypesMsi">https://go.microsoft.com/fwlink/?LinkID=509781</String>    
+    </Strings>
+
+</Package>

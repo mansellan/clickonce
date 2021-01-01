@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">ko</String>
+    <String Name="DisplayName">SQL Server 2019 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2127254&amp;clcid=0x412</String>
+    <String Name="AdminRequired">SQL Server 2019 Express LocalDB를 설치하는 데 필요한 권한이 없습니다. 관리자에게 문의하십시오.</String>
+    <String Name="GeneralFailure">SQL Server 2019 Express LocalDB를 설치하려는 중에 오류가 발생했습니다.</String>
+    <String Name="InvalidPlatformOS">현재 운영 체제 버전에서 SQL Server 2019 Express LocalDB를 지원하지 않습니다.</String>
+    <String Name="InvalidPlatformOSServicePack">현재 운영 체제는 SQL Server 2019 Express LocalDB에 대한 서비스 팩 수준 요구 사항을 충족하지 않습니다. 설치를 계속하기 전에 Microsoft 다운로드 센터(https://www.microsoft.com/downloads)의 최신 서비스 팩을 설치하십시오.</String>
+  </Strings>
+</Package>

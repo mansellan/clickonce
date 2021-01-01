@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Runtime do .NET Core 3.1.10 (x64)</String>
+    <String Name="Culture">pt-BR</String>
+    <String Name="AdminRequired">São necessárias permissões de administrador para instalar o Runtime do .NET Core 3.1. Contate seu administrador.</String>
+    <String Name="InvalidOS">Há suporte para a instalação de Runtime do .NET Core 3.1 (x64) somente em computadores x64.</String>
+    <String Name="InvalidPlatformWinNT">Não há suporte para a instalação do Runtime do .NET Core 3.1 neste sistema operacional. Contate o fornecedor do aplicativo.</String>
+    <String Name="GeneralFailure">Falha ao tentar instalar o Runtime do .NET Core 3.1.</String>
+  </Strings>
+</Package>

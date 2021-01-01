@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">fr</String>
+    <String Name="DisplayName">SQL Server 2016 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2126951&amp;clcid=0x40C</String>
+    <String Name="AdminRequired">Vous n'avez pas les autorisations requises pour installer SQL Server 2016 Express LocalDB. Contactez votre administrateur.</String>
+    <String Name="GeneralFailure">Une erreur s'est produite lors de la tentative d'installation de SQL Server 2016 Express LocalDB.</String>
+    <String Name="InvalidPlatformOS">La version actuelle du système d'exploitation ne prend pas en charge SQL Server 2016 Express LocalDB.</String>
+    <String Name="InvalidPlatformOSServicePack">Le système d'exploitation actuel ne présente pas la configuration de niveau Service Pack requise pour SQL Server 2016 Express LocalDB. Installez le Service Pack le plus récent à partir du Centre de téléchargement Microsoft à l'adresse https://www.microsoft.com/downloads avant de poursuivre l'installation.</String>
+  </Strings>
+</Package>

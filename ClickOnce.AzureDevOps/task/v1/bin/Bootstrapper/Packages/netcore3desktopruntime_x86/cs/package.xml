@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+  
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">Modul runtime .NET Core Desktop 3.1.10 (x86)</String>
+    <String Name="Culture">cs</String>
+    <String Name="AdminRequired">Pro instalaci Microsoft Modul runtime .NET Core Desktop 3.1 musíte mít oprávnění správce. Kontaktujte svého správce.</String>
+    <String Name="InvalidPlatformWinNT">Tento operační systém nepodporuje instalaci Microsoft Modul runtime .NET Core Desktop 3.1. Kontaktujte dodavatele aplikace.</String>
+    <String Name="GeneralFailure">Při pokusu o instalaci Microsoft Modul runtime .NET Core Desktop 3.1 došlo k chybě.</String>
+  </Strings>
+</Package>

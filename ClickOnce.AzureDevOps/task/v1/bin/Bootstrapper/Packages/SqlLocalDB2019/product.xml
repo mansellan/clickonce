@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" ProductCode="Microsoft.SqlServer.SqlLocalDB.15.0">
+  <InstallChecks>
+    <FileCheck
+      Property="sqllocaldbVersion"
+      FileName="sqlservr.exe"
+      SearchPath="Program Files\Microsoft SQL Server\150\LocalDB\Binn"
+      SpecialFolder="WindowsVolume"
+     />
+    <RegistryCheck
+      Property="VersionFullCheck"
+      Key="HKLM\SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64"
+      Value="Version" 
+     />
+  </InstallChecks>
+
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile
+      Name="x64\sqllocaldb.msi"
+      HomeSite="sqllocaldb_64"
+			PublicKey="3082010A0282010100B1A789D3F6A7EEF4ED74889C9EC185C794DF96121EFD368A2BF6784CE9E9D435B09B857F6F4BEF1CFF778855ACD26275414EA2F35BBC563756C2708B436EC13328413606CC12BA7EC9F7109A2F07061CA16BFAA594973EE187D45C9A361290E18DC9B39FAE08F7B26D034ADA0AF258F01325157917CC1F1F44FFB09AFCE12AD9C5C14F72F47D59E51247DA977D7410508B0E8D81AC4DF93464631BEFE79D98AA2AA121E6558D937DC957CFC8D1F21C50AACB126506AEFD02802EF0D9C8E66C1841209FB42B34A74968A7817A25FF7894741072E1040D1FBEBB9181AE9C9798D3C4631CC2208C909D02810CFB6997BF5A61695EE3F8CDDD37367F71DB33DE80DF0203010001"
+     />
+
+    <PackageFile
+      Name="vc_redist.x64.exe"
+      HomeSite="https://aka.ms/vs/16/release/14.28.29325/VC_Redist.x64.exe"
+			PublicKey="3082010A0282010100CEB7C90B73B3F74FB30A221A2E6077B03059A7ABC032BBB14E85909069B570069D954B85B207641EE134014FC681CE700D0C43E31CA35D3D3F17CF970D6A58BA5C779F4BC8BF597B45D2F4AC3FC344BFA9811EE036A757F0DB007F174747B09DC67D9E5CD2C3C98E496C898A8FC39F71279E2433DD483A088ED8E5338CD0258CF89B8C259F1FB5334354CF1DCE1DC1E8A5B3C18422B6C145BEC85B088E6CBD768D64F8621EF535082F27D167EBE5210FDC76BA4DDD2E3F38BF0B7536E1508AD289C485747D5B11351DDA6D054E2EAA43BA06EBD12CCD2FAA3CC733872F93978861B083A7A4897035FF65D763BC9515CDFDB6579D0ED6634A335B7B1D73CF04970203010001"
+      />
+  </PackageFiles>
+
+  <Commands Reboot="Defer">
+    <Command PackageFile="vc_redist.x64.exe" Arguments=' /q '>
+      <InstallConditions>
+        <BypassIf Property="VersionFullCheck" Compare="ValueGreaterThanOrEqualTo" Value="v14.25.28508"/>
+        <!-- Block install on any platform other than x64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="AMD64" String="InvalidPlatformOS"/>
+        <!-- Block install on Vista or below -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.00" String="InvalidPlatformOS"/>
+      </InstallConditions>
+
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success"/>
+        <ExitCode Value="3010" Result="SuccessReboot"/>
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+
+    <Command PackageFile="x64\sqllocaldb.msi" Arguments="IACCEPTSQLLOCALDBLICENSETERMS=YES" EstimatedInstallSeconds="90">
+      <InstallConditions>
+        <BypassIf Property="sqllocaldbVersion" Compare="VersionGreaterThanOrEqualTo" Value="2019.150.2000.5"/>
+        <!-- Block install on any platform other than x64 -->
+        <FailIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64" String="InvalidPlatformOS"/>
+        <!-- Block install on pre Win10 -->
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="10.00" String="InvalidPlatformOS"/>
+      </InstallConditions>
+
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" FormatMessageFromSystem="true" String="GeneralFailure" />
+      </ExitCodes>
+    </Command>
+  </Commands>
+
+</Product>
+

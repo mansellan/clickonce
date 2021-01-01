@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">it</String>
+    <String Name="DisplayName">SQL Server 2017 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2126861&amp;clcid=0x410</String>
+    <String Name="AdminRequired">Non si dispone delle autorizzazioni necessarie per installare SQL Server 2017 Express LocalDB. Rivolgersi all'amministratore.</String>
+    <String Name="GeneralFailure">Errore durante il tentativo di installazione di SQL Server 2017 Express LocalDB.</String>
+    <String Name="InvalidPlatformOS">La versione del sistema operativo corrente non supporta SQL Server 2017 Express LocalDB.</String>
+    <String Name="InvalidPlatformOSServicePack">Il sistema operativo corrente non soddisfa i requisiti di livello di Service Pack per SQL Server 2017 Express LocalDB. Installare il Service Pack più recente dall'Area download Microsoft all'indirizzo https://www.microsoft.com/downloads prima di continuare l'installazione.</String>
+  </Strings>
+</Package>

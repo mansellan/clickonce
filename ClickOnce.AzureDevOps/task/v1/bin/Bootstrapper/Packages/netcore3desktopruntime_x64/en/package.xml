@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Package xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" Name="DisplayName" Culture="Culture">
+
+  <!-- Defines a localizable string table for error messages-->
+  <Strings>
+    <String Name="DisplayName">.NET Desktop Runtime 3.1.10 (x64)</String>
+    <String Name="Culture">en</String>
+    <String Name="AdminRequired">You do not have the permissions required to install the .NET Desktop Runtime 3.1. Please contact your administrator.</String>
+    <String Name="InvalidOS">Installation of the .NET Desktop Runtime 3.1 (x64) is supported only on x64 machines.</String>
+    <String Name="GeneralFailure">A failure occurred attempting to install the .NET Desktop Runtime 3.1.</String>
+    <String Name="InvalidPlatformWinNT">Installation of the Microsoft .NET Desktop Runtime 3.1 is not supported on this operating system.</String>
+  </Strings>
+</Package>

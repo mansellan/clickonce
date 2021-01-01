@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Package Name="DisplayName" LicenseAgreement="Eula.rtf" Culture="Culture" xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper">
+  <PackageFiles>
+    <PackageFile Name="Eula.rtf" />
+  </PackageFiles>
+  <Strings>
+    <String Name="Culture">ja</String>
+    <String Name="DisplayName">SQL Server 2019 Express LocalDB</String>
+    <String Name="sqllocaldb_64">https://go.microsoft.com/fwlink/?linkid=2127254&amp;clcid=0x411</String>
+    <String Name="AdminRequired">SQL Server 2019 Express LocalDB のインストールに必要なアクセス許可が現在のユーザーにありません。管理者に連絡してください。</String>
+    <String Name="GeneralFailure">SQL Server 2019 Express LocalDB をインストールしようとしてエラーが発生しました。</String>
+    <String Name="InvalidPlatformOS">現在のバージョンのオペレーティング システムは SQL Server 2019 Express LocalDB をサポートしていません。</String>
+    <String Name="InvalidPlatformOSServicePack">現在のオペレーティング システムは、SQL Server 2019 Express LocalDB の Service Pack の要件を満たしていません。セットアップを続行する前に、最新の Service Pack を Microsoft ダウンロード センター (https://www.microsoft.com/japan/downloads) からインストールしてください。</String>
+  </Strings>
+</Package>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns="http://schemas.microsoft.com/developer/2004/01/bootstrapper" ProductCode="Microsoft.SqlServer.SqlLocalDB.11.1">
+  <RelatedProducts>
+    <!-- Depends on MSI4.5 or greater, which is included on all of the OS levels supported -->
+     <IncludesProduct Code="Microsoft.SqlServer.SqlLocalDB.11.0" />
+  </RelatedProducts>
+
+  <InstallChecks>
+    <FileCheck
+      Property="sqllocaldbVersion"
+      FileName="sqlservr.exe"
+      SearchPath="Program Files\Microsoft SQL Server\110\LocalDB\Binn"
+      SpecialFolder="WindowsVolume"
+    />
+
+    <FileCheck
+      Property="sqlncliVersion"
+      FileName="sqlncli11.dll"
+      SearchPath="."
+      SpecialFolder="SystemFolder"
+    />
+
+    <FileCheck
+      Property="sqlcmdlnutilsVersion"
+      FileName="sqlcmd.exe"
+      SearchPath="Program Files\Microsoft SQL Server\110\Tools\Binn"
+      SpecialFolder="WindowsVolume"
+    />
+  </InstallChecks>
+
+  <PackageFiles CopyAllPackageFiles="false">
+    <PackageFile
+      Name="x86\sqllocaldb.msi"
+      HomeSite="sqllocaldb_32"
+      PublicKey="3082010a02820101009c5173b790a72f04ceb03d583f2ccbb95d3a3a48f70e6c547edcb82a0a1b6d3b598d8e192506d04e6074dbb49c8455814fd23f86803b05b2d4418bb07cd5478fc5124b6149da20618fbd443ce4fbd86f60074e00339ced10895182df50d6d9b29d3ef7bd088090024697768acdab7239a471270fe2fcb2f8c4f1b4d99f80f2e5438a54fd21636ef8487a1ecadc9df450e4b683228c47c11d2a443e38f1b62eb8b1adf915302b8441a373bb9a7095299c8f26cdce39bf4c192f039cb6ee2a5aac92f3363e11e2f229e950a240ce32182707e5a76381a9a3a5f300d9fb3ad39c01b372a335044578bcbebd80d1286b6489f3df749013c184d245d6406fdb5c102d0203010001"
+     />
+    <PackageFile
+      Name="x64\sqllocaldb.msi"
+      HomeSite="sqllocaldb_64"
+      PublicKey="3082010a02820101009c5173b790a72f04ceb03d583f2ccbb95d3a3a48f70e6c547edcb82a0a1b6d3b598d8e192506d04e6074dbb49c8455814fd23f86803b05b2d4418bb07cd5478fc5124b6149da20618fbd443ce4fbd86f60074e00339ced10895182df50d6d9b29d3ef7bd088090024697768acdab7239a471270fe2fcb2f8c4f1b4d99f80f2e5438a54fd21636ef8487a1ecadc9df450e4b683228c47c11d2a443e38f1b62eb8b1adf915302b8441a373bb9a7095299c8f26cdce39bf4c192f039cb6ee2a5aac92f3363e11e2f229e950a240ce32182707e5a76381a9a3a5f300d9fb3ad39c01b372a335044578bcbebd80d1286b6489f3df749013c184d245d6406fdb5c102d0203010001"
+     />
+
+    <PackageFile
+      Name="x86\sqlncli.msi"
+      HomeSite="sqlncli_32"
+      PublicKey="3082010a0282010100b1a789d3f6a7eef4ed74889c9ec185c794df96121efd368a2bf6784ce9e9d435b09b857f6f4bef1cff778855acd26275414ea2f35bbc563756c2708b436ec13328413606cc12ba7ec9f7109a2f07061ca16bfaa594973ee187d45c9a361290e18dc9b39fae08f7b26d034ada0af258f01325157917cc1f1f44ffb09afce12ad9c5c14f72f47d59e51247da977d7410508b0e8d81ac4df93464631befe79d98aa2aa121e6558d937dc957cfc8d1f21c50aacb126506aefd02802ef0d9c8e66c1841209fb42b34a74968a7817a25ff7894741072e1040d1fbebb9181ae9c9798d3c4631cc2208c909d02810cfb6997bf5a61695ee3f8cddd37367f71db33de80df0203010001"
+     />
+    <PackageFile
+      Name="x64\sqlncli.msi"
+      HomeSite="sqlncli_64"
+      PublicKey="3082010a0282010100955ac68669471d341ef155c36675f662541858146727f0a32ac60348bce656347f496102ee847866279456212cb5a1ecb7cd3bb1a8b6e41c07666de53c345328e3d3efef5320212f481bf12dab0387eeea5a9fe948aba34e730e5f3ba3acfb5d91d10dbc3331a7fb7cbb17698a0e7a2956ed2c12e7f2e39de0c73d7a33c6c0c38f905eebfbf9f47d5b3449d82a54eb6c1029888540c7dec3a561e5fb8fa1796837793af90973ef381c4f86119b1cf1ee3315a4ffeebcaeac65c0714375a007f5a4c971e0c5a635f480332ead9088f897d98af2891e44b1806adf904fed4d790e566da52b36c086139240c1c613c9203260a3066ee46ca11ddaabb2ddce8e44910203010001"
+     />
+
+    <PackageFile
+      Name="x86\sqlcmdlnutils.msi"
+      HomeSite="sqlcmdlnutils_32"
+      PublicKey="3082010a0282010100b1a789d3f6a7eef4ed74889c9ec185c794df96121efd368a2bf6784ce9e9d435b09b857f6f4bef1cff778855acd26275414ea2f35bbc563756c2708b436ec13328413606cc12ba7ec9f7109a2f07061ca16bfaa594973ee187d45c9a361290e18dc9b39fae08f7b26d034ada0af258f01325157917cc1f1f44ffb09afce12ad9c5c14f72f47d59e51247da977d7410508b0e8d81ac4df93464631befe79d98aa2aa121e6558d937dc957cfc8d1f21c50aacb126506aefd02802ef0d9c8e66c1841209fb42b34a74968a7817a25ff7894741072e1040d1fbebb9181ae9c9798d3c4631cc2208c909d02810cfb6997bf5a61695ee3f8cddd37367f71db33de80df0203010001"
+     />
+    <PackageFile
+      Name="x64\sqlcmdlnutils.msi"
+      HomeSite="sqlcmdlnutils_64"
+      PublicKey="3082010a0282010100b1a789d3f6a7eef4ed74889c9ec185c794df96121efd368a2bf6784ce9e9d435b09b857f6f4bef1cff778855acd26275414ea2f35bbc563756c2708b436ec13328413606cc12ba7ec9f7109a2f07061ca16bfaa594973ee187d45c9a361290e18dc9b39fae08f7b26d034ada0af258f01325157917cc1f1f44ffb09afce12ad9c5c14f72f47d59e51247da977d7410508b0e8d81ac4df93464631befe79d98aa2aa121e6558d937dc957cfc8d1f21c50aacb126506aefd02802ef0d9c8e66c1841209fb42b34a74968a7817a25ff7894741072e1040d1fbebb9181ae9c9798d3c4631cc2208c909d02810cfb6997bf5a61695ee3f8cddd37367f71db33de80df0203010001"
+     />
+  </PackageFiles>
+
+  <Commands Reboot="Defer">
+    <Command PackageFile="x86\sqllocaldb.msi" Arguments="IACCEPTSQLLOCALDBLICENSETERMS=YES" EstimatedInstallSeconds="90">
+      <InstallConditions>
+        <FailIf Property="VersionNT" Compare="ValueNotExists" String="InvalidPlatformOS"/>
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.0.0" String="InvalidPlatformOS"/>
+        <FailIf Property="VersionNT" Compare="VersionLessThan" Value="6.0.2" String="InvalidPlatformOSServicePack"/>
+        <FailIf Property="VersionNT" Compare="VersionEqualTo" Value="6.1.0" String="InvalidPlatformOSServicePack"/>
+        <FailIf Property="AdminUser" Compare="ValueEqualTo" Value="false" String="AdminRequired"/>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="Intel"/>
+        <BypassIf Property="sqllocaldbVersion" Compare="VersionGreaterThanOrEqualTo" Value="2011.110.3000.0"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" String="GeneralFailure" FormatMessageFromSystem="true" />
+      </ExitCodes>
+    </Command>
+    <Command PackageFile="x64\sqllocaldb.msi" Arguments="IACCEPTSQLLOCALDBLICENSETERMS=YES" EstimatedInstallSeconds="90">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64"/>
+        <BypassIf Property="sqllocaldbVersion" Compare="VersionGreaterThanOrEqualTo" Value="2011.110.3000.0"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" String="GeneralFailure" FormatMessageFromSystem="true" />
+      </ExitCodes>
+    </Command>
+
+    <Command PackageFile="x86\sqlncli.msi" Arguments="IACCEPTSQLNCLILICENSETERMS=YES" EstimatedInstallSeconds="60">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="Intel"/>
+        <BypassIf Property="sqlncliVersion" Compare="VersionGreaterThanOrEqualTo" Value="2011.110.3000.0"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" String="GeneralFailure" FormatMessageFromSystem="true" />
+      </ExitCodes>
+    </Command>
+    <Command PackageFile="x64\sqlncli.msi" Arguments="IACCEPTSQLNCLILICENSETERMS=YES" EstimatedInstallSeconds="60">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64"/>
+        <BypassIf Property="sqlncliVersion" Compare="VersionGreaterThanOrEqualTo" Value="2011.110.3000.0"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" String="GeneralFailure" FormatMessageFromSystem="true" />
+      </ExitCodes>
+    </Command>
+
+    <Command PackageFile="x86\sqlcmdlnutils.msi" EstimatedInstallSeconds="45">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="Intel"/>
+        <BypassIf Property="sqlcmdlnutilsVersion" Compare="VersionGreaterThanOrEqualTo" Value="2011.110.2100.60"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" String="GeneralFailure" FormatMessageFromSystem="true" />
+      </ExitCodes>
+    </Command>
+    <Command PackageFile="x64\sqlcmdlnutils.msi" EstimatedInstallSeconds="45">
+      <InstallConditions>
+        <BypassIf Property="ProcessorArchitecture" Compare="ValueNotEqualTo" Value="amd64"/>
+        <BypassIf Property="sqlcmdlnutilsVersion" Compare="VersionGreaterThanOrEqualTo" Value="2011.110.2100.60"/>
+      </InstallConditions>
+      <ExitCodes>
+        <ExitCode Value="0" Result="Success" />
+        <ExitCode Value="1641" Result="SuccessReboot" />
+        <ExitCode Value="3010" Result="SuccessReboot" />
+        <DefaultExitCode Result="Fail" String="GeneralFailure" FormatMessageFromSystem="true" />
+      </ExitCodes>
+    </Command>
+  </Commands>
+</Product>
+
