@@ -30,7 +30,7 @@ namespace ClickOnce
 
         public override string Target => "publish";
 
-        public override string Identity => Path.GetFileNameWithoutExtension(entryPoint.Value);
+        public override string Identity => Path.GetFileNameWithoutExtension(project.EntryPoint.RootedPath);
 
         public override string Product => project.Identity?.Value ?? Identity;
 
