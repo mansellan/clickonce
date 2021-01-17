@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Orbit": {
+    "Development": {
       "commandName": "Project",
       "commandLineArgs": "create --verbose=true",
       "workingDirectory": "C:\\Test\\drop"

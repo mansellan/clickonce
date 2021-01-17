@@ -36,6 +36,12 @@ jobs:
       
     - name: Build ClickOnce console app
       run: msbuild ClickOnce.sln /p:Configuration=Release
+      
+    - name: Upload Console App
+      uses: actions/upload-artifact@v2
+      with:
+        name: ClickOnce console app
+        path: ClickOnce/bin/Release/net472
  
     - name: Install pipeline NPM packages
       uses: bahmutov/npm-install@v1
@@ -55,8 +61,8 @@ jobs:
       working-directory: ClickOnce.AzureDevOps
       run: tfx extension create --manifests vss-extension.json 
         
-    - name: Upload artifacts
+    - name: Upload VSIX
       uses: actions/upload-artifact@v2
       with:
-        name: clickonce
+        name: ClickOnce Azure DevOps extension
         path: ClickOnce.AzureDevOps/*.vsix
