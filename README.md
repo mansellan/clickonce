@@ -4,8 +4,6 @@ Create ClickOnce packages with minimal fuss.
 # Why?
 ClickOnce was introduced with .Net Framework 2.0, providing an easy way for users to install desktop applications and automatically update them. Since then, Microsoft have created several replacements, such as AppX and [MSIX](https://docs.microsoft.com/en-us/windows/msix/overview). These have incrementally made life easier for developers and modernised the user experience. Unfortunately they have also become progressively more sandboxed, limiting the capabilities available to application developers.
 
-Upgrading a Net Framework project to use the new SDK project file has the unfortunate side-effect of removing all ClickOnce publish options from Visual Studio, with the recommendation being to add an MSIX packaging project to the solution.
-
 MSIX is a great technology, and you should use it if possible. Unfortunately it comes with a [huge list of restrictions](https://docs.microsoft.com/en-us/windows/msix/desktop/desktop-to-uwp-prepare), many of which cannot be avoided even in trusted, domain-managed environments. It also has limited support for older Windows versions. The [MSIX Core](https://docs.microsoft.com/en-us/windows/msix/msix-core/msixcore) project is attempting to bridge this gap, but only for currently supported OSs (Windows 7 and 8.1), and without support for application updates. By contrast, ClickOnce is supported everywhere that .Net 2.0 onwards is supported, from Windows 98 (yes, [really!](https://en.wikipedia.org/wiki/.NET_Framework_version_history)) through to Windows 10.
 
 Until there is a complete replacement for for ClickOnce it remains worthwhile supporting this solid and reliable platform, and making it available to modern development environments.
