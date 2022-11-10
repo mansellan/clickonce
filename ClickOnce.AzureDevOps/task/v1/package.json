@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "azure-devops-node-api": "^7.2.0",
-    "azure-pipelines-task-lib": "^2.9.3"
+    "azure-pipelines-task-lib": "^4.0.1-preview"
   },
   "scripts": {
     "clean": "",
