@@ -41,7 +41,7 @@
     "gulp-typescript": "^4.0.2",
     "merge-stream": "^1.0.1",
     "minimist": "^1.2.0",
-    "mocha": "^6.0.2",
+    "mocha": "^10.2.0",
     "mocha-junit-reporter": "^1.18.0",
     "plugin-error": "^1.0.1",
     "semver": "^5.5.0",
