@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<AppInstaller Version="6.0.2.0" Uri="https://raw.githubusercontent.com/mansellan/clickonce/master/Smartodds.Dashboard.Client.appinstaller">
-  <MainPackage Name="Dashboard" Publisher="CN=Smartodds Ltd, O=Smartodds Ltd, L=London, C=GB" Version="6.0.2.0" ProcessorArchitecture="x64" Uri="https://smartodds365.sharepoint.com/:u:/r/sites/DevQA/Shared%20Documents/Test/Smartodds.Dashboard.Client.Package_6.0.2.0_x64.msix?web=0&amp;msixauth=aad"/>
-  <UpdateSettings>
-    <OnLaunch HoursBetweenUpdateChecks="0" ShowPrompt="true" UpdateBlocksActivation="true"/>
-  </UpdateSettings>
-</AppInstaller>
