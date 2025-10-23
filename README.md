@@ -77,6 +77,7 @@ Copious arguments are available to take full control of manifest generation, lis
 | CreateDesktopShortcut | Boolean. Specifies whether a shortcut to the application should be added to the user's desktop'. Has no effect if LaunchMode is 'url'. If not specified, defaults to false. |
 | CreateAutoRun | Boolean. Specifies whether or not to create an autorun.inf to launch the ClickOnce installer when deployed to removable media. If not specified, defaults to false. |
 | UseApplicationTrust | Boolean. Specifies which manifest should be used for trust decisions. If true, the Product, Publisher, and SupportUrl properties are written to the application manifest; otherwise, they are written to the deployment manifest. If not specified, defaults to false. |
+| MergeCom | Boolean. Merge comclass and typelib tags from Manifest files to be able to use Reg Free Com. If not specified, defaults to false. |
 | Quiet | Boolean. Displays only minimal information when the ClickOnce package is built. If not specified, defaults to false. |
 | Verbose | Boolean. Displays extra information when the ClickOnce package is built. If not specified, defaults to false. |
 | Help | Display a help screen. |
