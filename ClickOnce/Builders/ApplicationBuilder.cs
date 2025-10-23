@@ -197,7 +197,7 @@ namespace ClickOnce
             }
             else if (application.AssemblyReferences.FindTargetPath(target) is null 
                      && application.FileReferences.FindTargetPath(target) is null)
-            {                
+            {
                 FileReference fileReference = new FileReference
                 {
                     SourcePath = source,
@@ -205,11 +205,11 @@ namespace ClickOnce
                     IsDataFile = kind == GlobKind.DataFiles,
                     IsOptional = group != null,
                     Group = group
-                }
+                };
                 if(project.MergeCom.Value)
                 {
                     string manifestFile = $"{source}.manifest";
-                    if(File.Exist(manifestFile))
+                    if(File.Exists(manifestFile))
                     {
                         Manifest manifest = ManifestReader.ReadManifest(manifestFile, false);
                         if(manifest?.FileReferences?.Count > 0)

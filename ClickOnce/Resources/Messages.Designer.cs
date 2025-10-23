@@ -19,7 +19,7 @@ namespace ClickOnce.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Messages {
@@ -716,6 +716,24 @@ namespace ClickOnce.Resources {
         public static string Help_Arg_LaunchMode_Create {
             get {
                 return ResourceManager.GetString("Help.Arg.LaunchMode.Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Boolean. Merge comclass and typelib tags from Manifest files to be able to use Reg Free Com..
+        /// </summary>
+        public static string Help_Arg_MergeCom {
+            get {
+                return ResourceManager.GetString("Help.Arg.MergeCom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If not specified, defaults to false..
+        /// </summary>
+        public static string Help_Arg_MergeCom_Create {
+            get {
+                return ResourceManager.GetString("Help.Arg.MergeCom.Create", resourceCulture);
             }
         }
         
