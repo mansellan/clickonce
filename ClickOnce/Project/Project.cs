@@ -53,7 +53,8 @@ namespace ClickOnce
         internal EnumOption<UseLauncher> UseLauncher => args.GetEnum<UseLauncher>();
         internal BooleanOption CreateDesktopShortcut => args.GetBoolean();
         internal BooleanOption CreateAutoRun => args.GetBoolean();
-        internal StringOption FileAssociations => args.GetString();
+        internal StringOption FileAssociations => args.GetString();        
+        internal BooleanOption MergeCom => args.GetBoolean();
         internal BooleanOption UseApplicationTrust => args.GetBoolean();
         internal TrustOption TrustInfo => args.GetTrust(SameSite.Value, Source.RootedPath);
         internal BooleanOption SameSite => args.GetBoolean();
@@ -62,7 +63,7 @@ namespace ClickOnce
         internal StringOption TimestampUrl => args.GetString();
         internal BooleanOption Quiet => args.GetBoolean();
         internal BooleanOption Verbose => args.GetBoolean();
-
+        
         internal void Validate()
         {
             if (!Directory.Exists(Source.Value))

@@ -240,6 +240,11 @@ namespace ClickOnce
         private string fileAssociations;
         public static string Help_Arg_FileAssociations => GetHelpText();
 
+        [Option(SetName = "MergeCom", HelpText = nameof(Help_Arg_MergeCom), ResourceType = typeof(Args))]
+        public virtual bool? MergeCom { get => mergeCom; set => SetValue(value, ref mergeCom); }
+        private bool? mergeCom;
+        public static string Help_Arg_MergeCom => GetHelpText();
+
         [Option(HelpText = nameof(Help_Arg_UseApplicationTrust), ResourceType = typeof(Args))]
         public virtual bool? UseApplicationTrust { get => useApplicationTrust; set => SetValue(value, ref useApplicationTrust); }
         private bool? useApplicationTrust;

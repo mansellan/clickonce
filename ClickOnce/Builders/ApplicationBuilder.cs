@@ -198,14 +198,32 @@ namespace ClickOnce
             else if (application.AssemblyReferences.FindTargetPath(target) is null 
                      && application.FileReferences.FindTargetPath(target) is null)
             {
-                application.FileReferences.Add(new FileReference
+                FileReference fileReference = new FileReference
                 {
                     SourcePath = source,
                     TargetPath = target,
                     IsDataFile = kind == GlobKind.DataFiles,
                     IsOptional = group != null,
                     Group = group
-                });
+                };
+                if(project.MergeCom.Value)
+                {
+                    string manifestFile = $"{source}.manifest";
+                    if(File.Exists(manifestFile))
+                    {
+                        Manifest manifest = ManifestReader.ReadManifest(manifestFile, false);
+                        if(manifest?.FileReferences?.Count > 0)
+                        {
+                            FileReference matchedFile = manifest.FileReferences[0];
+                            if (fileReference.TargetPath == matchedFile.TargetPath)
+                            {
+                                fileReference.XmlComClasses = matchedFile.ComClasses;                            
+                                fileReference.XmlTypeLibs = matchedFile.TypeLibs;
+                            }
+                        }
+                    }
+                }
+                application.FileReferences.Add(fileReference);
             }
             else
             {

@@ -240,6 +240,9 @@
   <data name="Help.Arg.TargetFramework.Create" xml:space="preserve">
     <value>If not specified, defaults to 'net472'.</value>
   </data>
+  <data name="Help.Arg.MergeCom" xml:space="preserve">
+    <value>Boolean. Merge comclass and typelib tags from Manifest files to be able to use Reg Free Com.</value>
+  </data>
   <data name="Help.Arg.Quiet" xml:space="preserve">
     <value>Boolean. Displays only minimal information when the ClickOnce package is built.</value>
   </data>
@@ -409,6 +412,9 @@ See license text for details (MIT)</value>
   </data>
   <data name="Help.Arg.OsSupportUrl.Constraint" xml:space="preserve">
     <value>Must be a valid and absolute URI (a URL or a UNC).</value>
+  </data>
+  <data name="Help.Arg.MergeCom.Create" xml:space="preserve">
+    <value>If not specified, defaults to false.</value>
   </data>
   <data name="Help.Arg.Quiet.Create" xml:space="preserve">
     <value>If not specified, defaults to false.</value>
