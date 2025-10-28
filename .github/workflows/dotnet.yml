@@ -53,12 +53,13 @@ jobs:
       with:
         working-directory: ClickOnce.AzureDevOps/task/v1
 
-    - name: Install TypeScript
-      run: npm install -g typescript
+    - name: Install TypeScript locally
+      run: npm install typescript
+      working-directory: ClickOnce.AzureDevOps
         
     - name: Compile TypeScript
       working-directory: ClickOnce.AzureDevOps
-      run: tsc
+      run: npx tsc
       
     - name: Create Azure DevOps extension
       working-directory: ClickOnce.AzureDevOps
