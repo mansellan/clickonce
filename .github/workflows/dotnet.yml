@@ -52,6 +52,9 @@ jobs:
       uses: bahmutov/npm-install@v1
       with:
         working-directory: ClickOnce.AzureDevOps/task/v1
+
+    - name: Install TypeScript
+      run: npm install -g typescript
         
     - name: Compile TypeScript
       working-directory: ClickOnce.AzureDevOps
